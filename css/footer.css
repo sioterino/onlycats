@@ -1,2 +1,64 @@
 @import url(./style.css);
 
+footer * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+footer img {
+    width: 10px;
+}
+
+footer {
+    color: var(--azul);
+    background-color: var(--laranja);
+    padding: 10px;
+}
+
+#frase h1 {
+    font-size: 40px;
+    letter-spacing: -2px;
+}
+#frase p{
+color:#1e1e1e;
+text-align:left;
+font-size:20px;
+}
+#nav-emiau{
+    display: flex;
+    justify-content: space-between;
+}
+.menu-footer{
+    display: flex;
+    gap: 50px;
+    font-size: 24px;
+}
+.menu-footer li{
+    list-style: none;
+}
+.menu-footer a{
+    text-decoration: none;
+}
+#emiau input{
+    background-color:#ffffff;
+    height:32px;
+    width:448px;
+}
+.creditos {
+    font-size: 18px;
+    line-height: 70px;
+}
+
+#final {
+    display: flex;
+    justify-content: space-between;
+}
+#titulo {
+    text-align: left;
+    color: #081534;
+    font-size: 60px;
+    font-family: Inter;
+    letter-spacing: -2px;
+    margin-right: 20px;
+}
