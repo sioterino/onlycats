@@ -24,6 +24,7 @@ function toggleSidebar(e) {
   if (!sidebar.classList.contains("show")) {
     setTimeout(() => {
       dropUp.classList.remove("showDropUp");
+      user.classList.remove("clicked");
     }, 200);
   }
 }
@@ -31,6 +32,7 @@ function toggleSidebar(e) {
 // abre os relatórios ao clicar no usuário admin
 user.addEventListener("click", () => {
   dropUp.classList.toggle("showDropUp");
+  user.classList.toggle("clicked");
 });
 
 // checa qual o alvo sendo clicado e, caso não
@@ -41,6 +43,7 @@ body.addEventListener("click", (e) => {
     if (!sidebar.classList.contains("show")) {
       setTimeout(() => {
         dropUp.classList.remove("showDropUp");
+        dropUp.classList.remove("clicked");
       }, 200);
     }
   }

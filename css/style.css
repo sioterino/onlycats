@@ -1,9 +1,11 @@
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=swap);
+
 :root{
-    --branco: #ffff;
+    --branco: #fff;
     --cinza: #5e6472;
     --laranja: #ff8200;
     --azul: #081534;
-    --preto: #0000;
+    --preto: #000;
     
 
     --fonte-titulo:
@@ -20,4 +22,20 @@
 
 .hidden {
     display: none;
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1200px;
+}
+
+.icon {
+    font-family: 'Material Symbols Rounded';
+    font-size: 28px;
+    font-weight: 600;
+    user-select: none;
 }

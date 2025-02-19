@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/welcome.css">
 
     <script src="../js/navbar.js" defer></script>
 </head>
@@ -18,25 +19,26 @@
         <nav class="sidebar">
             <ul>
                 <li class="sidelink close">
-                    <img src="../img/icons/close.svg" alt="close">
+                    <span class="icon">close</span>
                 </li>
 
-                <li><a class="sidelink" href="#">Início</a></li>
+                <li><a class="sidelink" href="./index.html">Início</a></li>
                 <li><a class="sidelink" href="#">Gatos</a></li>
                 <li><a class="sidelink" href="#">Sobre</a></li>
 
                 <li class="login">
                     <div class="dropdown-container">
                         <ul>
-                            <li class="admlink"><a href="#">Relatório de Membros</a></li>
+                            <li class="admlink"><a href="#">Assinantes</a></li>
+                            <li class="admlink"><a href="#">Relatório de Assinantes</a></li>
                             <li class="admlink"><a href="#">Relatório de Pagamentos</a></li>
                         </ul>
                     </div>
 
-                    <span class="sidelink user" href="#">
+                    <div class="sidelink user" href="#">
                         <p>Admin</p>
-                        <img src="../img/icons/user.svg" alt="usuário">
-                    </span>
+                        <span class="icon usericon">person</span>
+                    </div>
                 </li>
             </ul>
         </nav>
@@ -52,25 +54,53 @@
                 </li>
 
                 <li class="hideOnMobile login">
-                    <span class="navlink" href="#">
+                    <div class="navlink" href="#">
                         <p>Admin</p>
-                        <img src="../img/icons/user.svg" alt="usuário">
-                    </span>
+                        <span class="icon user">person</span>
+                    </div>
                     <div class="dropdown-container">
                         <ul>
-                            <li class="admlink"><a href="#">Relatório de Membros</a></li>
+                            <li class="admlink"><a href="#">Assinantes</a></li>
+                            <li class="admlink"><a href="#">Relatório de Assinantes</a></li>
                             <li class="admlink"><a href="#">Relatório de Pagamentos</a></li>
                         </ul>
                     </div>
                 </li>
 
                 <li class="navlink menu">
-                    <img src="../img/icons/menu.svg" alt="menu">
+                    <span class="icon">menu</span>
                 </li>
             </ul>
         </nav>
     </header>
 
+    <main class="main">
+
+        <section class="welcome">
+            <div class="welcome-texto">
+                <h2 class="welcome-titulo">Seu felino favorito, diretamente para você</h2>
+                <h3 class="welcome-subtitulo">Miaus exclusivos todo o mês!</h3>
+                <p>
+                    Receba fotos e vídeos exclusivos de um gato especial todos os meses! Escolha entre diversos planos, do mais básico ao VIP, e tenha acesso a momentos adoráveis do bichano. Um presente perfeito para quem ama gatos e quer um pouco mais de alegria na rotina!
+                </p>
+                <div class="botao-div"><a class="welcome-explorar" href="#">Explorar</a></div>
+            </div>
+            <div class="img"></div>
+        </section>
+
+        <section class="gatos">
+
+        </section>
+
+        <section class="planos">
+
+        </section>
+
+        <section class="feedbacks"></section>
+        
+        <section class="goodbye"></section>
+
+    </main>
 
 
 </body>
