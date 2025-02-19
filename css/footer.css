@@ -1,19 +1,20 @@
-@import url(./style.css);
+footer {
+    color: var(--azul);
+    padding: 10px;
+    width: 100vw;
+    background-color: var(--laranja);
+}
 
-footer * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+.footer {
+    position: relative;
+
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1200px;
 }
 
 footer img {
     width: 10px;
-}
-
-footer {
-    color: var(--azul);
-    background-color: var(--laranja);
-    padding: 10px;
 }
 
 #frase h1 {
@@ -61,4 +62,9 @@ font-size:20px;
     font-family: Inter;
     letter-spacing: -2px;
     margin-right: 20px;
+}
+
+.footer .send {
+    display: inline-block;
+    transform: rotate(-30deg);
 }

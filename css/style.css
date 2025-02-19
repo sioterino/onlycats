@@ -18,6 +18,7 @@
     font-family: Helvetica, Arial, sans-serif;
     scrollbar-width: none;
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 .hidden {
@@ -26,11 +27,11 @@
 
 .main {
     width: 100vw;
-    height: 100vh;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     max-width: 1200px;
+    margin-bottom: 8rem;
 }
 
 .icon {
