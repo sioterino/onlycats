@@ -1,0 +1,75 @@
+.sidebar {
+    background-color: blueviolet;
+    height: 100vh;
+    width: 20rem;
+
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+
+    transform: translateX(100%);
+    transition: all .3s ease-in-out;
+}
+
+.sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sidelink,
+.sidebar .admlink {
+    background-color: cadetblue;
+    display: block;
+    height: 3rem;
+    padding: 1rem;
+    padding-left: 2rem;
+
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
+}
+
+.sidebar .login {
+    margin-top: auto;
+    align-self: flex-end;
+    width: 100%;
+}
+
+.sidebar .user {
+    align-self: flex-end;
+}
+
+.sidebar .user {
+    justify-content: flex-end;
+}
+
+.show {
+    transform: translateX(0);
+}
+
+.sidebar .dropdown-container {
+    opacity: 0;
+    transform: translateY(10%);
+    pointer-events: none;
+    transition: all .2s ease-in-out;
+}
+
+.dropdown-container.showDropUp {
+    opacity: 1;
+    pointer-events: visible;
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+    }
+}

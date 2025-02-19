@@ -1,3 +1,10 @@
+@import url(./sidebar.css);
+
+.header {
+    background-color: blue;
+    height: 4rem;
+}
+
 .header a {
     text-decoration: none;
     color: black;
@@ -7,8 +14,10 @@
     background-color: red;
     position: fixed;
     top: 0%;
-    left: 0%;
-    right: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px;
 }
 
 .nav ul {
@@ -21,7 +30,7 @@
 }
 
 .navlink,
-.admlink {
+.nav .admlink {
     background-color: magenta;
 
     display: flex;
@@ -33,42 +42,58 @@
     padding-inline: 2rem;
 }
 
+.logo {
+    font-size: 1.5rem;
+}
+
 .center {
     display: flex;
     gap: 3rem;
 }
 
+.nav .login {
+    position: relative;
+}
+
 .login span {
     display: flex;
     flex-direction: row;
+    align-items: center ;
     gap: 1rem;
 }
 
 .login img {
-    border: 1px solid black;
+    border: 2px solid rgb(90, 90, 90);
     border-radius: 1.5rem;
     padding: .5rem;
 }
 
-.dropdown-conteiner {
-    display: none;
+.nav .dropdown-container {
+    position: absolute;
+
+    opacity: 0;
+    transform: translateY(-10%);
+    pointer-events: none;
+    transition: all .2s ease-in-out;
 }
 
-.dropdown-conteiner ul {
+.nav .login:hover .dropdown-container {
+    opacity: 1;
+    pointer-events: visible;
+    transform: translateY(0);
+}
+
+.nav .dropdown-container ul {
     background-color: blue;
 
-    position: absolute;
-    top: 105%;
-    right: 3%;
+    position: relative;
     
     display: block;
     width: 8rem;
     text-align: center;
-
-
 }
 
-.admlink {
+.nav .admlink {
     gap: 0px;
     padding: .3rem 0px;
 }
@@ -77,6 +102,20 @@
     display: none;
 }
 
-.login:hover .dropdown-conteiner {
-    display: block;
+.menu {
+    display: none;
+}
+
+.menu img,
+.close img {
+    height: 32px;
+}
+
+@media (max-width: 800px) {
+    .menu {
+        display: flex;
+    }
+    .hideOnMobile {
+        display: none;
+    }
 }
