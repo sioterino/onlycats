@@ -9,3 +9,15 @@
     --fonte-titulo:
     --fonte-texto:
 }
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Helvetica, Arial, sans-serif;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,82 @@
+.header a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav {
+    background-color: red;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navlink,
+.admlink {
+    background-color: magenta;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+
+    height: 4rem;
+    padding-inline: 2rem;
+}
+
+.center {
+    display: flex;
+    gap: 3rem;
+}
+
+.login span {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.login img {
+    border: 1px solid black;
+    border-radius: 1.5rem;
+    padding: .5rem;
+}
+
+.dropdown-conteiner {
+    display: none;
+}
+
+.dropdown-conteiner ul {
+    background-color: blue;
+
+    position: absolute;
+    top: 105%;
+    right: 3%;
+    
+    display: block;
+    width: 8rem;
+    text-align: center;
+
+
+}
+
+.admlink {
+    gap: 0px;
+    padding: .3rem 0px;
+}
+
+.hidden {
+    display: none;
+}
+
+.login:hover .dropdown-conteiner {
+    display: block;
+}
