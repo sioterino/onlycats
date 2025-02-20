@@ -106,16 +106,7 @@ margin-bottom:40px;
 }
 
 @media (max-width: 1023px) {
-    #frase {
-     text-align: center;
-    }
-    #frase h1{
-        font-size: 40px;
-    }
-    #frase p{
-        text-align: center;
-        font-size: small;
-    }
+ 
     .menu-footer{
         gap: 34px;
         font-size: 19px;
@@ -141,10 +132,10 @@ margin-bottom:40px;
     }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 490px) {
        .menu-footer{
            gap: 10px;
-           font-size: 15px;
+           font-size: 18px;
        }
        #emiau{
         display: none;
