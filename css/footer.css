@@ -1,6 +1,6 @@
 footer {
     color: var(--azul);
-    padding: 1em 1em 1.25em 1em;
+    padding: 1em;
     width: 100vw;
     background-color: var(--laranja);
 }
@@ -100,8 +100,45 @@ margin-bottom:80px;
     
 }
 
-
 .footer .send {
     display: inline-block;
     transform: rotate(-30deg);
+}
+
+@media (max-width: 770px) {
+    #frase {
+     text-align: center;
+    }
+    #frase h1{
+        font-size: 40px;
+    }
+    #frase p{
+        text-align: center;
+        font-size: small;
+    }
+    .menu-footer{
+        gap: 36px;
+        font-size: 19px;
+    margin-bottom: 10px;
+    }
+    #emiau{
+        display: none;
+    }
+    #final {
+        text-align: center;
+    }
+    
+    .creditos p {
+        margin: 0;
+        font-size: 15px;
+    }
+    #titulo{
+        display: none;
+    }
+}
+
+@media (max-width: 607px) {
+    .planos {
+        margin-inline: 30vw;
+    }
 }
