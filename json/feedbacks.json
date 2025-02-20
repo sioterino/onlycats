@@ -1,0 +1,79 @@
+[
+    {
+        "nome": "Isabella",
+        "feedback": "Amei a ideia do site, é incrível poder compartilhar fotos e vídeos exclusivos do meu gato, Hope, com outros apaixonados por felinos!",
+        "email": "isabella.cs08@aluno.ifsc.edu.br",
+        "estrelas": 4,
+        "pets": ["Hope"]
+    },
+    {
+        "nome": "Sant",
+        "feedback": "Estou encantado com o site! A Emma se tornou uma celebridade entre meus amigos, e poder acompanhar o crescimento dela através dos vídeos exclusivos tem sido maravilhoso. Vale muito a pena!",
+        "email": "sant@gmail.com",
+        "estrelas": 5,
+        "pets": ["Emma", "Pepita"]
+    },
+    {
+        "nome": "Luiz Felipe",
+        "feedback": "Pascal adora ser o centro das atenções! O site tem sido uma ótima plataforma para que ele seja visto por todos. Os vídeos e fotos são sempre muito bem produzidos!",
+        "email": "luizmachadoathayde@gmail.com",
+        "estrelas": 3,
+        "pets": ["Pascal"]
+    },
+    {
+        "nome": "Ariel Louise",
+        "feedback": "O Mingau e a Melody são como estrelas! Adoro ver o carinho dos assinantes por eles. O site traz um conteúdo excelente, sempre com fotos e vídeos de alta qualidade.",
+        "email": "ariel.bieging@gmail.com",
+        "estrelas": 4,
+        "pets": ["Mingau", "Melody"]
+    },
+    {
+        "nome": "Rafaela",
+        "feedback": "Theo se tornou um dos gatos mais populares do site! Os vídeos exclusivos e as fotos de alta qualidade são o grande diferencial. Ele adora fazer parte disso!",
+        "email": "rafalmarques19@gmail.com",
+        "estrelas": 5,
+        "pets": ["Theo"]
+    },
+    {
+        "nome": "Kaline",
+        "feedback": "Adoro como o site conseguiu capturar a essência do meu gato Caramelo. Ele adora a atenção que recebe, e eu também! Conteúdo de qualidade e sempre com novas atualizações.",
+        "email": "kalinemartins321@gmail.com",
+        "estrelas": 3,
+        "pets": ["Caramelo"]
+    },
+    {
+        "nome": "Julinha Tubarão",
+        "feedback": "Preto e Laranja são estrelas por aqui! O site é uma ótima maneira de exibir a personalidade única deles. As fotos são incríveis, e sempre me deixam orgulhosa dos meus gatos.",
+        "email": "jmturnes10@gmail.com",
+        "estrelas": 5,
+        "pets": ["Preto", "Laranja"]
+    },
+    {
+        "nome": "Clarice",
+        "feedback": "Sunny é um gato muito carinhoso e se adaptou muito bem ao site. É incrível como o site proporciona um espaço para celebrarmos nossos felinos de uma forma tão divertida!",
+        "email": "clarice.mb2004@aluno.ifsc.edu.br",
+        "estrelas": 4,
+        "pets": ["Sunny"]
+    },
+    {
+        "nome": "Isadora",
+        "feedback": "Os meus gatos são uma verdadeira atração! O site tem sido uma forma de acompanhar o dia a dia deles e compartilhar com outros amantes de gatos. Recomendo!",
+        "email": "isadora.se02@aluno.ifsc.edu.br",
+        "estrelas": 4,
+        "pets": ["Jimin", "Jungkook"]
+    },
+    {
+        "nome": "Camille",
+        "feedback": "O Tim Maia e a Nina se tornaram sensação aqui! O site tem um excelente conteúdo, e a interação com outros gatos é maravilhosa. A plataforma está sempre em crescimento.",
+        "email": "chavescamille4@gmail.com",
+        "estrelas": 5,
+        "pets": ["Tim Maia", "Nina"]
+    },
+    {
+        "nome": "Daiana",
+        "feedback": "Nero é um gato super tímido, mas adora ver as reações das pessoas nas fotos e vídeos. O site é fantástico para mostrar o quanto ele é especial para todos.",
+        "email": "micaeldosanjos2016@gmail.com",
+        "estrelas": 3,
+        "pets": ["Nero"]
+    }
+]

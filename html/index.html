@@ -11,10 +11,14 @@
     <link rel="stylesheet" href="../css/welcome.css">
     <link rel="stylesheet" href="../css/populares.css">
     <link rel="stylesheet" href="../css/pacotes.css">
+    <link rel="stylesheet" href="../css/feedbacks.css">
     <link rel="stylesheet" href="../css/footer.css">
 
     <script src="../js/navbar.js" defer></script>
+    <script src="../js/fetch.js" defer></script>
     <script src="../js/populares.js" defer></script>
+    <script src="../js/outrospets.js" defer></script>
+    <script src="../js/feedback.js" defer></script>
 </head>
 
 <body>
@@ -184,7 +188,24 @@
         </article>
 
         <article class="article feedbacks">
-            <!-- feedback de usuários -->
+            <div class="secao-titulo">
+                <p>Ficou interessado?</p>
+                <h2 id="planos">Avaliações de Usuários</h2>
+            </div>
+
+            <div id="feedbacks" class="galeria"></div>
+        </article>
+
+        <article class="article populares outros">
+            <div class="secao-titulo">
+                <div class="desc">
+                    <p>Procurando outras opções?</p>
+                    <h2 id="gatos">Outros Pets</h2>
+                </div>
+                <div class="botao-vermais"><a href="./galeria.html" class="vermais">Ver Mais <span class="icon arrow-right">chevron_right</span></a></div>
+            </div>
+
+            <div id="outrospets" class="galeria"></div>
         </article>
 
         <article class="article goodbye">
@@ -209,14 +230,16 @@
                     </ul>
                 </div>
                 <div id="emiau">
-                    <input type="email" placeholder="pretotubarão@emiau.com">
+                    <input autocomplete="off" type="email" placeholder="pretotubarão@emiau.com">
                     <button type="submit" class="icon"><span class="icon send">send</span></button>
                 </div>
             </section>
             <section id="final">
                 <div class="creditos">
-                    <p>&#169; Página desenvolvida por <strong>Júlia Manuela Turnes</strong> e <strong>Sofia Alves
-                            Toreti</strong>, 2025.</p>
+                    <p>
+                        &#169; Página desenvolvida por <strong>Júlia Manuela Turnes</strong> e <strong>Sofia Alves
+                        Toreti</strong>, 2025.
+                    </p>
                 </div>
                 <div id="titulo">
                     <h4>OnlyCats</h4>

@@ -28,6 +28,7 @@ margin-bottom:40px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     border-bottom: 3px solid #081534;
 }
 
@@ -50,36 +51,46 @@ margin-bottom:40px;
     color: var(--branco);
 }
 #emiau {
-    display: flex;                  
-    align-items: center;          
+    display: flex;   
+    align-items: center;
     margin-bottom:15px;  
-    background-color: #ffffff;      
-    border-radius: 5px;             
-    width: 60%;                    
-    max-width: 500px;               
-    box-sizing: border-box;         
+    background-color: #ffffff; 
+    border-radius: 5px;   
+    width: 60%;
+    max-width: 500px;
+    box-sizing: border-box;    
     border: 3px solid var(--azul);  
+    border-radius: 4rem;
 }
 
 #emiau input {
-    border: none;                   
-    border-radius: 5px 0 0 5px;     
-    flex-grow: 1;                  
-    padding-left: 10px;          
+    border: none;    
+    outline: none;
+    border-radius: 5px 0 0 5px;
+    flex-grow: 1;
+    padding-inline: 1rem;
+    font-size: 1rem;
+    caret-color: var(--laranja);
+}
+
+#emiau input::placeholder {
+    color: rgba(72, 79, 145, 0.521);
 }
 
 #emiau button {
-    border:none;
-                
-    background-color: var(--azul);  
-    color: white;                  
-    padding: 0 15px;                 
-    cursor: pointer;                
+    border: none;
+    border-radius: 4rem;
+    background-color: var(--branco);  
+    color: var(--azul);
+    padding: 10px 13px 10px 13px;
+    cursor: pointer; 
+
+    transition: all .2s ease-in-out;
 }
 
 #emiau button:hover {
-    color: var(--laranja);
-    background-color: var(--branco);
+    color: var(--branco);
+    background-color: var(--azul);
     transition-duration: 0.1s;
 }
 
@@ -106,48 +117,43 @@ margin-bottom:40px;
     
 }
 
-.footer .send {
-    display: inline-block;
-    transform: rotate(-30deg);
-}
-
 @media (max-width: 1023px) {
  
     .menu-footer{
-        gap: 34px;
-        font-size: 19px;
-        margin-bottom: 10px;
+   gap: 34px;
+   font-size: 19px;
+   margin-bottom: 10px;
     }
     #nav-emiau{
-        display: flex;
-        flex-direction: column;
+   display: flex;
+   flex-direction: column;
     }
     #emiau{
-        max-width: 380px;
+   max-width: 380px;
     }
     #final {
-        text-align: center;
+   text-align: center;
     }
     
     .creditos p {
-        margin: 0;
-        font-size: 15px;
+   margin: 0;
+   font-size: 15px;
     }
     #titulo{
-        display: none;
+   display: none;
     }
 }
 
 @media (max-width: 490px) {
     #frase h1{
-        font-size:39px;
+   font-size:39px;
 
     }
-       .menu-footer{
-           gap: 10px;
-           font-size: 18px;
-       }
-       #emiau{
-        display: none;
-       }
+  .menu-footer{
+ gap: 10px;
+ font-size: 18px;
+  }
+  #emiau{
+   display: none;
+  }
 }

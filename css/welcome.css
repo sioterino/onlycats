@@ -82,6 +82,10 @@
 
 .img {
     background-color: var(--azul);
+    /* background-image: url(../img/laranja.png); */
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 400px;
     width: 400px;
     border-radius: .8rem;

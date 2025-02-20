@@ -1,24 +1,23 @@
-const galeria = document.querySelector('.galeria')
+const outros = document.querySelector('#outrospets')
 
-let cats = JSON.parse(localStorage.getItem("catsData"))
+let catsData = JSON.parse(localStorage.getItem("catsData"))
 
-cats.sort((a, b) => {
-  if (a.isCat !== b.isCat) {
-    return b.isCat - a.isCat
-  }
-  return b.popularidade - a.popularidade
-})
+catsData.sort((a, b) => {
+    if (a.isCat !== b.isCat) {
+        return a.isCat - b.isCat
+    }
+    return b.popularidade - a.popularidade
+  });
 
-const dupla1 = document.createElement('div')
-dupla1.classList.add('dupla1')
-dupla1.append(createCard(cats[0], ".jpg"), createCard(cats[1], ".jpg"))
+const dupla21 = document.createElement('div')
+dupla21.classList.add('dupla1')
+dupla21.append(createCard(catsData[0], ".jpg"), createCard(catsData[1], ".jpg"))
 
-const dupla2 = document.createElement('div')
-dupla2.classList.add('dupla2')
-dupla2.append(createCard(cats[2], ".jpg"), createCard(cats[3], ".jpg"))
+const dupla22 = document.createElement('div')
+dupla22.classList.add('dupla2')
+dupla22.append(createCard(catsData[2], ".jpg"), createCard(catsData[3], ".jpg"))
 
-galeria.append(dupla1, dupla2)
-
+outros.append(dupla21, dupla22)
 
 
 function createCard(cat, ext) {
