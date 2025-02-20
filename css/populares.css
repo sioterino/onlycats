@@ -1,0 +1,112 @@
+.populares {
+    margin-top: 4rem;
+}
+
+.populares .secao-titulo {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: space-between;
+}
+
+.vermais {
+    color: var(--azul);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--azul);
+    border-radius: 4rem;
+    padding: .35rem .8rem .3rem 1.6rem;
+}
+
+.arrow-right {
+    transform: translateY(-1px);
+}
+
+.galeria,
+.dupla1,
+.dupla2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.galeria {
+    margin-top: 2rem;
+    justify-content: center;
+    height: 23.4rem;
+}
+
+.card {
+    border: 1px dotted lightgray;
+    background-color: white;
+
+    padding: 1rem;
+    border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-1rem);
+}
+
+.gato {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    width: 230px;
+    height: 230px;
+    border-radius: .6rem;
+
+    margin-bottom: 1rem;
+}
+
+.nome,
+.more,
+.sexo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nome {
+    gap: .7rem;
+    font-size: 1.2rem;
+}
+
+.gato-nome {
+    font-weight: 600;
+}
+
+.tutor,
+.more,
+.bullet {
+    color: gray;
+    font-weight: 300;
+}
+
+.populares strong {
+    font-weight: 500;
+}
+
+.more {
+    gap: .6rem;
+    font-size: .9rem;
+}
+
+.assinantes {
+    font-weight: 600;
+}
+
+.sexicon {
+    font-size: 1.2rem;
+}

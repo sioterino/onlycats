@@ -2,10 +2,6 @@
     margin-top: 4rem;
 }
 
-.secao-titulo p {
-    margin-bottom: .3rem;
-}
-
 .planos,
 .basicos,
 .avancados{
@@ -24,6 +20,7 @@
 .plano {
     padding: 2rem 0px;
     border-radius: 1rem;
+    user-select: none;
 
     transition: all .2s ease-in-out;
 }
@@ -39,7 +36,7 @@
 
 .preco {
     display: flex;
-    padding: 1rem 4rem;
+    padding: 1rem 4.19rem;
     margin-bottom: 1.5rem;
     color: var(--branco);
 }
@@ -56,6 +53,7 @@
 
 .valor {
     font-size: 3.5rem;
+    font-weight: 600;
 }
 
 .incluso {
@@ -66,6 +64,7 @@
 .incluso li {
     margin-top: 1rem;
     text-transform: capitalize;
+    font-size: 1.2rem;
 }
 
 .compre {

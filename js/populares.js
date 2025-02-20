@@ -1,58 +1,97 @@
-const galeria = document.querySelector('.galeria');
+const galeria = document.querySelector('.galeria')
 
 fetch('../json/cats.json')
   .then(response => response.json())
   .then(cats => {
-    createCard(cats[3]);
-  });
 
-function createCard(cat) {
-  console.log('Creating card for', cat);
+    cats.sort((a, b) => {
+      if (a.isCat !== b.isCat) {
+          return b.isCat - a.isCat
+      }
+      return b.popularidade - a.popularidade
+  }) 
 
-  const card = document.createElement('div');
-  card.classList.add('card');
+    const dupla1 = document.createElement('div')
+    dupla1.classList.add('dupla1')
+    dupla1.append(createCard(cats[0], ".jpg"), createCard(cats[1], ".jpg"))
+    
+    const dupla2 = document.createElement('div')
+    dupla2.classList.add('dupla2')
+    dupla2.append(createCard(cats[2], ".jpg"), createCard(cats[3], ".jpg"))
 
-  const img = document.createElement('div');
-  img.classList.add('gato');
-  img.style.backgroundImage = `url(${cat.imgPath[0]})`;
-  img.style.height = "300px"
-  img.style.width = "300px"
+    galeria.append(dupla1, dupla2)
 
-  const nome = document.createElement('div');
-  nome.classList.add('nome');
+  })
 
-  const gatoNome = document.createElement('p');
-  const bulletEl = document.createElement('p');
-  const tutor = document.createElement('p');
+function createCard(cat, ext) {
+  const card = document.createElement('div')
+  card.classList.add('card')
 
-  gatoNome.classList.add('gato-nome');
-  tutor.classList.add('tutor');
+  const img = document.createElement('div')
+  img.classList.add('gato')
+  img.style.backgroundImage = `url(${cat.imgPath[0]}${ext})`
 
-  gatoNome.textContent = cat.nome;
-  bulletEl.textContent = '•';
-  tutor.textContent = cat.tutor.nome[0];
+  const nome = document.createElement('div')
+  nome.classList.add('nome')
 
-  nome.append(gatoNome, bulletEl, tutor);
+  const gatoNome = document.createElement('p')
+  const bulletEl = document.createElement('p')
+  const tutor = document.createElement('p')
 
-  const more = document.createElement('div');
-  more.classList.add('more');
+  gatoNome.classList.add('gato-nome')
+  bulletEl.classList.add('bullet')
+  tutor.classList.add('tutor')
 
-  const sexo = document.createElement('p');
-  const icon = document.createElement('span');
-  const idade = document.createElement('p');
+  gatoNome.textContent = cat.nome
+  bulletEl.textContent = '•'
+  tutor.textContent = cat.tutor.nome[0]
 
-  sexo.classList.add('sexo');
-  icon.classList.add('icon', 'sexo');
-  idade.classList.add('idade');
+  nome.append(gatoNome, bulletEl, tutor)
 
-  sexo.textContent = "Sexo:";
-  icon.textContent = cat.sexo === 0 ? "female" : "male";
-  idade.textContent = `Idade: ${cat.idade}`;
+  const more = document.createElement('div')
+  more.classList.add('more')
 
-  sexo.append(icon);
-  more.append(sexo, bulletEl.cloneNode(true), idade);
+  const sexo = document.createElement('p')
+  const icon = document.createElement('span')
+  const idade = document.createElement('p')
 
-  card.append(img, nome, more);
+  sexo.classList.add('sexo')
+  icon.classList.add('icon', 'sexicon')
+  idade.classList.add('idade')
 
-  galeria.append(card);
+  sexo.textContent = "Sexo:"
+  if (cat.sexo === 0) {
+    icon.textContent = "female"
+    icon.style.color = "magenta"
+  } else {
+    icon.textContent = "male"
+    icon.style.color = "blue"
+
+  }
+  idade.innerHTML = `Idade: <strong>${cat.idade}</strong>`
+
+  sexo.append(icon)
+  more.append(sexo, idade)
+
+
+  const assinantes = document.createElement('p')
+  assinantes.classList.add('assinantes')
+  assinantes.textContent = `${formatNumber(cat.popularidade)} Assinantes`
+
+   card.append(img, nome, more, assinantes)
+
+  return card
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+function formatNumber(num) {
+  return new Intl.NumberFormat('en-US', {
+      notation: "compact",
+      maximumFractionDigits: 1
+  }).format(num);
 }

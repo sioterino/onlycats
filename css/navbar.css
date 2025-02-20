@@ -11,13 +11,13 @@
 }
 
 .nav {
-    background-color: var(--branco);
+    background-color: var(--fundo);
     position: fixed;
     top: 0%;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 1200px;
+    max-width: 1232px;
     z-index: 1000;
 }
 

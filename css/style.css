@@ -1,24 +1,31 @@
 @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-:root{
+:root {
     --branco: #fff;
     --cinza: #5e6472;
     --laranja: #ff8200;
     --azul: #081534;
     --preto: #000;
-    
 
-    --fonte-titulo:
-    --fonte-texto:
+    --fundo: #f6f6f6;
+
+    --fonte-titulo: 'Poppins', sans-serif;
+    --fonte-texto: 'Poppins', sans-serif;
 }
+
 
 * {
     margin: 0px;
     padding: 0px;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: var(--fonte-texto);
     scrollbar-width: none;
     scroll-behavior: smooth;
     box-sizing: border-box;
+}
+
+body {
+    background-color: var(--fundo);
 }
 
 .hidden {
@@ -30,7 +37,7 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 1200px;
+    max-width: 1230px;
     margin-bottom: 8rem;
 }
 
