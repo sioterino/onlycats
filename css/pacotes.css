@@ -76,9 +76,18 @@
     padding: 1rem 2rem;
 }
 
+.botao-compre {
+    transition: all .2s ease-in-out;
+}
+
+.botao-compre:active {
+    transform: scale(95%);
+}
+
 #basico {
     color: blue;
     border: 1px dashed blue;
+    background-image: linear-gradient(rgb(240, 240, 255), white 60%, rgb(240, 240, 255));
 }
 
 #basico .preco,
@@ -89,6 +98,7 @@
 #intermediario {
     color: orangered;
     border: 1px dashed orangered;
+    background-image: linear-gradient(rgb(255, 240, 240), white 60%, rgb(255, 240, 240));
 }
 
 #intermediario .preco,
@@ -99,6 +109,7 @@
 #premium {
     color: green;
     border: 1px dashed green;
+    background-image: linear-gradient(rgb(240, 255, 240), white 60%, rgb(240, 255, 240));
 }
 
 #premium .preco,
@@ -109,6 +120,7 @@
 #gold {
     color: darkorange;
     border: 1px dashed darkorange;
+    background-image: linear-gradient(rgb(255, 250, 240), white 60%, rgb(255, 250, 240));
 }
 
 #gold .preco,
@@ -116,7 +128,7 @@
     background-color: darkorange;
 }
 
-@media (max-width: 1197px) {
+@media (max-width: 1200px) {
     .secao-titulo {
         margin-left: 5rem;
     }
@@ -124,7 +136,7 @@
 
 @media (max-width: 770px) {
     .secao-titulo {
-        margin-left: 0px;
+        margin-left: 1rem;
     }
 }
 

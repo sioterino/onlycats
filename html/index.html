@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="../css/welcome.css">
     <link rel="stylesheet" href="../css/pacotes.css">
     <link rel="stylesheet" href="../css/footer.css">
+
     <script src="../js/navbar.js" defer></script>
+    <script src="../js/populares.js" defer></script>
 </head>
 
 <body>
@@ -91,11 +93,36 @@
             <div class="img"></div>
         </section>
 
-        <section class="gatos">
+        <article class="article populares">
             <!--  galeria dos gatineos -->
-        </section>
+            <div class="secao-titulo">
+                <div class="desc">
+                    <p>O que está em alta?</p>
+                    <h2>Gatos Populares</h2>
+                </div>
+                <div class="botao-vermais"><a href="./galeria.html" class="vermais">Ver Mais <span class="icon arrow-right">chevron_right</span></a></div>
+            </div>
 
-        <section class="pacotes">
+            <div class="galeria">
+                <div class="card">
+                    <div class="gato" style="height: 300px; width: 300px; background-color: blue;"></div>
+                    <div class="nome">
+                        <p class="gato-nome">Preto</p>
+                        <p>•</p>
+                        <p class="tutor">Julinha</p>
+                    </div>
+                    <div class="more">
+                        <p class="sexo">Sexo: <span class="icon sexo">female</span></p>
+                        <p>•</p>
+                        <p class="idade">Idade: 7 meses</p>
+                    </div>
+                    <p class="assinantes">7.682 assinantes</p>
+                
+                </div>
+            </div>
+        </article>
+
+        <article class="article pacotes">
             <div class="secao-titulo">
                 <p>Pensando em Assinar?</p>
                 <h2>Pacotes e Planos</h2>
@@ -115,7 +142,7 @@
                             <li>—</li>
                             <li>—</li>
                         </ul>
-                        <a href="./galeria.html" class="compre">Comprar</a>
+                        <div class="botao-compre"><a href="./galeria.html" class="compre">Comprar</a></div>
                     </div>
                     <div id="intermediario" class="plano">
                         <h3>Intermediário</h3>
@@ -130,7 +157,7 @@
                             <li>—</li>
                             <li>—</li>
                         </ul>
-                        <a href="./galeria.html" class="compre">Comprar</a>
+                        <div class="botao-compre"><a href="./galeria.html" class="compre">Comprar</a></div>
                     </div>
                 </div>
                 <div class="avancados">
@@ -147,7 +174,7 @@
                             <li>vídeo</li>
                             <li>—</li>
                         </ul>
-                        <a href="./galeria.html" class="compre">Comprar</a>
+                        <div class="botao-compre"><a href="./galeria.html" class="compre">Comprar</a></div>
                     </div>
                     <div id="gold" class="plano">
                         <h3>Premium Gold</h3>
@@ -162,19 +189,19 @@
                             <li>vídeo</li>
                             <li>passeio</li>
                         </ul>
-                        <a href="./galeria.html" class="compre">Comprar</a>
+                        <div class="botao-compre"><a href="./galeria.html" class="compre">Comprar</a></div>
                     </div>
                 </div>
             </div>
-        </section>
+        </article>
 
-        <section class="feedbacks">
+        <article class="article feedbacks">
             <!-- feedback de usuários -->
-        </section>
+        </article>
 
-        <section class="goodbye">
+        <article class="article goodbye">
             <!-- mensagem de tchau tchau, não é o footer -->
-        </section>
+        </article>
 
     </main>
 
