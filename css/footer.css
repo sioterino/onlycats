@@ -133,6 +133,10 @@ margin-bottom:40px;
 }
 
 @media (max-width: 490px) {
+    #frase h1{
+        font-size:39px;
+
+    }
        .menu-footer{
            gap: 10px;
            font-size: 18px;
