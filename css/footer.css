@@ -25,12 +25,16 @@ margin-bottom:40px;
 }
 #nav-emiau{
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     border-bottom: 3px solid #081534;
 }
 
 .menu-footer{
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 50px;
     font-size: 18px;
     
@@ -87,6 +91,8 @@ margin-bottom:40px;
 
 #final {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
     justify-content: space-between;
 
 }

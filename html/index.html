@@ -26,22 +26,22 @@
                     <span class="icon">close</span>
                 </li>
 
-                <li><a class="sidelink" href="./index.html">Início</a></li>
+                <li><a class="sidelink smoothScroll" href="./index.html#top">Início</a></li>
                 <li><a class="sidelink" href="./galeria.html">Gatos</a></li>
-                <li><a class="sidelink" href="#">Sobre</a></li>
+                <li><a class="sidelink smoothScroll" href="./index.html#footer">Sobre</a></li>
 
                 <li class="login">
                     <div class="dropdown-container">
                         <ul>
-                            <li class="admlink"><a href="./assinantes.html">Assinantes</a></li>
-                            <li class="admlink"><a href="#">Relatório de Assinantes</a></li>
-                            <li class="admlink"><a href="#">Relatório de Pagamentos</a></li>
+                            <li><a class="admlink" href="./assinantes.html">Assinantes</a></li>
+                            <li><a class="admlink" href="#">Relatório de Assinantes</a></li>
+                            <li><a class="admlink" href="#">Relatório de Pagamentos</a></li>
                         </ul>
                     </div>
 
                     <div class="sidelink user" href="#">
                         <p>Admin</p>
-                        <span class="icon usericon">person</span>
+                        <span class="icon usericon">account_circle</span>
                     </div>
                 </li>
             </ul>
@@ -49,24 +49,24 @@
 
         <nav class="nav">
             <ul>
-                <li class="logo"><a href="#" class="navlink">OnlyCats</a></li>
+                <li class="logo"><a href="./index.html" class="navlink">OnlyCats</a></li>
 
                 <li class="hideOnMobile center">
-                    <a href="#" class="navlink">Início</a>
-                    <a href="#" class="navlink">Gatos</a>
-                    <a href="#" class="navlink">Sobre</a>
+                    <a href="./index.html#top" class="navlink">Início</a>
+                    <a href="./galeria.html" class="navlink">Gatos</a>
+                    <a href="./index.html#footer" class="navlink">Sobre</a>
                 </li>
 
                 <li class="hideOnMobile login">
-                    <div class="navlink" href="#">
+                    <div class="navlink user" href="#">
                         <p>Admin</p>
-                        <span class="icon user">person</span>
+                        <span class="icon usericon">account_circle</span>
                     </div>
                     <div class="dropdown-container">
-                        <ul>
-                            <li class="admlink"><a href="./assinantes.html">Assinantes</a></li>
-                            <li class="admlink"><a href="#">Relatório de Assinantes</a></li>
-                            <li class="admlink"><a href="#">Relatório de Pagamentos</a></li>
+                        <ul class="dropdown-list">
+                            <li><a class="admlink" href="./assinantes.html">Assinantes</a></li>
+                            <li><a class="admlink" href="#">Relatório de Assinantes</a></li>
+                            <li><a class="admlink" href="#">Relatório de Pagamentos</a></li>
                         </ul>
                     </div>
                 </li>
@@ -80,7 +80,7 @@
 
     <main class="main">
 
-        <section class="welcome">
+        <section id="top" class="welcome">
             <div class="welcome-texto">
                 <h2 class="welcome-titulo">Seu felino favorito, diretamente para você</h2>
                 <h3 class="welcome-subtitulo">Miaus exclusivos todo o mês!</h3>
@@ -89,7 +89,10 @@
                     do mais básico ao VIP, e tenha acesso a momentos adoráveis do bichano. Um presente perfeito para
                     quem ama gatos e quer um pouco mais de alegria na rotina!
                 </p>
-                <div class="botao-div"><a class="welcome-explorar" href="./galeria.html">Explorar</a></div>
+                <div class="butoes-hiperlink">    
+                    <div class="botao-div wc-explorar"><a class="botao welcome-explorar" href="./galeria.html">Explorar<span class="icon">chevron_right</span></a></div>
+                    <div class="botao-div wc-vermais"><a class=" botao welcome-vermais" href="./index.html#planos">Ver Planos<span class="icon">chevron_right</span></a></div>
+                </div>
             </div>
             <div class="img"></div>
         </section>
@@ -99,7 +102,7 @@
             <div class="secao-titulo">
                 <div class="desc">
                     <p>O que está em alta?</p>
-                    <h2>Gatos Populares</h2>
+                    <h2 id="gatos">Gatos Populares</h2>
                 </div>
                 <div class="botao-vermais"><a href="./galeria.html" class="vermais">Ver Mais <span class="icon arrow-right">chevron_right</span></a></div>
             </div>
@@ -110,7 +113,7 @@
         <article class="article pacotes">
             <div class="secao-titulo">
                 <p>Pensando em Assinar?</p>
-                <h2>Pacotes e Planos</h2>
+                <h2 id="planos">Pacotes e Planos</h2>
             </div>
             <div class="planos">
                 <div class="basicos">
@@ -193,29 +196,20 @@
     <footer>
         <div class="footer">
             <section id="frase">
-                <h1>Frase de felino</h1>
+                <h1 id="footer">Frase de felino</h1>
                 <p>Nenhum gato sofreu estresse, invasão de privacidade, exposição indevida ou qualquer tipo de desconforto durante a realização deste trabalho.</p>
             </section>
             <section id="nav-emiau">
                 <div class="navegação">
                     <ul class="menu-footer">
-                        <li>
-                            <a href="index.html#welcome">Início</a>
-                        </li>
-                        <li>
-                            <a href="index.html#gatos">Gatos</a>
-                        </li>
-                        <li>
-                            <a href="index.html#planos">Planos</a>
-                        </li>
-                        <li>
-                            <a href="index.html#feedbacks">Feedbacks</a>
-                        </li>
+                        <li><a href="./index.html#top">Início</a></li>
+                        <li><a href="./index.html#gatos">Gatos</a></li>
+                        <li><a href="./index.html#planos">Planos</a></li>
+                        <li><a href="./index.html#feedbacks">Feedbacks</a></li>
                     </ul>
                 </div>
                 <div id="emiau">
                     <input type="email" placeholder="pretotubarão@emiau.com">
-                    <!-- <button type="submit"><img src="/img/icons/social/paper-plane.png" alt="enviar"></button> -->
                     <button type="submit" class="icon"><span class="icon send">send</span></button>
                 </div>
             </section>

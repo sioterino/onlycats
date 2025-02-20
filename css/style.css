@@ -41,6 +41,12 @@ body {
     margin-bottom: 8rem;
 }
 
+@media (max-width: 1230px) {
+    .article {
+        padding: 1rem;
+    }
+}
+
 .icon {
     font-family: 'Material Symbols Rounded';
     font-size: 28px;

@@ -34,26 +34,50 @@
     max-width: 33rem;
 }
 
-.welcome-explorar {
+.butoes-hiperlink {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.botao {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
 
-    color: var(--laranja);
-    background-color: var(--branco);
-
-    padding: 1rem 2rem;
+    padding: .8rem 2rem .8rem 2.7rem;
     border-radius: 4rem;
 
     transition: all .2s ease-in-out;
 }
 
-.welcome-explorar:hover {
-    background-color: rgb(235, 235, 235);
+.welcome-explorar {
+    color: var(--laranja);
+    background-color: var(--azul);
+
+    transition: all .2s ease-in-out;
 }
 
-.welcome-explorar:active {
-    background-color: rgb(215, 215, 215);
+.welcome-vermais {
+    color: var(--azul);
+    padding: 10px 22px 10px 33px;
+    border: 3px solid var(--azul);
+    transition: all .2s ease-in-out;
+}
+
+.welcome-explorar:hover,
+.welcome-vermais:hover {
+    transform: scale(101%);
+}
+
+.welcome-explorar:active,
+.welcome-vermais:active {
+    transform: scale(99%);
 }
 
 .img {

@@ -126,21 +126,3 @@
 #gold .compre {
     background-color: darkorange;
 }
-
-@media (max-width: 1200px) {
-    .secao-titulo {
-        margin-left: 5rem;
-    }
-}
-
-@media (max-width: 770px) {
-    .secao-titulo {
-        margin-left: 1rem;
-    }
-}
-
-@media (max-width: 607px) {
-    .planos {
-        margin-inline: 30vw;
-    }
-}

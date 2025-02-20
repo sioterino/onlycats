@@ -4,7 +4,8 @@
     height: 4rem;
 }
 
-.nav a {
+.center a,
+.logo a {
     text-decoration: none;
     color: var(--preto);
     font-weight: 600;
@@ -32,7 +33,6 @@
 
 .navlink,
 .nav .admlink {
-
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -69,17 +69,8 @@
 }
 
 .login span {
-    border: 3px solid var(--preto);
     border-radius: 1.5rem;
     padding: .2rem .4rem .2rem .4rem;
-}
-
-.navlink:hover .user {
-    border: 3px solid var(--laranja);
-}
-
-.sidebar .usericon {
-    border: 3px solid var(--branco);
 }
 
 .nav .dropdown-container {
@@ -89,7 +80,7 @@
     border-radius: .4rem;
 
     opacity: 0;
-    transform: translateY(-10%);
+    transform: translateY(-5px);
     pointer-events: none;
     transition: all .2s ease-in-out;
 }
@@ -105,19 +96,32 @@
     position: relative;
     
     display: block;
-    width: 8rem;
+    width: 10rem;
     text-align: center;
 }
 
 .nav .admlink {
     gap: 0px;
-    padding: .3rem 0px;
-}
-
-.admlink a {
+    padding: 2.5rem 0rem;
+    color: var(--branco);
+    font-weight: 500;
+    text-decoration: none;
     line-height: 150%;
     width: 100%;
-    color: var(--branco);
+    display: flex;
+    justify-content: center;
+}
+
+.nav .admlink:hover {
+    background-color: rgba(255, 255, 255, .15);
+}
+
+.dropdown-list li:first-child a:hover {
+    border-radius: .25rem;
+}
+
+.dropdown-list li:last-child a:hover {
+    border-radius: .25rem;
 }
 
 .hidden {
@@ -131,6 +135,11 @@
 .menu img,
 .close img {
     height: 32px;
+}
+
+.usericon {
+    font-weight: 500;
+    font-size: 2.5rem;
 }
 
 @media (max-width: 800px) {
