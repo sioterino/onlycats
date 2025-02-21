@@ -1,0 +1,113 @@
+body {
+  font-family: var(--fonte-texto), Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--fundo);
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--azul);
+}
+
+#associados {
+  list-style: none;
+  padding: 0;
+  margin-top: 3rem;
+}
+
+.assinante-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--branco);
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.assinante-card:hover {
+  background-color: #e0f7fa;
+  transform: translateY(-0.5rem);
+}
+
+.assinante-card .nome {
+  font-weight: 600;
+  color: var(--azul);
+}
+
+.assinante-card .ver-mais {
+  background-color: var(--azul);
+  color: var(--branco);
+  padding: 0.5rem 1rem;
+  border-radius: 4rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+}
+
+.assinante-card .ver-mais:hover {
+  background-color: var(--laranja);
+  border: 1px solid var(--laranja);
+  transform: scale(1.05);
+  border-radius: 4rem ;
+}
+
+.detalhes-assinante {
+  display: none; 
+  margin-top: 1rem;
+  background-color: var(--fundo);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.detalhes-assinante p {
+  margin: 5px 0;
+  color: var(--azul);
+}
+
+.tabela-pagamentos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background-color: var(--branco);
+}
+
+.tabela-pagamentos th,
+.tabela-pagamentos td {
+  border:2px solid var(--azul);
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.tabela-pagamentos th {
+  background-color: var(--azul);
+  color: var(--branco);
+  font-weight: 600;
+}
+
+.tabela-pagamentos td {
+  background-color: #f9f9f9;
+  color: var(--cinza);
+}
+
+.tabela-pagamentos tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.tabela-pagamentos tr:hover {
+  background-color: #e0f7fa;
+}

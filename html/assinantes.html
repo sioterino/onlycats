@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlyCats</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/welcome.css">
+    <link rel="stylesheet" href="../css/populares.css">
+    <link rel="stylesheet" href="../css/pacotes.css">
+    <link rel="stylesheet" href="../css/feedbacks.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/assinantes.css">
+
+    <script src="../js/navbar.js" defer></script>
+    <script src="../js/fetch.js" defer></script>
+    <script src="../js/populares.js" defer></script>
+    <script src="../js/outrospets.js" defer></script>
+    <script src="../js/feedback.js" defer></script>
+    <script src="../js/assinantes.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="sidebar">
+            <ul>
+                <li class="sidelink close">
+                    <span class="icon">close</span>
+                </li>
+
+                <li><a class="sidelink smoothScroll" href="./index.html#top">Início</a></li>
+                <li><a class="sidelink" href="./galeria.html">Gatos</a></li>
+                <li><a class="sidelink smoothScroll" href="./index.html#footer">Sobre</a></li>
+
+                <li class="login">
+                    <div class="dropdown-container">
+                        <ul>
+                            <li><a class="admlink" href="./assinantes.html">Assinantes</a></li>
+                            <li><a class="admlink" href="#">Relatório de Assinantes</a></li>
+                            <li><a class="admlink" href="#">Relatório de Pagamentos</a></li>
+                            <li><a class="admlink" href="#">Log Out</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidelink user" href="#">
+                        <p>Admin</p>
+                        <span class="icon usericon">account_circle</span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="nav">
+            <ul>
+                <li class="logo"><a href="./index.html" class="navlink">OnlyCats</a></li>
+
+                <li class="hideOnMobile center">
+                    <a href="./index.html#top" class="navlink">Início</a>
+                    <a href="./galeria.html" class="navlink">Gatos</a>
+                    <a href="./index.html#footer" class="navlink">Sobre</a>
+                </li>
+
+                <li class="hideOnMobile login">
+                    <div class="navlink user" href="#">
+                        <p>Admin</p>
+                        <span class="icon usericon">account_circle</span>
+                    </div>
+                    <div class="dropdown-container">
+                        <ul class="dropdown-list">
+                            <li><a class="admlink" href="./assinantes.html">Assinantes</a></li>
+                            <li><a class="admlink" href="#">Relatório de Assinantes</a></li>
+                            <li><a class="admlink" href="#">Relatório de Pagamentos</a></li>
+                            <li><a class="admlink" href="#">Log Out</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="navlink menu">
+                    <span class="icon">menu</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Assinantes da Instituição</h1>
+            <ul id="associados"> </ul>
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <section id="frase">
+                <h1 id="footer">Frase de felino</h1>
+                <p>Nenhum gato sofreu estresse, invasão de privacidade, exposição indevida ou qualquer tipo de
+                    desconforto durante a realização deste trabalho.</p>
+            </section>
+            <section id="nav-emiau">
+                <div class="navegação">
+                    <ul class="menu-footer">
+                        <li><a href="./index.html#top">Início</a></li>
+                        <li><a href="./index.html#gatos">Gatos</a></li>
+                        <li><a href="./index.html#planos">Planos</a></li>
+                        <li><a href="./index.html#feedbacks">Feedbacks</a></li>
+                    </ul>
+                </div>
+                <div id="emiau">
+                    <input autocomplete="off" type="email" placeholder="pretotubarão@emiau.com">
+                    <button type="submit" class="icon"><span class="icon send">send</span></button>
+                </div>
+            </section>
+            <section id="final">
+                <div class="creditos">
+                    <p>
+                        &#169; Página desenvolvida por <strong>Júlia Manuela Turnes</strong> e <strong>Sofia Alves
+                            Toreti</strong>, 2025.
+                    </p>
+                </div>
+                <div id="titulo">
+                    <h4>OnlyCats</h4>
+                </div>
+            </section>
+        </div>
+    </footer>
+</body>
+
+</html>
