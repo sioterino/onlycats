@@ -1,0 +1,33 @@
+.weekpick .secao-titulo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .3rem;
+    margin: 2rem;
+}
+
+.weekpick h2 {
+    font-size: 2rem;
+}
+
+.secao-titulo {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: space-between;
+}
+
+.vermais {
+    color: var(--azul);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--azul);
+    border-radius: 4rem;
+    padding: .35rem .8rem .3rem 1.6rem;
+}
+
+.secao-titulo .arrow-right {
+    transform: translateY(-1px);
+}

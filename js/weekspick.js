@@ -1,86 +1,99 @@
 let cats = JSON.parse(localStorage.getItem("catsData"))
+const onlyCats = cats.filter(cat => cat.isCat)
 
 const pick = document.querySelector('.pick')
-const onlyCats = filterCats()
-createPick(onlyCats[randInt(0, onlyCats.length)], 'jpg')
+createCatCard(onlyCats[randInt(0, onlyCats.length)], 'jpg', pick)
 
-function filterCats() {
-    return cats.filter(cat => cat.isCat)
+// função que ajuda a criar elementos html com mais agilidade
+function createElement(element, classList = null, textContent = null) {
+    // ciaar o elemento
+    const el = document.createElement(element)
+
+    // caso a class tenha sido especificada
+    if (classList !== null) {
+        // é uma lista de classes?
+        if (Array.isArray(classList)) {
+            classList.forEach(cls => el.classList.add(cls))
+            
+        // classe única
+        } else if (typeof classList === "string") {
+            el.classList.add(classList)
+        }
+    }
+
+    // possui textContent?
+    if (textContent !== null) {
+        el.textContent = textContent
+    }
+
+    return el
 }
 
-function createPick(cat, ext) {
-    console.log(cat)
-    const img = document.createElement('div')
-    img.classList.add('img-pick')
+// cria to card inteiro kkkkk
+function createCatCard(cat, ext, pick) {
 
-    img.style.backgroundImage = `url(${cat.imgPath[randInt(0, cat.imgPath.length)]}.${ext})` 
+    const imgContainer = createElement('div', 'img-container')
 
-    pick.appendChild(img)
+    const arrowLeft = createElement('span', ['icon', 'pick-arrow-left'], 'arrow_back_ios')
+    const arrowRight = createElement('span', ['icon', 'pick-arrow-right'], 'arrow_forward_ios')
+    const carrossel = createElement('div', 'carrossel')
 
-    const descricao = document.createElement('div')
-    descricao.classList.add('descricao')
+    imgContainer.append(arrowLeft, carrossel, arrowRight)
+    
+    for (let i = 0; i < cat.imgPath.length; i++) {
+        const img = createElement('div', 'img-pick')    
+        img.style.backgroundImage = `url(${cat.imgPath[i]}.${ext})`     
+        carrossel.append(img)
+    }
 
-    const superior = document.createElement('div')
-    superior.classList.add('superior')
+    pick.append(imgContainer)
+
+    
+    const descricao = createElement('div', 'descricao')
+    const superior = createElement('div', 'superior')
 
     descricao.appendChild(superior)
 
-    const titulo = document.createElement('div')
-    const fav = document.createElement('div')
+    const titulo = createElement('div', 'titulo')
+    const smallIcons = createElement('div', 'small-icons')
 
-    titulo.classList.add('titulo')
-    fav.classList.add('fav')
+    superior.append(titulo, smallIcons)
 
-    superior.append(titulo, fav)
-
-    const idcat = document.createElement('p')
-    const nomecat = document.createElement('p')
-    const assinantescat = document.createElement('p')
-
-    idcat.classList.add('idcat')
-    nomecat.classList.add('nomecat')
-    assinantescat.classList.add('assinantescat')
-
-    idcat.textContent = `#${cat.id}`
-    nomecat.textContent = cat.nome
-    assinantescat.textContent = `${formatNumber(cat.popularidade)} Assinantes`
+    const idcat = createElement('p', 'idcat', `#${cat.id}`)
+    const nomecat = createElement('p', 'nomecat', cat.nome)
+    const assinantescat = createElement('p', 'assinantescat', `${formatNumber(cat.popularidade)} Assinantes`)
 
     titulo.append(idcat, nomecat, assinantescat)
 
-    const heartDiv = document.createElement('div')
-    heartDiv.classList.add('botao', 'botao-fav')
-    const heart = document.createElement('span')
-    heart.classList.add('icon', 'heart', 'hollow')
-    heart.textContent = 'favorite'
+
+    const heartDiv = createElement('div', ['botao', 'botao-fav'])
+    const heart = createElement('span', ['icon', 'heart', 'hollow'], 'favorite')
     heartDiv.append(heart)
 
-    const botoes = document.createElement('div')
-    botoes.classList.add('botoes')
+    if (pick.tagName === 'DIALOG') {
+        const closeDiv = createElement('div', ['botao', 'botao-close'])
+        const close = createElement('span', ['icon', 'close'], 'close')
+        closeDiv.append(close)
+        smallIcons.append(closeDiv)
+    }
 
-    const chatDiv = document.createElement('div')
-    chatDiv.classList.add('botao', 'botao-chat')
-    const chatP = document.createElement('span')
-    chatP.textContent = 'Conversar'
-    const chat = document.createElement('span')
-    chat.classList.add('icon', 'chat', 'hollow')
-    chat.textContent = 'sms'
+
+    const botoes = createElement('div', 'botoes')
+
+    const chatDiv = createElement('div', ['botao', 'botao-chat'])
+    const chatP = createElement('p', null, 'Conversar')
+    const chat = createElement('span', ['icon', 'chat', 'hollow'], 'sms')
     chatDiv.append(chatP, chat)
 
-    const cartDiv = document.createElement('div')
-    cartDiv.classList.add('botao', 'botao-cart')
-    const cartP = document.createElement('span')
-    cartP.textContent = 'Assinar'
-    const cart = document.createElement('span')
-    cart.classList.add('icon', 'cart')
-    cart.textContent = 'shopping_cart'
+    const cartDiv = createElement('div', ['botao', 'botao-cart'])
+    const cartP = createElement('p', null, 'Assinar')
+    const cart = createElement('span', ['icon', 'cart'], 'shopping_cart')
     cartDiv.append(cartP, cart)
 
     botoes.appendChild(chatDiv)
     botoes.appendChild(cartDiv)
-
     titulo.appendChild(botoes)
-
-    fav.append(heartDiv)
+    smallIcons.append(heartDiv)
 
     const table = document.createElement('table')
     const tableTitle = document.createElement('p')
@@ -88,7 +101,7 @@ function createPick(cat, ext) {
     tableTitle.textContent = 'Sobre o gato'
     const tbody = document.createElement('tbody')
 
-    descricao.appendChild(table)
+    descricao.append(table)
 
     const content = [
         { label: 'Tutor', value: [...cat.tutor.nome, ...cat.tutor.sobrenome].join(' ') },
@@ -98,63 +111,100 @@ function createPick(cat, ext) {
     ]    
 
     for (let i = 0; i < content.length; i++) {
-        const tr = document.createElement('tr')
+        const tr = createElement('tr')
         if (i % 2 != 0) {
             tr.classList.add('impar')
         }
 
-        const th = document.createElement('th')
-        th.textContent = content[i].label
+        const th = createElement('th', null, content[i].label)
 
-        const td = document.createElement('td')
-
-        td.appendChild(document.createTextNode(' '))
-        td.appendChild(document.createTextNode(content[i].value))
+        const td = createElement('td', null, content[i].value)
 
         if (content[i].icon) {
-            const iconSpan = document.createElement('span')
-            iconSpan.classList.add('icon', content[i].icon)
-            iconSpan.textContent = content[i].icon
+            const iconSpan = createElement('span', ['icon', content[i].icon], content[i].icon)
             td.appendChild(iconSpan)
         }
 
-        tr.appendChild(th)
-        tr.appendChild(td)
-
+        tr.append(th, td)
         tbody.appendChild(tr)
     }
 
     table.appendChild(tableTitle)
     table.appendChild(tbody)
 
-    const tags = document.createElement('div')
-    tags.classList.add('tags')
+    const tags = createElement('div', 'tags')
     descricao.appendChild(tags)
 
     cat.personalidade.forEach(item => {
-        const tag = document.createElement('p')
-        tag.classList.add('tag')
-        tag.textContent = item
+        const tag = createElement('p', 'tag', item)
         tags.appendChild(tag)
     })
 
     pick.appendChild(descricao)
 }
 
+// gera um número aleatório onde min é inclusivo e max é exclusivo
 function randInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min
 }
 
+// formata númeors 1567 > 1.5K
 function formatNumber(num) {
     return new Intl.NumberFormat('en-US', {
         notation: "compact",
         maximumFractionDigits: 1
-    }).format(num);
-  }
+    }).format(num)
+}
 
-const fav = document.querySelector('.botao-fav')
-fav.addEventListener('click', () => {
-    const heart = fav.querySelector('.icon')
+
+// animação do coração de favorito
+const favButon = pick.querySelector('.botao-fav')
+favButon.addEventListener('click', () => {
+    const heart = favButon.querySelector('.icon')
     heart.classList.toggle('hollow')
     heart.classList.toggle('liked')
+})
+
+
+
+
+
+
+
+
+const images = document.querySelectorAll(".img-pick")
+const carrossel = document.querySelector(".carrossel")
+const leftArrow = document.querySelector(".pick-arrow-left")
+const rightArrow = document.querySelector(".pick-arrow-right")
+
+function calculateScroll(isLeftArrow) {
+    // númeoro de pixels que foram scrolados no carrossell
+    const currentScroll = carrossel.scrollLeft
+    // tamanho da imagem + gap: 1.2rem da grid
+    const imageWidth = images[0].offsetWidth + 1.2 * 16
+    // calcula o quanto deverá ser scrollado para o lado
+    return isLeftArrow ? currentScroll - imageWidth : currentScroll + imageWidth;
+}
+
+// Scroll to the previous image with looping behavior
+leftArrow.addEventListener("click", () => {
+    const newScroll = calculateScroll(true)
+
+    if (newScroll < 0) {
+        carrossel.scrollTo({ left: carrossel.scrollWidth - carrossel.clientWidth, behavior: "smooth" })
+    } else {
+        carrossel.scrollTo({ left: newScroll, behavior: "smooth" })
+    }
+})
+
+// Scroll to the next image with looping behavior
+rightArrow.addEventListener("click", () => {
+    const newScroll = calculateScroll(false)
+
+    if (newScroll >= carrossel.scrollWidth - carrossel.clientWidth) {
+        carrossel.scrollTo({ left: 0, behavior: "smooth" })
+    } else {
+        carrossel.scrollTo({ left: newScroll, behavior: "smooth" })
+    }
+
 })
