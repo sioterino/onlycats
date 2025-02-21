@@ -1,37 +1,3 @@
-.weekpick .secao-titulo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: .3rem;
-    margin: 2rem;
-}
-
-.weekpick h2 {
-    font-size: 2rem;
-}
-
-.secao-titulo {
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    justify-content: space-between;
-}
-
-.vermais {
-    color: var(--azul);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    border: 1px solid var(--azul);
-    border-radius: 4rem;
-    padding: .35rem .8rem .3rem 1.6rem;
-}
-
-.arrow-right {
-    transform: translateY(-1px);
-}
-
 .pick {
     display: flex;
     gap: 3rem;
@@ -44,7 +10,35 @@
     min-height: 45.5rem;
 }
 
+.img-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    max-width: 700px;
+}
+
+.pick-arrow-right,
+.pick-arrow-left {
+    cursor: pointer;
+}
+
+.carrossel {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1.2rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    border-radius: 1rem;
+}
+
 .img-pick {
+    outline: none;
+    scroll-snap-align: center;
     width: 630px;
     height: 630px;
     background-size: cover;
@@ -90,10 +84,21 @@
     user-select: none;
 }
 
-.botao-fav {
+.pick small-icons,
+dialog .small-icons {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.botao-fav,
+.botao-close {
     transition: all .1s ease-in-out;
 }
-.botao-fav:active {
+.botao-fav:active,
+.botao-close:active {
     transform: scale(90%);
 }
 
@@ -143,7 +148,8 @@
     font-size: 1.2rem;
 }
 
-.pick table {
+.pick table,
+dialog table {
     border-collapse: collapse;
     table-layout: auto;
 }
@@ -154,30 +160,37 @@
     margin-bottom: 1rem;
 }
 
-.pick tr.impar {
+.pick tr.impar,
+dialog tr.impar {
     background-color: #f2f2f2;
 }
 
 .pick th,
-.pick td {
-    padding: .7rem;
+.pick td,
+dialog th,
+dialog td {
+    height: 3rem;
+    padding-inline: 1rem;
     text-align: left;
 }
 
-.pick th {
+.pick th,
+dialog th {
     font-weight: bold;
     white-space: nowrap;
     width: 8rem;
 }
 
-.pick td {
+.pick td,
+dialog td {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 1rem;
 }
 
-.pick td.icon {
+.pick td.icon,
+dialog td.icon {
     font-size: 1.5rem;
 }
 

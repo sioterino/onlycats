@@ -1,0 +1,25 @@
+dialog {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    background-color: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    max-width: 1500px;
+    border: 1px dotted lightgray;
+    outline: none;
+
+    width: 100vw;
+    max-width: 1500px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+dialog[open] {
+    display: flex;
+}

@@ -7,11 +7,15 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/weekspick.css">
+    <link rel="stylesheet" href="../css/secao.css">
+    <link rel="stylesheet" href="../css/catcard.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/dialog.css">
 
+    <script src="../js/navbar.js" defer></script>
     <script src="../js/fetch.js" defer></script>
     <script src="../js/weekspick.js" defer></script>
+    <script src="../js/dialog.js" defer></script>
 
 </head>
 <body>
@@ -23,9 +27,9 @@
                     <span class="icon">close</span>
                 </li>
 
-                <li><a class="sidelink smoothScroll" href="./index.html#top">Início</a></li>
-                <li><a class="sidelink" href="./galeria.html">Gatos</a></li>
-                <li><a class="sidelink smoothScroll" href="./index.html#footer">Sobre</a></li>
+                <li><a class="sidelink smoothScroll" href="./index.html">Início</a></li>
+                <li><a class="sidelink" href="./galeria.html#top">Gatos</a></li>
+                <li><a class="sidelink smoothScroll" href="./galeria.html#footer">Sobre</a></li>
 
                 <li class="login">
                     <div class="dropdown-container">
@@ -50,9 +54,9 @@
                 <li class="logo"><a href="./index.html" class="navlink">OnlyCats</a></li>
 
                 <li class="hideOnMobile center">
-                    <a href="./index.html#top" class="navlink">Início</a>
-                    <a href="./galeria.html" class="navlink">Gatos</a>
-                    <a href="./index.html#footer" class="navlink">Sobre</a>
+                    <a href="./index.html" class="navlink">Início</a>
+                    <a href="./galeria.html#top" class="navlink">Gatos</a>
+                    <a href="./galeria.html#footer" class="navlink">Sobre</a>
                 </li>
 
                 <li class="hideOnMobile login">
@@ -80,7 +84,7 @@
 
 
 
-    <main class="main">
+    <main class="main" id="top">
 
         <section class="weekpick">
             <div class="secao-titulo">
@@ -94,6 +98,8 @@
             <!-- weeks pick -->
             <div class="pick"></div>
         </section>
+
+        <button id="openDialog">abrir dialog</button>
 
         <section class="corpo">
 
@@ -136,7 +142,7 @@
                         <li><a href="./index.html#top">Início</a></li>
                         <li><a href="./index.html#gatos">Gatos</a></li>
                         <li><a href="./index.html#planos">Planos</a></li>
-                        <li><a href="./index.html#feedbacks">Feedbacks</a></li>
+                        <li><a href="./index.html#experiencia">Feedbacks</a></li>
                     </ul>
                 </div>
                 <div id="emiau">
@@ -161,7 +167,7 @@
 
     <dialog>
         <!-- perfil dos gatineos -->
-        <h1>teste</h1>
+        <!-- <button id="closeDialog">fechar dialog</button> -->
     </dialog>
 
 </body>

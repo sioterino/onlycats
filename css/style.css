@@ -13,6 +13,10 @@
     --fonte-texto: 'Poppins', sans-serif;
 }
 
+html {
+    
+    scroll-padding-top: 7rem;
+}
 
 * {
     margin: 0px;
