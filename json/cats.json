@@ -5,7 +5,7 @@
         "popularidade":4482,
         "nome":"Hope",
         "isCat":true,
-        "raca":"Laranja",
+        "cor":"Laranja",
         "idade":"10 anos",
         "sexo":1,
         "tutor":{
@@ -36,7 +36,7 @@
         "popularidade":5910,
         "nome":"Emma",
         "isCat":true,
-        "raca":"Bicolor",
+        "cor":"Bicolor",
         "idade":"11 anos",
         "sexo":0,
         "tutor":{
@@ -71,7 +71,7 @@
         "popularidade":1725,
         "nome":"Pascal",
         "isCat":true,
-        "raca":"Tigrado",
+        "cor":"Tigrado",
         "idade":"3 meses",
         "sexo":1,
         "tutor":{
@@ -105,7 +105,7 @@
         "popularidade":3297,
         "nome":"Mingau",
         "isCat":true,
-        "raca":"Branco",
+        "cor":"Branco",
         "idade":"9 anos",
         "sexo":1,
         "tutor":{
@@ -136,7 +136,7 @@
         "popularidade":1525,
         "nome":"Melody",
         "isCat":true,
-        "raca":"Castanho",
+        "cor":"Castanho",
         "idade":"5 anos",
         "sexo":0,
         "tutor":{
@@ -168,7 +168,7 @@
         "popularidade":4001,
         "nome":"Theo ",
         "isCat":true,
-        "raca":"Tricolor",
+        "cor":"Tricolor",
         "idade":"7 anos",
         "sexo":1,
         "tutor":{
@@ -200,7 +200,7 @@
         "popularidade":3442,
         "nome":"Caramelo",
         "isCat":true,
-        "raca":"Laranja",
+        "cor":"Laranja",
         "idade":"3 anos",
         "sexo":1,
         "tutor":{
@@ -231,7 +231,7 @@
         "popularidade":5390,
         "nome":"Preto",
         "isCat":true,
-        "raca":"Preto",
+        "cor":"Preto",
         "idade":"1 anos",
         "sexo":1,
         "tutor":{
@@ -264,7 +264,7 @@
         "popularidade":5836,
         "nome":"Laranja",
         "isCat":true,
-        "raca":"Laranja",
+        "cor":"Laranja",
         "idade":"1 anos",
         "sexo":0,
         "tutor":{
@@ -298,7 +298,7 @@
         "popularidade":1281,
         "nome":"Sunny",
         "isCat":true,
-        "raca":"Laranja",
+        "cor":"Laranja",
         "idade":"10 anos",
         "sexo":1,
         "tutor":{
@@ -330,7 +330,7 @@
         "popularidade":1999,
         "nome":"Jimin",
         "isCat":false,
-        "raca":"Azul",
+        "cor":"Azul",
         "idade":"3 meses",
         "sexo":1,
         "tutor":{
@@ -361,7 +361,7 @@
         "popularidade":2484,
         "nome":"Jungkook",
         "isCat":false,
-        "raca":"Azul",
+        "cor":"Azul",
         "idade":"2 anos",
         "sexo":1,
         "tutor":{
@@ -392,7 +392,7 @@
         "popularidade":3506,
         "nome":"Bug",
         "isCat":false,
-        "raca":"Azul",
+        "cor":"Azul",
         "idade":"2 anos",
         "sexo":1,
         "tutor":{
@@ -423,7 +423,7 @@
         "popularidade":2098,
         "nome":"Paquetá ",
         "isCat":false,
-        "raca":"Amarelo",
+        "cor":"Amarelo",
         "idade":"2 anos",
         "sexo":1,
         "tutor":{
@@ -457,7 +457,7 @@
         "popularidade":4899,
         "nome":"Lady",
         "isCat":false,
-        "raca":"Amarelo",
+        "cor":"Amarelo",
         "idade":"2 anos",
         "sexo":1,
         "tutor":{
@@ -488,7 +488,7 @@
         "popularidade":5300,
         "nome":"Pepita Rita ",
         "isCat":false,
-        "raca":"Amarelo",
+        "cor":"Amarelo",
         "idade":"1 anos",
         "sexo":0,
         "tutor":{
@@ -523,7 +523,7 @@
         "popularidade":4894,
         "nome":"Tim Maia",
         "isCat":true,
-        "raca":"Tricolor",
+        "cor":"Tricolor",
         "idade":"2 anos ",
         "sexo":0,
         "tutor":{
@@ -556,7 +556,7 @@
         "popularidade":5721,
         "nome":"Nero",
         "isCat":true,
-        "raca":"Cinza",
+        "cor":"Cinza",
         "idade":"4 anos",
         "sexo":1,
         "tutor":{
@@ -590,7 +590,7 @@
         "popularidade":3908,
         "nome":"Nina",
         "isCat":true,
-        "raca":"Bicolor",
+        "cor":"Bicolor",
         "idade":"4 meses",
         "sexo":0,
         "tutor":{
