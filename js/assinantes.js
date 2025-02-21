@@ -54,7 +54,7 @@ function carregarAssinantes() {
               </table>
             </div>
 
-            <button class="ver-mais" onclick="mostrarDetalhes('${assinante.id}')">Ver Mais</button>
+            <button class="ver-mais" onclick="mostrarDetalhes('${assinante.id}', this)">Ver mais</button>
           `;
 
           lista.appendChild(li); 
@@ -62,19 +62,18 @@ function carregarAssinantes() {
       })
       .catch(error => console.error('Erro ao carregar os dados:', error)); 
 }
-
-// Função para mostrar os detalhes do assinante
-function mostrarDetalhes(id) {
+ 
+function mostrarDetalhes(id, botao) {
     const detalhesDiv = document.getElementById(`detalhes-${id}`);
-    const botaoVerMais = detalhesDiv.nextElementSibling; // Botão "Ver Mais"
-
-    // Verifica se os detalhes estão escondidos e os exibe
+    
     if (detalhesDiv.style.display === "none" || !detalhesDiv.style.display) {
         detalhesDiv.style.display = "block";
-        botaoVerMais.style.marginTop = "1rem"; // Dá um espaçamento para o botão ficar abaixo
+        botao.textContent = "Fechar";
+        botao.style.marginTop = "1rem";
     } else {
-        detalhesDiv.style.display = "none"; // Se já estiver visível, esconde novamente
-        botaoVerMais.style.marginTop = "0"; // Remove o espaçamento quando o botão voltar ao normal
+        detalhesDiv.style.display = "none";
+        botao.textContent = "Ver mais"; 
+        botao.style.marginTop = "0";
     }
 }
 

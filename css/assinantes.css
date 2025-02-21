@@ -1,5 +1,5 @@
 body {
-  font-family: var(--fonte-texto), Arial, sans-serif;
+  font-family: var(--fonte-texto);
   margin: 0;
   padding: 0;
   background-color: var(--fundo);
@@ -110,4 +110,72 @@ h1 {
 
 .tabela-pagamentos tr:hover {
   background-color: #e0f7fa;
+}
+
+@media(max-width: 920px){
+  .assinante-card {
+    flex-direction: column;
+  }
+
+  .assinante-card .ver-mais {
+    width: 100%; 
+    margin-top: 1rem;
+  }
+  .detalhes-assinante {
+    padding: 1rem;
+  }
+
+  .tabela-pagamentos td,
+  .tabela-pagamentos th {
+    font-size: 0.9rem; 
+    padding: 8px;
+  }
+
+  .tabela-pagamentos th {
+    padding: 10px;
+  }
+}
+@media (max-width: 770px) {
+
+  h1 {
+    font-size: 2rem; 
+  }
+
+  .assinante-card {
+    flex-direction: column;
+  }
+
+  .assinante-card .ver-mais {
+    width: 100%; 
+    margin-top: 1rem;
+  }
+
+  .detalhes-assinante {
+    padding: 1rem;
+  }
+
+  .tabela-pagamentos td,
+  .tabela-pagamentos th {
+    font-size: 0.9rem; 
+    padding: 8px;
+  }
+
+  .tabela-pagamentos th {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  .assinante-card {
+    font-size: 0.85rem;
+  }
+  .detalhes-assinante{
+    text-align:center
+  }
+
 }
