@@ -167,44 +167,31 @@ favButon.addEventListener('click', () => {
 
 
 
-
-
-
-
-
-const images = document.querySelectorAll(".img-pick")
-const carrossel = document.querySelector(".carrossel")
-const leftArrow = document.querySelector(".pick-arrow-left")
-const rightArrow = document.querySelector(".pick-arrow-right")
+const img = document.querySelectorAll(".img-pick");
+const carrossel = document.querySelector(".carrossel");
+const leftArrow = document.querySelector(".pick-arrow-left");
+const rightArrow = document.querySelector(".pick-arrow-right");
 
 function calculateScroll(isLeftArrow) {
-    // númeoro de pixels que foram scrolados no carrossell
-    const currentScroll = carrossel.scrollLeft
-    // tamanho da imagem + gap: 1.2rem da grid
-    const imageWidth = images[0].offsetWidth + 1.2 * 16
-    // calcula o quanto deverá ser scrollado para o lado
+    const currentScroll = carrossel.scrollLeft;
+    const imageWidth = img[0].offsetWidth + 1.2 * 16; // Assuming 1.2rem gap
     return isLeftArrow ? currentScroll - imageWidth : currentScroll + imageWidth;
 }
 
-// Scroll to the previous image with looping behavior
 leftArrow.addEventListener("click", () => {
-    const newScroll = calculateScroll(true)
-
+    const newScroll = calculateScroll(true);
     if (newScroll < 0) {
-        carrossel.scrollTo({ left: carrossel.scrollWidth - carrossel.clientWidth, behavior: "smooth" })
+        carrossel.scrollTo({ left: carrossel.scrollWidth - carrossel.clientWidth, behavior: "smooth" });
     } else {
-        carrossel.scrollTo({ left: newScroll, behavior: "smooth" })
+        carrossel.scrollTo({ left: newScroll, behavior: "smooth" });
     }
-})
+});
 
-// Scroll to the next image with looping behavior
 rightArrow.addEventListener("click", () => {
-    const newScroll = calculateScroll(false)
-
+    const newScroll = calculateScroll(false);
     if (newScroll >= carrossel.scrollWidth - carrossel.clientWidth) {
-        carrossel.scrollTo({ left: 0, behavior: "smooth" })
+        carrossel.scrollTo({ left: 0, behavior: "smooth" });
     } else {
-        carrossel.scrollTo({ left: newScroll, behavior: "smooth" })
+        carrossel.scrollTo({ left: newScroll, behavior: "smooth" });
     }
-
-})
+});

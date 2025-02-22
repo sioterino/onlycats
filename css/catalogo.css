@@ -1,0 +1,7 @@
+.catalogo {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3.4rem;
+}
