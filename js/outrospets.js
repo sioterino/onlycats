@@ -7,7 +7,7 @@ fetch('../json/cats.json')
           return a.isCat - b.isCat
       }
       return b.popularidade - a.popularidade
-    });
+    })
     
     const outros = document.querySelector('#outrospets')
 

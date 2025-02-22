@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/secao.css">
     <link rel="stylesheet" href="../css/catcard.css">
+    <link rel="stylesheet" href="../css/galeria-corpo.css">
     <link rel="stylesheet" href="../css/catalogo.css">
     <link rel="stylesheet" href="../css/populares.css">
     <link rel="stylesheet" href="../css/footer.css">
@@ -95,7 +96,7 @@
                     <p>O gato mais quente!</p>
                     <h2>Escolha da Semana</h2>
                 </div>
-                <div class="botao-vermais"><a href="./galeria.html" class="vermais">Ver Mais <span class="icon arrow-right">chevron_right</span></a></div>
+                <div class="botao-vermais"><a href="./galeria.html#gatos" class="vermais">Ver Mais <span class="icon arrow-right">chevron_right</span></a></div>
             </div>
             <!-- weeks pick -->
             <div class="pick"><!-- preenchido dinamicamente com js --></div>
@@ -103,16 +104,16 @@
 
         <section class="corpo">
 
-            <aside class="filtros hideOnMobile">
-                <!-- filtros de pesquisa -->
-            </aside>
+            <!-- <aside class="filtros hideOnMobile">
+                <div class="secao-titulo">
+                    <h2 class="title" id="gatos">Filtros</h2>
+                </div>
+            </aside> -->
 
             <article class="galeria">
                 <!-- perfil dos gatinhos -->
 
-                 <div class="search">
-                    <!-- serchbar e ordem -->
-                 </div>
+
 
                  <div class="gatos">
                     <!-- galeria de gatos -->
@@ -121,7 +122,11 @@
                             <h2 id="gatos">Galeria</h2>
                             <p class="quantidade num-cats"><!-- preenchido dinamicamente com js --></p>
                         </div>
-                        <div class="botao-vermais"><a href="./galeria.html" class="vermais">Ver Mais <span class="icon arrow-right">chevron_right</span></a></div>
+                        <div class="search">
+                            <!-- serchbar e ordem -->
+                             <input type="text" name="searchbar" id="searchbar" autocomplete="off" spellcheck="off" placeholder="Pesquisar">
+                             <span class="icon lupa">search</span>
+                         </div>
                     </div>
                     <div class="catalogo"><!-- preenchido dinamicamente com js --></div>
                  </div>

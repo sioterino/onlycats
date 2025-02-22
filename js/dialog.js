@@ -7,7 +7,7 @@ fetch('../json/cats.json')
     createCatCard(cats[0], 'jpg', board)
 
     const catalogo = document.querySelector('.catalogo')
-    const cards = catalogo.querySelectorAll('.card');
+    const cards = catalogo.querySelectorAll('.card')
 
     cards.forEach(card => {
         card.addEventListener('click', () => {
