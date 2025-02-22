@@ -1,30 +1,29 @@
-const feedbackDiv = document.querySelector('#feedbacks')
-
 fetch('../json/feedbacks.json')
   .then(response => response.json())
   .then(tutores => {
     const indexes = randNums(tutores.length, 4)
     
-    const dupla31 = document.createElement('div')
-    dupla31.classList.add('dupla1')
-    dupla31.append(
-      createCard(tutores[indexes[0]]),
-      createCard(tutores[indexes[1]])
+    const dupla1 = document.createElement('div')
+    dupla1.classList.add('dupla1')
+    dupla1.append(
+      createFeedbackCard(tutores[indexes[0]]),
+      createFeedbackCard(tutores[indexes[1]])
     )
+
+    const feedbackDiv = document.querySelector('#feedbacks')
     
-    const dupla32 = document.createElement('div')
-    dupla32.classList.add('dupla2')
-    dupla32.append(
-      createCard(tutores[indexes[2]]),
-      createCard(tutores[indexes[3]])
+    const dupla2 = document.createElement('div')
+    dupla2.classList.add('dupla2')
+    dupla2.append(
+      createFeedbackCard(tutores[indexes[2]]),
+      createFeedbackCard(tutores[indexes[3]])
     )
 
-    feedbackDiv.appendChild(dupla31);
-    feedbackDiv.appendChild(dupla32);
-
+    feedbackDiv.appendChild(dupla1);
+    feedbackDiv.appendChild(dupla2);
   })
 
-function createCard(tutor) {
+function createFeedbackCard(tutor) {
   const petTutor = document.createElement('div')
   const pet = document.createElement('p')
   const ecomercial = document.createElement('p')

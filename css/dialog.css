@@ -1,5 +1,5 @@
-dialog {
-    display: none;
+.dialog {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -10,8 +10,8 @@ dialog {
     border: 1px dotted lightgray;
     outline: none;
 
-    width: 100vw;
-    max-width: 1300px;
+    width: 70vw;
+    overflow-y: scroll;
 
     position: fixed;
     top: 50%;
@@ -19,6 +19,29 @@ dialog {
     transform: translate(-50%, -50%);
 }
 
-dialog[open] {
-    display: flex;
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+@media (max-width: 1768px) {
+    .dialog {
+        width: fit-content;
+    }
+}
+
+@media (max-width: 1200px) {
+    .dialog {
+        border-radius: 0px;
+        width: 100vw;
+        height: 100vh;
+    }
+    .tags {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .dialog {
+        border-radius: 1rem;
+    }
 }

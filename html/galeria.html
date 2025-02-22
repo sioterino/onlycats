@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/dialog.css">
 
+    <script src="../js/utils.js"></script>
     <script src="../js/navbar.js" defer></script>
-    <script src="../js/fetch.js"></script>
     <script src="../js/weekspick.js" defer></script>
     <script src="../js/gatos.js" defer></script>
     <script src="../js/dialog.js" defer></script>
@@ -97,12 +97,9 @@
                 </div>
                 <div class="botao-vermais"><a href="./galeria.html" class="vermais">Ver Mais <span class="icon arrow-right">chevron_right</span></a></div>
             </div>
-
             <!-- weeks pick -->
-            <div class="pick"></div>
+            <div class="pick"><!-- preenchido dinamicamente com js --></div>
         </section>
-
-        <button id="openDialog">abrir dialog</button>
 
         <section class="corpo">
 
@@ -122,14 +119,11 @@
                     <div class="secao-titulo">
                         <div class="title">
                             <h2 id="gatos">Galeria</h2>
-                            <p class="num-cats">20 gatinhos</p>
+                            <p class="quantidade num-cats"><!-- preenchido dinamicamente com js --></p>
                         </div>
                         <div class="botao-vermais"><a href="./galeria.html" class="vermais">Ver Mais <span class="icon arrow-right">chevron_right</span></a></div>
                     </div>
-
-                    <div class="catalogo">
-
-                    </div>
+                    <div class="catalogo"><!-- preenchido dinamicamente com js --></div>
                  </div>
             </article>
 
@@ -181,7 +175,7 @@
 
     <dialog>
         <!-- perfil dos gatineos -->
-        <!-- <button id="closeDialog">fechar dialog</button> -->
+         <div class="dialog"><!-- preenchido dinamicamente com js --></div>
     </dialog>
 
 </body>

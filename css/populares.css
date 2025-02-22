@@ -1,29 +1,3 @@
-.populares {
-    margin-top: 4rem;
-}
-
-.populares .secao-titulo {
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    justify-content: space-between;
-}
-
-.vermais {
-    color: var(--azul);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    border: 1px solid var(--azul);
-    border-radius: 4rem;
-    padding: .35rem .8rem .3rem 1.6rem;
-}
-
-.arrow-right {
-    transform: translateY(-1px);
-}
-
 .galeria,
 .dupla1,
 .dupla2 {
@@ -76,6 +50,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.catid {
+    color: lightgray;
+    font-size: .8rem;
 }
 
 .nome {
