@@ -1,5 +1,6 @@
 let assinantes = [];
 
+
 function carregarAssinantes() {
     const dadosSalvos = localStorage.getItem('assinantes');
     
@@ -8,15 +9,10 @@ function carregarAssinantes() {
         renderizarAssinantes();
     } else {
         fetch('../json/assinantes.json') 
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao carregar o arquivo JSON');
-            }
-            return response.json();
-          })
+          .then(response => response.json())
           .then(data => {
             assinantes = data;
-            renderizarAssinantes(); 
+            renderizarAssinantes();
           })
           .catch(error => console.error('Erro ao carregar os dados:', error));
     }
@@ -70,8 +66,8 @@ function renderizarAssinantes() {
             </div>
 
             <button class="ver-mais" onclick="mostrarDetalhes('${assinante.id}', this)">Ver mais</button>
-        `;
-             lista.appendChild(li);
+        `;     
+        lista.appendChild(li);
     });
 }
 
@@ -88,10 +84,9 @@ function mostrarDetalhes(id, botao) {
         botao.style.marginTop = "0";
     }
 }
-function editarAssinante(id) {
-    assinanteEditando = assinantes.find(a => a.id === id);
 
-    if (!assinanteEditando) return;
+function editarAssinante(id) {
+    const assinanteEditando = assinantes.find(a => a.id === id);
 
     document.getElementById('editNome').value = assinanteEditando.nome;
     document.getElementById('editPlano').value = assinanteEditando.plano;
@@ -103,54 +98,60 @@ function editarAssinante(id) {
 
     document.getElementById('editForm').onsubmit = (event) => {
         event.preventDefault();
-
+        
         assinanteEditando.nome = document.getElementById('editNome').value;
         assinanteEditando.plano = document.getElementById('editPlano').value;
         assinanteEditando.endereco = document.getElementById('editEndereco').value;
         assinanteEditando.telefone = document.getElementById('editTelefone').value;
         assinanteEditando.dataAdesao = document.getElementById('editDataAdesao').value;
 
+
         renderizarAssinantes();
         localStorage.setItem('assinantes', JSON.stringify(assinantes));
 
-        fecharModal();
+    
+        fecharModalEdit();
     };
 }
 
-function fecharModal() {
+function fecharModalEdit() {
     document.getElementById('editModal').style.display = 'none';
 }
+document.getElementById('fecharModal').addEventListener('click', fecharModalEdit);
 
-document.getElementById('adicionar').onclick = function() {
+
+function adicionarAssinante() {
+
     document.getElementById('addModal').style.display = 'block';
-};
+    document.getElementById('addForm').onsubmit = (event) => {
+        event.preventDefault();
 
-document.getElementById('fecharModalAdicionar').onclick = function() {
-    document.getElementById('addModal').style.display = 'none';
-};
+        const novoAssinante = {
+            id: Date.now().toString(), 
+            nome: document.getElementById('nome').value,
+            plano: document.getElementById('plano').value,
+            endereco: document.getElementById('endereco').value,
+            telefone: document.getElementById('telefone').value,
+            dataAdesao: document.getElementById('dataAdesao').value,
+            pagamentos: [] 
+        };
 
-document.getElementById('addForm').onsubmit = function(event) {
-    event.preventDefault();
+        assinantes.push(novoAssinante);
 
-    const novoAssinante = {
-        id: Date.now().toString(),
-        nome: document.getElementById('nome').value,
-        plano: document.getElementById('plano').value,
-        endereco: document.getElementById('endereco').value,
-        telefone: document.getElementById('telefone').value,
-        dataAdesao: document.getElementById('dataAdesao').value,
+        renderizarAssinantes();
+
+        localStorage.setItem('assinantes', JSON.stringify(assinantes));
+
+        fecharModalAdd();
     };
+}
 
-    assinantes.push(novoAssinante);
-    renderizarAssinantes();
-    localStorage.setItem('assinantes', JSON.stringify(assinantes));
-
+function fecharModalAdd() {
     document.getElementById('addModal').style.display = 'none';
-};
+}
 
-document.getElementById('fecharModal').onclick = function() {
-    fecharModal();
-};
+document.getElementById('adicionar').addEventListener('click', adicionarAssinante);
+document.getElementById('fecharModalAdd').addEventListener('click', fecharModalAdd);
 
 
 function filtrarAssinantes() {
@@ -171,6 +172,5 @@ function filtrarAssinantes() {
         }
     }
 }
-
 
 window.onload = carregarAssinantes;
