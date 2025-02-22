@@ -8,14 +8,15 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/secao.css">
     <link rel="stylesheet" href="../css/welcome.css">
     <link rel="stylesheet" href="../css/populares.css">
     <link rel="stylesheet" href="../css/pacotes.css">
     <link rel="stylesheet" href="../css/feedbacks.css">
     <link rel="stylesheet" href="../css/footer.css">
 
+    <script src="../js/utils.js" defer></script>
     <script src="../js/navbar.js" defer></script>
-    <script src="../js/fetch.js"></script>
     <script src="../js/populares.js" defer></script>
     <script src="../js/outrospets.js" defer></script>
     <script src="../js/feedback.js" defer></script>
@@ -118,8 +119,10 @@
 
         <article class="article pacotes">
             <div class="secao-titulo">
-                <p>Pensando em Assinar?</p>
-                <h2 id="planos">Pacotes e Planos</h2>
+                <div class="desc">
+                    <p>Pensando em Assinar?</p>
+                    <h2 id="planos">Pacotes e Planos</h2>
+                </div>
             </div>
             <div class="planos">
                 <div class="basicos">
@@ -191,8 +194,10 @@
 
         <article id="experiencia" class="article feedbacks">
             <div class="secao-titulo">
-                <p>Ficou interessado?</p>
-                <h2 id="planos">Avaliações de Usuários</h2>
+                <div class="desc">
+                    <p>Ficou interessado?</p>
+                    <h2 id="planos">Avaliações de Usuários</h2>
+                </div>
             </div>
 
             <div id="feedbacks"  class="galeria"></div>

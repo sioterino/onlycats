@@ -66,3 +66,11 @@ body {
 .hollow {
     font-variation-settings: 'FILL' 0;
 }
+
+.icon.female {
+    color: #e91e63;
+}
+
+.icon.male {
+    color: #2196f3;
+}

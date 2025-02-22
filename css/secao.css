@@ -44,3 +44,7 @@
 .secao-titulo .arrow-right {
     transform: translateY(-1px);
 }
+
+.quantidade {
+    color: gray;
+}

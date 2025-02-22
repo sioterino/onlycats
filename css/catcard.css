@@ -4,10 +4,7 @@
     background-color: white;
     padding: 3rem;
     border-radius: 1rem;
-    max-width: 1230px;
     border: 1px dotted lightgray;
-
-    min-height: 45.5rem;
 }
 
 .img-container {
@@ -16,7 +13,7 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: fit-content;
     gap: 1rem;
     max-width: 700px;
 }
@@ -52,18 +49,21 @@
     flex-direction: column;
     flex-grow: 1;
     gap: 3rem;
+    width: fit-content;
 }
 
 .superior {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
 }
 
 .titulo {
     display: flex;
     flex-direction: column;
     gap: .3rem;
+    width: fit-content;
 }
 
 .botoes {
@@ -72,6 +72,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: .5rem;
+    width: fit-content;
 }
 
 .botao {
@@ -152,6 +153,7 @@ dialog .small-icons {
 dialog table {
     border-collapse: collapse;
     table-layout: auto;
+    width: 100%;
 }
 
 .table-titulo {
@@ -194,19 +196,11 @@ dialog td.icon {
     font-size: 1.5rem;
 }
 
-.icon.female {
-    color: #e91e63;
-}
-
-.icon.male {
-    color: #2196f3;
-}
-
 .tags {
     display: flex;
     gap: .5rem;
     flex-wrap: wrap;
-    width: 70%;
+    width: 24.5rem;
 }
 
 .tag {
@@ -216,4 +210,36 @@ dialog td.icon {
     font-weight: 600;
     color: white;
     user-select: none;
+}
+
+@media (max-width: 1230px) {
+    .pick {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+    }
+    .descricao {
+        width: 700px;
+    }
+}
+
+@media (max-width: 800px) {
+    .descricao {
+        width: 90vw;
+    }
+    .img-container {
+        width: 90vw;
+    }
+    .img-pick {
+        width: 90vw;
+        height: 90vw;
+    }
+    .icon.pick-arrow-left,
+    .icon.pick-arrow-right {
+        display: none;
+    }
+    .tags {
+        width: 100%;
+    }
 }

@@ -1,36 +1,17 @@
-let cats = JSON.parse(localStorage.getItem("catsData"))
-const onlyCats = cats.filter(cat => cat.isCat)
+fetch('../json/cats.json')
+  .then(response => response.json())
+  .then(cats => {
 
-const pick = document.querySelector('.pick')
-createCatCard(onlyCats[randInt(0, onlyCats.length)], 'jpg', pick)
+    const onlyCats = cats.filter(cat => cat.isCat)
 
-// função que ajuda a criar elementos html com mais agilidade
-function createElement(element, classList = null, textContent = null) {
-    // ciaar o elemento
-    const el = document.createElement(element)
+    const pick = document.querySelector('.pick')
+    createCatCard(onlyCats[randInt(0, onlyCats.length)], '.jpg', pick)
 
-    // caso a class tenha sido especificada
-    if (classList !== null) {
-        // é uma lista de classes?
-        if (Array.isArray(classList)) {
-            classList.forEach(cls => el.classList.add(cls))
-            
-        // classe única
-        } else if (typeof classList === "string") {
-            el.classList.add(classList)
-        }
-    }
+    catCardEventListener(pick)
 
-    // possui textContent?
-    if (textContent !== null) {
-        el.textContent = textContent
-    }
+  })
 
-    return el
-}
-
-// cria to card inteiro kkkkk
-function createCatCard(cat, ext, pick) {
+function createCatCard(cat, ext, card) {
 
     const imgContainer = createElement('div', 'img-container')
 
@@ -42,11 +23,11 @@ function createCatCard(cat, ext, pick) {
     
     for (let i = 0; i < cat.imgPath.length; i++) {
         const img = createElement('div', 'img-pick')    
-        img.style.backgroundImage = `url(${cat.imgPath[i]}.${ext})`     
+        img.style.backgroundImage = `url(${cat.imgPath[i]}${ext})`     
         carrossel.append(img)
     }
 
-    pick.append(imgContainer)
+    card.append(imgContainer)
 
     
     const descricao = createElement('div', 'descricao')
@@ -59,7 +40,7 @@ function createCatCard(cat, ext, pick) {
 
     superior.append(titulo, smallIcons)
 
-    const idcat = createElement('p', 'idcat', `#${cat.id}`)
+    const idcat = createElement('p', 'idcat', `# ${cat.id}`)
     const nomecat = createElement('p', 'nomecat', cat.nome)
     const assinantescat = createElement('p', 'assinantescat', `${formatNumber(cat.popularidade)} Assinantes`)
 
@@ -70,7 +51,7 @@ function createCatCard(cat, ext, pick) {
     const heart = createElement('span', ['icon', 'heart', 'hollow'], 'favorite')
     heartDiv.append(heart)
 
-    if (pick.tagName === 'DIALOG') {
+    if (card.classList.contains('dialog')) {
         const closeDiv = createElement('div', ['botao', 'botao-close'])
         const close = createElement('span', ['icon', 'close'], 'close')
         closeDiv.append(close)
@@ -116,8 +97,8 @@ function createCatCard(cat, ext, pick) {
             tr.classList.add('impar')
         }
 
+        console.log(i)
         const th = createElement('th', null, content[i].label)
-
         const td = createElement('td', null, content[i].value)
 
         if (content[i].icon) {
@@ -140,58 +121,7 @@ function createCatCard(cat, ext, pick) {
         tags.appendChild(tag)
     })
 
-    pick.appendChild(descricao)
+    card.appendChild(descricao)
 }
 
 // gera um número aleatório onde min é inclusivo e max é exclusivo
-function randInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min
-}
-
-// formata númeors 1567 > 1.5K
-function formatNumber(num) {
-    return new Intl.NumberFormat('en-US', {
-        notation: "compact",
-        maximumFractionDigits: 1
-    }).format(num)
-}
-
-
-// animação do coração de favorito
-const favButon = pick.querySelector('.botao-fav')
-favButon.addEventListener('click', () => {
-    const heart = favButon.querySelector('.icon')
-    heart.classList.toggle('hollow')
-    heart.classList.toggle('liked')
-})
-
-
-
-const img = document.querySelectorAll(".img-pick");
-const carrossel = document.querySelector(".carrossel");
-const leftArrow = document.querySelector(".pick-arrow-left");
-const rightArrow = document.querySelector(".pick-arrow-right");
-
-function calculateScroll(isLeftArrow) {
-    const currentScroll = carrossel.scrollLeft;
-    const imageWidth = img[0].offsetWidth + 1.2 * 16; // Assuming 1.2rem gap
-    return isLeftArrow ? currentScroll - imageWidth : currentScroll + imageWidth;
-}
-
-leftArrow.addEventListener("click", () => {
-    const newScroll = calculateScroll(true);
-    if (newScroll < 0) {
-        carrossel.scrollTo({ left: carrossel.scrollWidth - carrossel.clientWidth, behavior: "smooth" });
-    } else {
-        carrossel.scrollTo({ left: newScroll, behavior: "smooth" });
-    }
-});
-
-rightArrow.addEventListener("click", () => {
-    const newScroll = calculateScroll(false);
-    if (newScroll >= carrossel.scrollWidth - carrossel.clientWidth) {
-        carrossel.scrollTo({ left: 0, behavior: "smooth" });
-    } else {
-        carrossel.scrollTo({ left: newScroll, behavior: "smooth" });
-    }
-});
