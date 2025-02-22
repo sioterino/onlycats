@@ -8,7 +8,7 @@ function carregarAssinantes() {
         renderizarAssinantes();
     } else {
         fetch('../json/assinantes.json') 
-          .then(response => {
+        .then(response => {
             if (!response.ok) {
                 throw new Error('Erro ao carregar o arquivo JSON');
             }
@@ -16,8 +16,7 @@ function carregarAssinantes() {
           })
           .then(data => {
             assinantes = data;
-            renderizarAssinantes();
-            salvaredicoes();  
+            renderizarAssinantes(); 
           })
           .catch(error => console.error('Erro ao carregar os dados:', error));
     }
@@ -43,8 +42,8 @@ function renderizarAssinantes() {
                 <p><strong>Telefone:</strong> ${assinante.telefone}</p>
                 <p><strong>Data de Adesão:</strong> ${assinante.dataAdesao}</p>
                 <button class="editar-usuario" onclick="editarAssinante('${assinante.id}')">Editar Usuário</button>
-                
-                <table class="tabela-pagamentos">
+
+                 <table class="tabela-pagamentos">
                     <thead>
                         <tr>
                             <th>Dia</th>
@@ -68,16 +67,13 @@ function renderizarAssinantes() {
                         `).join('')}
                     </tbody>
                 </table>
-
-                </div>
+            </div>
 
             <button class="ver-mais" onclick="mostrarDetalhes('${assinante.id}', this)">Ver mais</button>
         `;
-
-        lista.appendChild(li); 
+             lista.appendChild(li);
     });
 }
-
 
 function mostrarDetalhes(id, botao) {
     const detalhesDiv = document.getElementById(`detalhes-${id}`);
@@ -92,43 +88,70 @@ function mostrarDetalhes(id, botao) {
         botao.style.marginTop = "0";
     }
 }
-
-function salvaredicoes(){
-    localStorage.setItem('assinantes', JSON.stringify(assinantes));
-}
-
 function editarAssinante(id) {
-    const assinante = assinantes.find(a => a.id === id);
+    assinanteEditando = assinantes.find(a => a.id === id);
 
-    if (!assinante) return;
+    if (!assinanteEditando) return;
 
-    document.getElementById('nome').value = assinante.nome;
-    document.getElementById('plano').value = assinante.plano;
-    document.getElementById('endereco').value = assinante.endereco;
-    document.getElementById('telefone').value = assinante.telefone;
-    document.getElementById('dataAdesao').value = assinante.dataAdesao;
+    document.getElementById('editNome').value = assinanteEditando.nome;
+    document.getElementById('editPlano').value = assinanteEditando.plano;
+    document.getElementById('editEndereco').value = assinanteEditando.endereco;
+    document.getElementById('editTelefone').value = assinanteEditando.telefone;
+    document.getElementById('editDataAdesao').value = assinanteEditando.dataAdesao;
 
     document.getElementById('editModal').style.display = 'block';
 
     document.getElementById('editForm').onsubmit = (event) => {
         event.preventDefault();
 
-        assinante.nome = document.getElementById('nome').value;
-        assinante.plano = document.getElementById('plano').value;
-        assinante.endereco = document.getElementById('endereco').value;
-        assinante.telefone = document.getElementById('telefone').value;
-        assinante.dataAdesao = document.getElementById('dataAdesao').value;
+        assinanteEditando.nome = document.getElementById('editNome').value;
+        assinanteEditando.plano = document.getElementById('editPlano').value;
+        assinanteEditando.endereco = document.getElementById('editEndereco').value;
+        assinanteEditando.telefone = document.getElementById('editTelefone').value;
+        assinanteEditando.dataAdesao = document.getElementById('editDataAdesao').value;
 
         renderizarAssinantes();
-        salvaredicoes(); 
-        
+        localStorage.setItem('assinantes', JSON.stringify(assinantes));
+
         fecharModal();
-    }
+    };
 }
 
 function fecharModal() {
     document.getElementById('editModal').style.display = 'none';
 }
+
+document.getElementById('adicionar').onclick = function() {
+    document.getElementById('addModal').style.display = 'block';
+};
+
+document.getElementById('fecharModalAdicionar').onclick = function() {
+    document.getElementById('addModal').style.display = 'none';
+};
+
+document.getElementById('addForm').onsubmit = function(event) {
+    event.preventDefault();
+
+    const novoAssinante = {
+        id: Date.now().toString(),
+        nome: document.getElementById('nome').value,
+        plano: document.getElementById('plano').value,
+        endereco: document.getElementById('endereco').value,
+        telefone: document.getElementById('telefone').value,
+        dataAdesao: document.getElementById('dataAdesao').value,
+    };
+
+    assinantes.push(novoAssinante);
+    renderizarAssinantes();
+    localStorage.setItem('assinantes', JSON.stringify(assinantes));
+
+    document.getElementById('addModal').style.display = 'none';
+};
+
+document.getElementById('fecharModal').onclick = function() {
+    fecharModal();
+};
+
 
 function filtrarAssinantes() {
     const input = document.getElementById('searchInput');
@@ -148,5 +171,6 @@ function filtrarAssinantes() {
         }
     }
 }
+
 
 window.onload = carregarAssinantes;

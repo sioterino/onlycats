@@ -80,42 +80,67 @@
     <main>
         <div class="container">
             <h1>Fãs dos nossos profissionais</h1>
-
-
+    
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Pesquise por nome ou plano..."
-                    oninput="filtrarAssinantes()">
+                <input type="text" id="searchInput" placeholder="Pesquise por nome ou plano..." onkeyup="filtrarAssinantes()">
+                <button id="adicionar">Adicionar</button>
             </div>
-
-            <ul id="associados"> </ul>
-
+            
+            <div id="addModal" style="display:none">
+                <div class="modal-content">
+                    <h2>Adicionar Assinante</h2>
+                    <form id="addForm">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required><br><br>
+    
+                        <label for="plano">Plano:</label>
+                        <input type="text" id="plano" name="plano" required><br><br>
+    
+                        <label for="endereco">Endereço:</label>
+                        <input type="text" id="endereco" name="endereco" required><br><br>
+    
+                        <label for="telefone">Telefone:</label>
+                        <input type="text" id="telefone" name="telefone" required><br><br>
+    
+                        <label for="dataAdesao">Data de Adesão:</label>
+                        <input type="text" id="dataAdesao" name="dataAdesao" required><br><br>
+    
+                        <button type="submit">Adicionar</button>
+                        <button type="button" id="fecharModalAdicionar">Fechar</button>
+                    </form>
+                </div>
+            </div>
+    
+            <ul id="associados"></ul>
         </div>
-        
-    <div id="editModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="fecharModal()">&times;</span>
-            <h2>Editar Assinante</h2>
-            <form id="editForm">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required><br><br>
-
-                <label for="plano">Plano:</label>
-                <input type="text" id="plano" name="plano" required><br><br>
-
-                <label for="endereco">Endereço:</label>
-                <input type="text" id="endereco" name="endereco" required><br><br>
-
-                <label for="telefone">Telefone:</label>
-                <input type="text" id="telefone" name="telefone" required><br><br>
-
-                <label for="dataAdesao">Data de Adesão:</label>
-                <input type="text" id="dataAdesao" name="dataAdesao" required><br><br>
-
-                <button type="submit">Salvar Alterações</button>
-            </form>
+    
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="fecharModal">&times;</span>
+                <h2>Editar Assinante</h2>
+                <form id="editForm">
+                    <label for="editNome">Nome:</label>
+                    <input type="text" id="editNome" name="nome" required><br><br>
+    
+                    <label for="editPlano">Plano:</label>
+                    <input type="text" id="editPlano" name="plano" required><br><br>
+    
+                    <label for="editEndereco">Endereço:</label>
+                    <input type="text" id="editEndereco" name="endereco" required><br><br>
+    
+                    <label for="editTelefone">Telefone:</label>
+                    <input type="text" id="editTelefone" name="telefone" required><br><br>
+    
+                    <label for="editDataAdesao">Data de Adesão:</label>
+                    <input type="text" id="editDataAdesao" name="dataAdesao" required><br><br>
+    
+                    <button type="submit">Salvar Alterações</button>
+                </form>
+            </div>
         </div>
-    </div>
     </main>
+    
+    
     <footer>
         <div class="footer">
             <section id="frase">
