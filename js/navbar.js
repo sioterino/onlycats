@@ -63,5 +63,5 @@ navLinksSmoothScroll.forEach(link => {
           dropUp.classList.remove("clicked")
         }, 200)
       }
-  });
-});
+  })
+})

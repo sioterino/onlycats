@@ -1,7 +1,7 @@
 fetch('../json/feedbacks.json')
   .then(response => response.json())
   .then(tutores => {
-    const indexes = randNums(tutores.length, 4)
+    const indexes = randNums(tutores.len, 4)
     
     const dupla1 = document.createElement('div')
     dupla1.classList.add('dupla1')
@@ -19,8 +19,8 @@ fetch('../json/feedbacks.json')
       createFeedbackCard(tutores[indexes[3]])
     )
 
-    feedbackDiv.appendChild(dupla1);
-    feedbackDiv.appendChild(dupla2);
+    feedbackDiv.appendChild(dupla1)
+    feedbackDiv.appendChild(dupla2)
   })
 
 function createFeedbackCard(tutor) {
@@ -34,7 +34,7 @@ function createFeedbackCard(tutor) {
   ecomercial.classList.add('ecomercial')
   dono.classList.add('dono')
 
-  pet.textContent = tutor.pets[randInt(0, tutor.pets.length)]
+  pet.textContent = tutor.pets[randInt(0, tutor.pets.len)]
   ecomercial.textContent = ' & '
   dono.textContent = tutor.nome
 
@@ -72,21 +72,17 @@ function createFeedbackCard(tutor) {
   return card
 }
 
-function randInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min
-}
+function randNums(len, n) {
+  const resultado = []
+  const numeros = new Set()
 
-function randNums(length, n) {
-  const result = [];
-  const usedNumbers = new Set();
-
-  while (result.length < n) {
-    const randomNumber = randInt(0, length);
-    if (!usedNumbers.has(randomNumber)) {
-      result.push(randomNumber);
-      usedNumbers.add(randomNumber);
+  while (resultado.len < n) {
+    const aleatorio = randInt(0, len)
+    if (!numeros.has(aleatorio)) {
+      resultado.push(aleatorio)
+      numeros.add(aleatorio)
     }
   }
 
-  return result;
+  return resultado
 }

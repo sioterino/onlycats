@@ -1,0 +1,22 @@
+.search {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    padding-inline: 2rem;
+    height: 3rem;
+
+    border: 1px solid var(--azul);
+    border-radius: 4rem;
+}
+
+#searchbar {
+    background-color: var(--fundo);
+    border: none;
+    outline: none;
+    line-height: 150%;
+    height: 100%;
+    font-size: 1.1rem;
+}

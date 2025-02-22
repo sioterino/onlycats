@@ -97,7 +97,6 @@ function createCatCard(cat, ext, card) {
             tr.classList.add('impar')
         }
 
-        console.log(i)
         const th = createElement('th', null, content[i].label)
         const td = createElement('td', null, content[i].value)
 
@@ -123,5 +122,3 @@ function createCatCard(cat, ext, card) {
 
     card.appendChild(descricao)
 }
-
-// gera um número aleatório onde min é inclusivo e max é exclusivo
