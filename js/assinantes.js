@@ -1,4 +1,18 @@
 let assinantes = [];
+function gerarID(prefixo = '10', tamanho = 5) {
+    let idUnico;
+    let idExistente = true;
+
+    while (idExistente) {
+        const numeroAleatorio = Math.floor(Math.random() * 100000);
+        const id = numeroAleatorio.toString().padStart(tamanho, '0');
+        idUnico = prefixo + id;
+
+        idExistente = assinantes.some(assinante => assinante.id === idUnico);
+    }
+
+    return idUnico;
+}
 
 
 function carregarAssinantes() {
@@ -30,7 +44,7 @@ function renderizarAssinantes() {
             <div>
                 <div class="nome">${assinante.nome}</div>
                 <p class="plano"><strong>Plano:</strong> ${assinante.plano}</p>
-                <p><strong>ID:</strong> ${assinante.id}</p>
+                <p class="id"><strong>ID:</strong> ${assinante.id}</p>
             </div>
 
             <div id="detalhes-${assinante.id}" class="detalhes-assinante" style="display: none;">
@@ -127,7 +141,7 @@ function adicionarAssinante() {
         event.preventDefault();
 
         const novoAssinante = {
-            id: Date.now().toString(), 
+            id: gerarID(),
             nome: document.getElementById('nome').value,
             plano: document.getElementById('plano').value,
             endereco: document.getElementById('endereco').value,
@@ -164,8 +178,9 @@ function filtrarAssinantes() {
         const item = items[i];
         const nome = item.querySelector('.nome').textContent.toLowerCase();
         const plano = item.querySelector('.plano').textContent.toLowerCase();
+        const id = item.querySelector('.id').textContent.toLowerCase();
 
-        if (nome.includes(filtro) || plano.includes(filtro)) {
+        if (nome.includes(filtro) || plano.includes(filtro) || id.includes(filtro)) {
             item.style.display = '';
         } else {
             item.style.display = 'none';
