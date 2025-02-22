@@ -1,18 +1,26 @@
 let assinantes = [];
 
 function carregarAssinantes() {
-    fetch('../json/assinantes.json') 
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Erro ao carregar o arquivo JSON');
-        }
-        return response.json();
-      })
-      .then(data => {
-        assinantes = data;
+    const dadosSalvos = localStorage.getItem('assinantes');
+    
+    if (dadosSalvos) {
+        assinantes = JSON.parse(dadosSalvos);
         renderizarAssinantes();
-      })
-      .catch(error => console.error('Erro ao carregar os dados:', error)); 
+    } else {
+        fetch('../json/assinantes.json') 
+          .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao carregar o arquivo JSON');
+            }
+            return response.json();
+          })
+          .then(data => {
+            assinantes = data;
+            renderizarAssinantes();
+            salvaredicoes();  
+          })
+          .catch(error => console.error('Erro ao carregar os dados:', error));
+    }
 }
 
 function renderizarAssinantes() {
@@ -70,6 +78,7 @@ function renderizarAssinantes() {
     });
 }
 
+
 function mostrarDetalhes(id, botao) {
     const detalhesDiv = document.getElementById(`detalhes-${id}`);
     
@@ -82,6 +91,10 @@ function mostrarDetalhes(id, botao) {
         botao.textContent = "Ver mais"; 
         botao.style.marginTop = "0";
     }
+}
+
+function salvaredicoes(){
+    localStorage.setItem('assinantes', JSON.stringify(assinantes));
 }
 
 function editarAssinante(id) {
@@ -107,7 +120,7 @@ function editarAssinante(id) {
         assinante.dataAdesao = document.getElementById('dataAdesao').value;
 
         renderizarAssinantes();
-
+        salvaredicoes(); 
         
         fecharModal();
     }
