@@ -36,7 +36,9 @@ function renderizarAssinantes() {
     const lista = document.getElementById('associados');
     lista.innerHTML = '';
 
-    assinantes.forEach(assinante => {
+    const membrosVisiveis = assinantes.filter(assinante => !assinante.excluido);
+
+    membrosVisiveis.forEach(assinante => {
         const li = document.createElement('li');
         li.classList.add('assinante-card'); 
 
@@ -52,6 +54,7 @@ function renderizarAssinantes() {
                 <p><strong>Telefone:</strong> ${assinante.telefone}</p>
                 <p><strong>Data de Adesão:</strong> ${assinante.dataAdesao}</p>
                 <button class="editar-usuario" onclick="editarAssinante('${assinante.id}')">Editar Usuário</button>
+                <button class="excluir-usuario" onclick="excluirAssinante('${assinante.id}')">Excluir</button>
 
                  <table class="tabela-pagamentos">
                     <thead>
@@ -65,7 +68,8 @@ function renderizarAssinantes() {
                         </tr>
                     </thead>
                     <tbody>
-                        ${assinante.pagamentos.map(pagamento => `
+                       ${assinante.pagamentos && Array.isArray(assinante.pagamentos) 
+                        ? assinante.pagamentos.map(pagamento => `
                             <tr>
                                 <td>${pagamento.dia}</td>
                                 <td>${pagamento.data}</td>
@@ -74,10 +78,12 @@ function renderizarAssinantes() {
                                 <td>${pagamento.plano}</td>
                                 <td>${pagamento.valor}</td>
                             </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            </div>
+                       `).join('') 
+                        : '<tr><td colspan="6">Nenhum pagamento registrado.</td></tr>' 
+                    }
+                </tbody>
+            </table>
+        </div>
 
             <button class="ver-mais" onclick="mostrarDetalhes('${assinante.id}', this)">Ver mais</button>
         `;     
@@ -147,7 +153,7 @@ function adicionarAssinante() {
             endereco: document.getElementById('endereco').value,
             telefone: document.getElementById('telefone').value,
             dataAdesao: document.getElementById('dataAdesao').value,
-            pagamentos: [] 
+            pagamentos:[] 
         };
 
         assinantes.push(novoAssinante);
@@ -167,6 +173,15 @@ function fecharModalAdd() {
 document.getElementById('adicionar').addEventListener('click', adicionarAssinante);
 document.getElementById('fecharModalAdd').addEventListener('click', fecharModalAdd);
 
+function excluirAssinante(id) {
+    const assinante = assinantes.find(a => a.id === id);
+
+    if (assinante) {
+        assinante.excluido = true; 
+        renderizarAssinantes();    
+        localStorage.setItem('assinantes', JSON.stringify(assinantes));  
+    }
+}
 
 function filtrarAssinantes() {
     const input = document.getElementById('searchInput');

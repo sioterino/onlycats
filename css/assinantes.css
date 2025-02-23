@@ -178,7 +178,7 @@ h1 {
   border-color: var(--laranja);
 }
 
-.modal-content button {
+.modal-content button, #adicionar{
   padding: 10px 20px;
   background-color: var(--azul);
   color: white;
@@ -189,8 +189,9 @@ h1 {
   margin-top: 10px;
 }
 
-.modal-content button:hover {
+.modal-content button:hover, #adicionar:hover  {
   background-color: var(--laranja);
+  border: none;
 }
 
 #fecharModalAdd, .close {
@@ -206,6 +207,23 @@ h1 {
 #fecharModalAdd:hover, .close:hover {
   color: black;
 }
+.excluir-usuario, .editar-usuario {
+  background-color: var(--laranja);
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  border-radius: 4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.excluir-usuario:hover , .editar-usuario:hover{
+  background-color: var(--azul);
+
+}
+
 
 
 
