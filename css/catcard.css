@@ -20,6 +20,14 @@
 
 .pick-arrow-right,
 .pick-arrow-left {
+    color: gray;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.pick-arrow-right:hover,
+.pick-arrow-left:hover {
+    color: var(--azul);
     cursor: pointer;
 }
 
@@ -96,7 +104,12 @@ dialog .small-icons {
 
 .botao-fav,
 .botao-close {
+    color: gray;
     transition: all .1s ease-in-out;
+}
+.botao-fav:hover,
+.botao-close:hover {
+    color: var(--azul);
 }
 .botao-fav:active,
 .botao-close:active {
@@ -129,6 +142,15 @@ dialog .small-icons {
     border-radius: 4rem;
     padding: 4px 17px 4px 19px;
     transition: all .1s ease-in-out;
+}
+
+.botao-chat:hover {
+    background-color: var(--laranja);
+    border: 3px solid var(--laranja);
+}
+.botao-cart:hover {
+    background-color: var(--laranja);
+    color: black;
 }
 
 .botao-chat:active {

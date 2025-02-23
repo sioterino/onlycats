@@ -15,7 +15,7 @@
     flex-direction: row;
     align-self: center;
     justify-content: space-between;
-    width: 1230px;
+    flex-wrap: wrap;
 }
 
 .desc,
@@ -48,4 +48,10 @@
 
 .quantidade {
     color: gray;
+}
+
+.far-right {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
 }

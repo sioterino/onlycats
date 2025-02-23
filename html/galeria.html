@@ -6,6 +6,7 @@
     <title>OnlyCats</title>
 
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/select.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/secao.css">
     <link rel="stylesheet" href="../css/catcard.css">
@@ -102,36 +103,109 @@
             <div class="pick"><!-- preenchido dinamicamente com js --></div>
         </section>
 
-        <section class="corpo">
+        <section class="galeria">
+            <!-- perfil dos gatinhos -->
 
-            <!-- <aside class="filtros hideOnMobile">
-                <div class="secao-titulo">
-                    <h2 class="title" id="gatos">Filtros</h2>
-                </div>
-            </aside> -->
-
-            <article class="galeria">
-                <!-- perfil dos gatinhos -->
-
-
-
-                 <div class="gatos">
-                    <!-- galeria de gatos -->
+                <div class="gatos">
+                <!-- galeria de gatos -->
                     <div class="secao-titulo">
                         <div class="title">
                             <h2 id="gatos">Galeria</h2>
                             <p class="quantidade num-cats"><!-- preenchido dinamicamente com js --></p>
                         </div>
-                        <div class="search">
-                            <!-- serchbar e ordem -->
-                             <input type="text" name="searchbar" id="searchbar" autocomplete="off" spellcheck="off" placeholder="Pesquisar">
-                             <span class="icon lupa">search</span>
-                         </div>
+                        
+                        <div class="far-right">
+                            <select name="ordenar" id="ordenar">
+                                <!-- ordenar a lista de gatos -->
+                                <option value="0">Mais Recente</option>
+                                <option value="1">Mais Antigo</option>
+                                <option value="2">Mais Popular</option>
+                                <option value="3">Menos Popular</option>
+                            </select>
+    
+                            <div class="search">
+                                <!-- serchbar e ordem -->
+                                <input type="text" name="searchbar" id="searchbar" autocomplete="off" spellcheck="off" placeholder="Pesquisar">
+                                <label for="searchbar"><span class="icon lupa">search</span></label>
+                            </div>
+                            
+                            <span class="icon filter filteron">filter_alt</span>
+                            <span class="icon filter filteroff hidden">filter_alt_off</span>
+                        </div>
                     </div>
-                    <div class="catalogo"><!-- preenchido dinamicamente com js --></div>
-                 </div>
-            </article>
 
+                    <div class="filtros">
+                        <!-- filtragem de gatineos -->
+                        
+                        <div class="filter-options hidden">
+                            <!-- filtra gatos por cor -->
+                    
+                            <div class="trisal">
+                                <!-- filtra gatos do restante dos pets -->
+                                <div class="categoria">
+                                    <h4>Pets</h4>
+                                    <label><input type="checkbox" class="filtro sexo" value="true">Gatos</label>
+                                    <label><input type="checkbox" class="filtro sexo" value="false">Outros</label>
+                                </div>
+
+                                <!-- filtra gatos por cor -->
+                                <div class="categoria">
+                                    <h4>Cor</h4>
+                                    <label><input type="checkbox" class="filtro cor" value="Laranja">Laranja</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Bicolor">Bicolor</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Tigrado">Tigrado</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Branco">Branco</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Castanho">Castanho</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Preto">Preto</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Tricolor">Tricolor</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Cinza">Cinza</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Azul">Azul</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Amarelo">Amarelo</label>
+                                </div>
+                        
+                                <!-- filtra gatos por sexo -->
+                                <div class="categoria">
+                                    <h4>Sexo</h4>
+                                    <label><input type="checkbox" class="filtro sexo" value="1">Macho</label>
+                                    <label><input type="checkbox" class="filtro sexo" value="0">Fêmea</label>
+                                </div>
+                                <div class="in filteroff"><span class="icon filter">filter_alt_off</span></div>
+                            </div>
+                    
+                            <!-- filtra gatos por personalidade -->
+                            <div class="categoria">
+                                <h4>Personalidade</h4>
+                                <label><input type="checkbox" class="filtro tag" value="temperamental">Temperamental</label>
+                                <label><input type="checkbox" class="filtro tag" value="preguiços">Preguiçoso</label>
+                                <label><input type="checkbox" class="filtro tag" value="caçad">Caçador</label>
+                                <label><input type="checkbox" class="filtro tag" value="comil">Comilão</label>
+                                <label><input type="checkbox" class="filtro tag" value="carente">Carente</label>
+                                <label><input type="checkbox" class="filtro tag" value="carinhos">Carinhoso</label>
+                                <label><input type="checkbox" class="filtro tag" value="idos">Idoso</label>
+                                <label><input type="checkbox" class="filtro tag" value="gulos">Guloso</label>
+                                <label><input type="checkbox" class="filtro tag" value="brincalh">Brincalhão</label>
+                                <label><input type="checkbox" class="filtro tag" value="bagunceir">Bagunceiro</label>
+                                <label><input type="checkbox" class="filtro tag" value="manhos">Manhoso</label>
+                                <label><input type="checkbox" class="filtro tag" value="pelancud">Pelancudo</label>
+                                <label><input type="checkbox" class="filtro tag" value="falador">Faladoro</label>
+                                <label><input type="checkbox" class="filtro tag" value="dorminhoc">Dorminhoco</label>
+                                <label><input type="checkbox" class="filtro tag" value="gord">Gordo</label>
+                                <label><input type="checkbox" class="filtro tag" value="calm">Calmo</label>
+                                <label><input type="checkbox" class="filtro tag" value="espert">Esperto</label>
+                                <label><input type="checkbox" class="filtro tag" value="querid">Querido</label>
+                                <label><input type="checkbox" class="filtro tag" value="div">Divo</label>
+                                <label><input type="checkbox" class="filtro tag" value="animad">Animado</label>
+                                <label><input type="checkbox" class="filtro tag" value="bangunceir">Bangunceiro</label>
+                                <label><input type="checkbox" class="filtro tag" value="mimad">Mimado</label>
+                                <label><input type="checkbox" class="filtro tag" value="encrenqueir">Encrenqueiro</label>
+                                <label><input type="checkbox" class="filtro tag" value="sorridente">Sorridente</label>
+                                <label><input type="checkbox" class="filtro tag" value="fresc">Fresco</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class ="catalogo"><!-- preenchido dinamicamente com js --></div>
+                </div>
         </section>
 
         <section class="goodbye">
