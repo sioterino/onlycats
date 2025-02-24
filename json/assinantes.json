@@ -1,6 +1,6 @@
 [
   {
-    "id": "#013001",
+    "id": "013001",
     "nome": "julinha tubarão",
     "endereco": "la em casa",
     "telefone": "(48) 99999-8888",
@@ -35,7 +35,7 @@
     ]
   },
   {
-    "id": "#013002",
+    "id": "013002",
     "nome": "sofia serafina",
     "endereco": "Na casa dela uau",
     "telefone": "(48) 98888-7777",
@@ -62,7 +62,7 @@
     ]
   },
   {
-    "id": "#013003",
+    "id": "013003",
     "nome": "luiz nuca express",
     "endereco": "Rua dos Gatos, 100",
     "telefone": "(48) 91234-5678",
@@ -81,7 +81,7 @@
     ]
   },
   {
-    "id": "#013004",
+    "id": "013004",
     "nome": "santo amaro",
     "endereco": "Avenida das Flores, 250",
     "telefone": "(48) 92345-6789",
@@ -108,7 +108,7 @@
     ]
   },
   {
-    "id": "#013005",
+    "id": "013005",
     "nome": "isabella meio metro",
     "endereco": "Rua do Sol, 300",
     "telefone": "(48) 93456-7890",
@@ -135,7 +135,7 @@
     ]
   },
   {
-    "id": "#013006",
+    "id": "013006",
     "nome": "ingridy moto bala",
     "endereco": "Rua da Liberdade, 400",
     "telefone": "(48) 97654-3210",
@@ -154,7 +154,7 @@
     ]
   },
   {
-    "id": "#013007",
+    "id": "013007",
     "nome": "isadora dos piriquitos",
     "endereco": "Avenida do Sol, 500",
     "telefone": "(48) 98765-4321",

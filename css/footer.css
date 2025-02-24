@@ -18,10 +18,10 @@ footer {
 }
 #frase p{
     padding-top:5px;
-color:#1e1e1e;
-text-align:left;
-font-size:15px;
-margin-bottom:40px;
+    color:#1e1e1e;
+    text-align:left;
+    font-size:15px;
+    margin-bottom:40px;
 }
 #nav-emiau{
     display: flex;
@@ -80,7 +80,7 @@ margin-bottom:40px;
 #emiau button {
     border: none;
     border-radius: 4rem;
-    background-color: var(--branco);  
+    background-color: var(--branco);
     color: var(--azul);
     padding: 10px 13px 10px 13px;
     cursor: pointer; 
@@ -115,6 +115,35 @@ margin-bottom:40px;
     letter-spacing: -2px;
     margin-right: 20px;
     
+}
+
+.footer-relatorio {
+    color: var(--laranja);
+    padding: 1em;
+    width: 100vw;
+    background-color: var(--azul);
+}
+
+.footer-relatorio a,
+.footer-relatorio #frase p {
+    color: var(--laranja);
+}
+
+.footer-relatorio #nav-emiau{
+    border-bottom: 3px solid var(--laranja);
+}
+
+.footer-relatorio #emiau {  
+    border: 3px solid var(--laranja);
+}
+
+.footer-relatorio #emiau button {
+    color: var(--laranja);
+}
+
+.footer-relatorio #emiau button:hover {
+    color: white;
+    background-color: var(--laranja);
 }
 
 @media (max-width: 1023px) {

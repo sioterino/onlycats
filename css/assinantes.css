@@ -171,14 +171,18 @@ h1 {
   color: var(--azul);
 }
 
-.modal-content input[type="text"] {
+.modal-content input[type="text"],
+.modal-content input[type="tel"],
+.modal-content input[type="date"] {
   padding: 8px;
   font-size: 1rem;
   border: 1px solid var(--azul);
   border-radius: 8px;
 }
 
-.modal-content input[type="text"]:focus {
+.modal-content input[type="text"]:focus,
+.modal-content input[type="tel"]:focus,
+.modal-content input[type="date"]:focus {
   border-color: var(--laranja);
 }
 

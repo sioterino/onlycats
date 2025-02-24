@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +7,16 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/pacotes.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/assinantes.css">
+    <link rel="stylesheet" href="../css/relatório.css">
 
+    <script src="../js/utils.js"></script>
     <script src="../js/navbar.js" defer></script>
-    <script src="../js/assinantes.js" defer></script>
-</head>
+    <script src="../js/relatorio.js" defer></script>
 
+</head>
 <body>
+    
     <header class="header">
         <nav class="sidebar">
             <ul>
@@ -77,71 +77,64 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <div class="container">
-            <h1>Fãs dos nossos profissionais</h1>
-    
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Pesquise por nome ou plano..." onkeyup="filtrarAssinantes()">
-                <button id="adicionar">Adicionar</button>
+
+    <main class="main relatorio">
+        <article class="cabecalho">
+            <h2>Relatório de Assinantes</h2>
+            <div class="desc">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entidade</th>
+                            <td>OnlyCats</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <th>Período</th>
+                        <td><!-- carregado dinamicamente --></td>
+                    </tbody>
+                </table>
+                <h1>OnlyCats</h1>
             </div>
-            
-            <div id="addModal" style="display:none">
-                <div class="modal-content">
-                    <h2>Adicionar Assinante</h2>
-                    <form id="addForm">
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" autocomplete="off" spellcheck="off" name="nome"  placeholder="Nome do Associado" required><br><br>
-    
-                        <label for="plano">Plano:</label>
-                        <input type="text" id="plano" autocomplete="off" spellcheck="off" name="plano" placeholder="Nome do Plano" required><br><br>
-    
-                        <label for="endereco">Endereço:</label>
-                        <input type="text" id="endereco" autocomplete="off" spellcheck="off" name="endereco" placeholder="Endereço de Residência" required><br><br>
-    
-                        <label for="telefone">Telefone:</label>
-                        <input type="tel" id="telefone" autocomplete="off" spellcheck="off" name="telefone" placeholder="(48) 98892-2988" pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" required><br><br>
-    
-                        <label for="dataAdesao">Data de Adesão:</label>
-                        <input type="date" id="dataAdesao" autocomplete="off" spellcheck="off" name="dataAdesao" required><br><br>
-    
-                        <button type="submit">Adicionar</button>
-                        <button type="button" id="fecharModalAdd">Fechar</button>
-                    </form>
-                </div>
-            </div>
-    
-            <ul id="associados"></ul>
-        </div>
-    
-        <div id="editModal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="fecharModal">&times;</span>
-                <h2>Editar Assinante</h2>
-                <form id="editForm">
-                    <label for="editNome">Nome:</label>
-                    <input type="text" id="editNome" autocomplete="off" spellcheck="off" name="nome" placeholder="Nome do Associado" required><br><br>
-    
-                    <label for="editPlano">Plano:</label>
-                    <input type="text" id="editPlano" autocomplete="off" spellcheck="off" name="plano" placeholder="Nome do Plano" required><br><br>
-    
-                    <label for="editEndereco">Endereço:</label>
-                    <input type="text" id="editEndereco" autocomplete="off" spellcheck="off" name="endereco" placeholder="Endereço de Residência" required><br><br>
-    
-                    <label for="editTelefone">Telefone:</label>
-                    <input type="tel" id="editTelefone" autocomplete="off" spellcheck="off" name="telefone" placeholder="(48) 98892-2988" pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" required><br><br>
-    
-                    <label for="editDataAdesao">Data de Adesão:</label>
-                    <input type="date" id="editDataAdesao" autocomplete="off" spellcheck="off" name="dataAdesao" required><br><br>
-    
-                    <button type="submit">Salvar Alterações</button>
-                </form>
-            </div>
-        </div>
+
+        </article>
+        
+        <table class="report">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cadastro</th>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Telefone</th>
+                    <th>Plano</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody class="membros">
+                <!-- carregado dinamicamente pelo js -->
+            </tbody>
+         </table>
+
+         <article class="rodape">
+             <div class="block contato">
+                <h3>Contato</h3>
+                <p>financeiro@onlycats.com.br</p>
+                <p>(48) 99982-2899</p>
+             </div>
+             <div class="block creditos">
+                <h3>Produção</h3>
+                <p>Júlia Manuela Turnes</p>
+                <p>Sofia Alves Toreti</p>
+             </div>
+             <div class="block botao">
+                <h1>OnlyCats</h1>
+                <button class="imprimir">Imprimir <span class="icon hollow print">print</span></button>
+             </div>
+         </article>
     </main>
-    
-    
-    <footer>
+
+    <footer class="footer-relatorio">
         <div class="footer">
             <section id="frase">
                 <h1 id="footer">Frase de felino</h1>
@@ -152,7 +145,7 @@
                 <div class="navegação">
                     <ul class="menu-footer">
                         <li><a href="./index.html#top">Início</a></li>
-                        <li><a href="./index.html#gatos">Gatos</a></li>
+                        <li><a href="./galeria.html#gatos">Gatos</a></li>
                         <li><a href="./index.html#planos">Planos</a></li>
                         <li><a href="./index.html#feedbacks">Feedbacks</a></li>
                     </ul>
@@ -176,5 +169,4 @@
         </div>
     </footer>
 </body>
-
 </html>

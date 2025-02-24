@@ -143,7 +143,7 @@ function filtrarGatos() {
     catNum.textContent = `${shown} gatinhos`
 }
 
-// Adiciona os event listeners para os filtros
+// adiciona os event listeners para os filtros
 const checkboxes = document.querySelectorAll('.filtro')
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', () => filtrarGatos())
