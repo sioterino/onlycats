@@ -6,13 +6,12 @@
     <title>OnlyCats</title>
 
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/select.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/secao.css">
     <link rel="stylesheet" href="../css/catcard.css">
-    <link rel="stylesheet" href="../css/galeria-corpo.css">
     <link rel="stylesheet" href="../css/catalogo.css">
     <link rel="stylesheet" href="../css/populares.css">
+    <link rel="stylesheet" href="../css/galeria-filtros.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/dialog.css">
 
@@ -42,11 +41,11 @@
                             <li><a class="admlink" href="./assinantes.html">Assinantes</a></li>
                             <li><a class="admlink" href="#">Relatório de Assinantes</a></li>
                             <li><a class="admlink" href="#">Relatório de Pagamentos</a></li>
-                            <li><a class="admlink" href="#">Log Out</a></li>
+                            <li><div class="admlink">Log Out</div></li>
                         </ul>
                     </div>
 
-                    <div class="sidelink user" href="#">
+                    <div class="sidelink user">
                         <p>Admin</p>
                         <span class="icon usericon">account_circle</span>
                     </div>
@@ -65,7 +64,7 @@
                 </li>
 
                 <li class="hideOnMobile login">
-                    <div class="navlink user" href="#">
+                    <div class="navlink user">
                         <p>Admin</p>
                         <span class="icon usericon">account_circle</span>
                     </div>
@@ -74,7 +73,7 @@
                             <li><a class="admlink" href="./assinantes.html">Assinantes</a></li>
                             <li><a class="admlink" href="#">Relatório de Assinantes</a></li>
                             <li><a class="admlink" href="#">Relatório de Pagamentos</a></li>
-                            <li><a class="admlink" href="#">Log Out</a></li>
+                            <li><div class="admlink">Log Out</div></li>
                         </ul>
                     </div>
                 </li>
@@ -117,8 +116,8 @@
                         <div class="far-right">
                             <select name="ordenar" id="ordenar">
                                 <!-- ordenar a lista de gatos -->
-                                <option value="0">Mais Recente</option>
                                 <option value="1">Mais Antigo</option>
+                                <option value="0">Mais Recente</option>
                                 <option value="2">Mais Popular</option>
                                 <option value="3">Menos Popular</option>
                             </select>
@@ -139,38 +138,6 @@
                         
                         <div class="filter-options hidden">
                             <!-- filtra gatos por cor -->
-                    
-                            <div class="trisal">
-                                <!-- filtra gatos do restante dos pets -->
-                                <div class="categoria">
-                                    <h4>Pets</h4>
-                                    <label><input type="checkbox" class="filtro sexo" value="true">Gatos</label>
-                                    <label><input type="checkbox" class="filtro sexo" value="false">Outros</label>
-                                </div>
-
-                                <!-- filtra gatos por cor -->
-                                <div class="categoria">
-                                    <h4>Cor</h4>
-                                    <label><input type="checkbox" class="filtro cor" value="Laranja">Laranja</label>
-                                    <label><input type="checkbox" class="filtro cor" value="Bicolor">Bicolor</label>
-                                    <label><input type="checkbox" class="filtro cor" value="Tigrado">Tigrado</label>
-                                    <label><input type="checkbox" class="filtro cor" value="Branco">Branco</label>
-                                    <label><input type="checkbox" class="filtro cor" value="Castanho">Castanho</label>
-                                    <label><input type="checkbox" class="filtro cor" value="Preto">Preto</label>
-                                    <label><input type="checkbox" class="filtro cor" value="Tricolor">Tricolor</label>
-                                    <label><input type="checkbox" class="filtro cor" value="Cinza">Cinza</label>
-                                    <label><input type="checkbox" class="filtro cor" value="Azul">Azul</label>
-                                    <label><input type="checkbox" class="filtro cor" value="Amarelo">Amarelo</label>
-                                </div>
-                        
-                                <!-- filtra gatos por sexo -->
-                                <div class="categoria">
-                                    <h4>Sexo</h4>
-                                    <label><input type="checkbox" class="filtro sexo" value="1">Macho</label>
-                                    <label><input type="checkbox" class="filtro sexo" value="0">Fêmea</label>
-                                </div>
-                                <div class="in filteroff"><span class="icon filter">filter_alt_off</span></div>
-                            </div>
                     
                             <!-- filtra gatos por personalidade -->
                             <div class="categoria">
@@ -201,6 +168,39 @@
                                 <label><input type="checkbox" class="filtro tag" value="sorridente">Sorridente</label>
                                 <label><input type="checkbox" class="filtro tag" value="fresc">Fresco</label>
                             </div>
+
+                            <div class="trisal">
+                                <!-- filtra gatos do restante dos pets -->
+                                <div class="categoria">
+                                    <h4>Pets</h4>
+                                    <label><input type="checkbox" class="filtro pet" value="true">Gatos</label>
+                                    <label><input type="checkbox" class="filtro pet" value="false">Outros</label>
+                                </div>
+
+                                <!-- filtra gatos por cor -->
+                                <div class="categoria">
+                                    <h4>Cor</h4>
+                                    <label><input type="checkbox" class="filtro cor" value="Laranja">Laranja</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Bicolor">Bicolor</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Tigrado">Tigrado</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Branco">Branco</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Castanho">Castanho</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Preto">Preto</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Tricolor">Tricolor</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Cinza">Cinza</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Azul">Azul</label>
+                                    <label><input type="checkbox" class="filtro cor" value="Amarelo">Amarelo</label>
+                                </div>
+                        
+                                <!-- filtra gatos por sexo -->
+                                <div class="categoria">
+                                    <h4>Sexo</h4>
+                                    <label><input type="checkbox" class="filtro sexo" value="1">Macho</label>
+                                    <label><input type="checkbox" class="filtro sexo" value="0">Fêmea</label>
+                                </div>
+                                <div class="in filteroff"><span class="icon filter">filter_alt_off</span></div>
+                            </div>
+
                         </div>
                     </div>
 

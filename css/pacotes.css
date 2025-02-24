@@ -8,7 +8,6 @@
 }
 
 .planos {
-    margin-top: 2rem;
     justify-content: center;
     text-align: center;
 }
@@ -121,4 +120,25 @@
 #gold .preco,
 #gold .compre {
     background-color: darkorange;
+}
+
+@media (max-width: 1200px) {
+    .planos,
+    .basicos,
+    .avancados {
+        gap: 7vw;
+        justify-content: center;
+    }
+
+    .preco {
+        padding: 1rem 10vw;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 590px) {
+    .preco {
+        padding: 1rem 5rem;
+        margin-bottom: 1.5rem;
+    }
 }

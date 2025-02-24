@@ -1,0 +1,152 @@
+.gatos {
+    padding-inline: 1rem;
+}
+
+.gatos .secao-titulo {
+    margin-bottom: 0px;
+    /* justify-content: center; */
+}
+
+@media (max-width: 540px) {
+    .gatos .secao-titulo {
+        justify-content: center;
+    }    
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    padding-inline: 2rem;
+    height: 3.25rem;
+
+    border: 1px solid var(--azul);
+    border-radius: 4rem;
+}
+
+#searchbar {
+    background-color: var(--fundo);
+    border: none;
+    outline: none;
+    line-height: 150%;
+    height: 100%;
+    font-size: 1.1rem;
+    width: 5rem;
+}
+
+.search:focus-within {
+    background-color: white;
+}
+
+#searchbar:focus {
+    background-color: white;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    text-align: center;
+    outline: none;
+    background-color: var(--fundo);
+    border: 1px solid var(--azul);
+
+    height: 3.25rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-size: 1rem;
+    border-radius: 4rem;
+}
+
+select:focus {
+    background-color: white;
+}
+
+
+.filtros {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filter-options {
+    margin-top: 2rem;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 1rem;
+    padding: 2rem;
+    width: fit-content;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.trisal {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-self: flex-start;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.in.filteroff {
+    margin-top: auto;
+    margin-left: auto;
+}
+
+.categoria {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-width: 13rem;
+}
+
+.categoria h4 {
+    margin-bottom: .5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.categoria label {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .9rem;
+    cursor: pointer;
+    margin-bottom: .2rem;
+}
+
+.categoria input {
+    outline: none;
+}
+
+.categoria input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+}
+
+.icon.filter {
+    cursor: pointer;
+    border: 1px solid var(--azul);
+    border-radius: 4rem;
+    padding: .45rem .6rem;
+}
+
+.icon.filter:hover {
+    background-color: white;
+}
+
+@media (max-width: 404px) {
+    .filtros {
+        justify-content: center;
+    }
+    .categoria {
+        min-width: 0px;
+    }
+}

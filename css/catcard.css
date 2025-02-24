@@ -5,6 +5,7 @@
     padding: 3rem;
     border-radius: 1rem;
     border: 1px dotted lightgray;
+    margin-bottom: 5rem;
 }
 
 .img-container {
@@ -93,7 +94,7 @@
     user-select: none;
 }
 
-.pick small-icons,
+.pick .small-icons,
 dialog .small-icons {
     display: flex;
     flex-direction: row-reverse;
@@ -242,20 +243,17 @@ dialog td.icon {
         width: fit-content;
     }
     .descricao {
-        width: 700px;
+        width: 100%;
     }
 }
 
 @media (max-width: 800px) {
-    .descricao {
-        width: 90vw;
-    }
     .img-container {
-        width: 90vw;
+        width: 80vw;
     }
     .img-pick {
-        width: 90vw;
-        height: 90vw;
+        width: 80vw;
+        height: 80vw;
     }
     .icon.pick-arrow-left,
     .icon.pick-arrow-right {
@@ -263,5 +261,15 @@ dialog td.icon {
     }
     .tags {
         width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .img-container {
+        width: 69vw;
+    }
+    .img-pick {
+        width: 69vw;
+        height: 69vw;
     }
 }

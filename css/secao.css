@@ -1,21 +1,11 @@
-.weekpick .secao-titulo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: .3rem;
-    margin: 2rem;
-}
-
-.weekpick h2 {
-    font-size: 2rem;
-}
-
 .secao-titulo {
     display: flex;
     flex-direction: row;
-    align-self: center;
+    align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .desc,
@@ -53,5 +43,16 @@
 .far-right {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
+}
+
+@media (max-width: 380px) {
+    .secao-titulo {
+        justify-content: center;
+    }
+    .desc {
+        text-align: center;
+    }
 }

@@ -28,6 +28,7 @@ fetch('../json/cats.json')
             tutor: cat.tutor,
             cadastro: cat.cadastro,
             popularidade: cat.popularidade,
+            isCat: cat.isCat,
             element: card}
     })
 
@@ -108,20 +109,27 @@ function findCat(input, dataSet) {
 
 // filtro de gatineos
 function filtrarGatos() {
-    // Transforma as checkboxes marcadas em uma lista e transforma o NodeList em um array normal
-    const cores = Array.from(document.querySelectorAll('.filtro.cor:checked')).map(checkbox => checkbox.value)
-    const sexos = Array.from(document.querySelectorAll('.filtro.sexo:checked')).map(checkbox => checkbox.value)
-    const tags = Array.from(document.querySelectorAll('.filtro.tag:checked')).map(checkbox => checkbox.value)
+    // tTransforma as checkboxes marcadas em uma lista e transforma o NodeList em um array normal
+    const pets = Array.from(document.querySelectorAll('.filtro.pet:checked')).map(c => c.value)
+    const cores = Array.from(document.querySelectorAll('.filtro.cor:checked')).map(c => c.value)
+    const sexos = Array.from(document.querySelectorAll('.filtro.sexo:checked')).map(c => c.value)
+    const tags = Array.from(document.querySelectorAll('.filtro.tag:checked')).map(c => c.value)
 
-    let shown = 0 // Contador de gatinhos mostrados
+    let shown = 0
 
     gatos.forEach(cat => {
-        // Verifica se o gato atende a algum filtro ou se os filtros estão vazios
+        // verifica se o gato atende a algum filtro ou se os filtros estão vazios
+        let isCat = pets.length === 0 ||pets.includes(cat.isCat ? 'true' : 'false')
         let cor = cores.length === 0 || cores.includes(cat.cor)
         let sexo = sexos.length === 0 || sexos.includes(String(cat.sexo))
-        let tag = tags.length === 0 || tags.some(personality => cat.tags.includes(personality.toLowerCase))
+        let tag = tags.length === 0 || tags.some(tag => {
+            return cat.tags.some(p => p.includes(tag))
+            // queria deixar claro q fritei mto meu cérebro pra fazer esse
+            // filtro de personalidade funcionar quero meu tempo de volta
+        })
 
-        let hide = cor && sexo && tag
+        console.log(isCat)
+        let hide = isCat && cor && sexo && tag
         if (hide) {
             cat.element.classList.remove('hidden')
             shown++
@@ -130,7 +138,7 @@ function filtrarGatos() {
         }
     })
 
-    // Atualiza o número de gatinhos mostrados
+    // atualiza o número de gatinhos mostrados
     const catNum = document.querySelector('.num-cats')
     catNum.textContent = `${shown} gatinhos`
 }

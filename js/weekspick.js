@@ -27,6 +27,9 @@ function createCatCard(cat, ext, card) {
         carrossel.append(img)
     }
 
+    // console.log("img ", cat.nome, ":", cat.imgPath.length)
+    // cat.imgPath.forEach((path, i) => console.log(`foto ${i + 1}: ${path}${ext}`))
+
     card.append(imgContainer)
 
     

@@ -4,13 +4,22 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 3rem;
 }
 
+@media (max-width: 1230px) {
+    .galeria,
+    .dupla1,
+    .dupla2 {
+        gap: 5vw;
+    }
+}
+
 .galeria {
-    margin-top: 2rem;
     justify-content: center;
     min-height: 23.4rem;
+    width: 100%;
 }
 
 .card {
@@ -88,4 +97,25 @@
 
 .sexicon {
     font-size: 1.2rem;
+}
+
+@media (max-width: 1230px) {
+    .galeria,
+    .dupla1,
+    .dupla2 {
+        gap: 3vw;
+    }
+    .gato {
+        width: 40vw;
+        height: 40vw;
+        border-radius: .6rem;
+    }
+}
+
+@media (max-width: 590px) {
+    .gato {
+        width: 80vw;
+        height: 80vw;
+        border-radius: .6rem;
+    }
 }
