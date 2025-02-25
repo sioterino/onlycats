@@ -110,7 +110,7 @@ function renderizarAssinantes() {
         li.classList.add('assinante-card');
 
         li.innerHTML = `
-            <div>
+            <div id = "info">
                 <div class="nome">${assinante.nome}</div>
                 <p class="plano"><strong>Plano:</strong> ${assinante.plano}</p>
                 <p class="id"><strong>ID:</strong> ${assinante.id}</p>
