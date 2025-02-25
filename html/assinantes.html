@@ -100,12 +100,12 @@
                             placeholder="Nome do Associado" required><br><br>
 
                         <label for="plano">Plano:</label>
-                        <Select id="plano">
+                        <Select id="plano" required>
                             <option value="" disabled selected>Escolha o Plano</option>
-                            <option value="basico">Básico</option>
-                            <option value="intermediario">Intermediário</option>
-                            <option value="premium">Premium</option>
-                            <option value="gold">Premium Gold</option>
+                            <option value="Basico">Básico</option>
+                            <option value="Intermediario">Intermediário</option>
+                            <option value="Premium">Premium</option>
+                            <option value="Gold">Premium Gold</option>
                         </Select><br><br>
 
                         <label for="endereco">Endereço:</label>
@@ -139,12 +139,12 @@
                         placeholder="Nome do Associado" required><br><br>
 
                     <label for="editPlano">Plano:</label>
-                    <Select id="editPlano">
+                    <Select id="editPlano" required>
                         <option value="" disabled selected>Escolha o Plano</option>
-                        <option value="basico">Básico</option>
-                        <option value="intermediario">Intermediário</option>
-                        <option value="premium">Premium</option>
-                        <option value="gold">Premium Gold</option>
+                        <option value="Basico">Básico</option>
+                        <option value="Intermediario">Intermediário</option>
+                        <option value="Premium">Premium</option>
+                        <option value="Gold">Premium Gold</option>
                     </Select><br><br>
 
                     <label for="editEndereco">Endereço:</label>
@@ -169,26 +169,25 @@
                 <span id="fecharModalPagamento">&times;</span>
                 <h2>Adicionar Pagamento</h2>
                 <form id="formPagamento">
-                    <!-- valor sendo feito automático -->
-
-                    <!-- adicionar método de pagamento -->
-
-                    <!-- adicionar HORA de pagamento -->
-
                     <label for="planoPagamento">Plano:</label>
-                    <Select id="planoPagamento">
+                    <Select id="planoPagamento" required>
                         <option value="" disabled selected>Escolha o Plano</option>
-                        <option value="basico">Básico</option>
-                        <option value="intermediario">Intermediário</option>
-                        <option value="premium">Premium</option>
-                        <option value="gold">Premium Gold</option>
+                        <option value="Basico">Básico</option>
+                        <option value="Intermediario">Intermediário</option>
+                        <option value="Premium">Premium</option>
+                        <option value="Gold">Premium Gold</option>
                     </Select><br><br>
 
                     <label for="dataPagamento">Data:</label>
                     <input type="date" id="dataPagamento" autocomplete="off" spellcheck="false" required><br><br>
 
-                    <label for="descricaoPagamento">Descrição:</label>
-                    <input type="text" id="descricaoPagamento" autocomplete="off" spellcheck="false" required><br><br>
+                    <label for="descricaoPagamento">Método de Pagamento:</label>
+                    <select name="descricaoPagamento" id="descricaoPagamento" required>
+                        <option value="" disabled selected>Selecione o Método</option>
+                        <option value="Boleto">Boleto</option>
+                        <option value="Crédito">Cartão de Crédito</option>
+                        <option value="Pix">Pix</option>
+                    </select><br><br>
 
                     <button type="submit">Registrar Pagamento</button>
                 </form>

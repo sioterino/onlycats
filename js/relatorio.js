@@ -4,6 +4,7 @@ let rows = 0 // calculo de linhas para relarório de assinantes
 
 if (assinantes) {
     loadTable(assinantes)
+    console.log(assinantes)
 } else {
 
     fetch('../json/assinantes.json').then(res => res.json()).then(data => {
@@ -40,47 +41,53 @@ function loadTable(data) {
 }
 
 function loadPagamentos(membro, j) {
+    
     const tr = rows % 2 !== 0 ? createElement('tr', 'impar') : createElement('tr')
+    if (!membro.excluido && !membro.pagamentos[j].excluido) {
 
-    const dados = [
-        {classe: 'id', textContent: `#${membro.id}`},
-        {classe: 'nome', textContent: proper(membro.nome)},
-        {classe: 'addr', textContent: proper(membro.endereco)},
-        {classe: 'tel', textContent: membro.telefone},
-
-        {classe: 'data', textContent: `#${membro.pagamentos[j].id}`},
-        {classe: 'data', textContent: membro.pagamentos[j].data},
-        {classe: 'hora', textContent: membro.pagamentos[j].hora},
-        {classe: 'metodo', textContent: membro.pagamentos[j].descricao},
-        {classe: 'plano', textContent: proper(membro.pagamentos[j].plano)},
-        {classe: 'valor', textContent:`R$${membro.pagamentos[j].valor},00`},
-    ]
-
-    dados.forEach(item => tr.appendChild(createElement('td', item.classe, item.textContent)))
-
-    rows++
-
+        const dados = [
+            {classe: 'id', textContent: `#${membro.id}`},
+            {classe: 'nome', textContent: proper(membro.nome)},
+            {classe: 'addr', textContent: proper(membro.endereco)},
+            {classe: 'tel', textContent: membro.telefone},
+    
+            {classe: 'data', textContent: `#${membro.pagamentos[j].id}`},
+            {classe: 'data', textContent: membro.pagamentos[j].data},
+            {classe: 'hora', textContent: membro.pagamentos[j].hora},
+            {classe: 'metodo', textContent: membro.pagamentos[j].descricao},
+            {classe: 'plano', textContent: proper(membro.pagamentos[j].plano)},
+            {classe: 'valor', textContent:`R$${membro.pagamentos[j].valor},00`},
+        ]
+    
+        dados.forEach(item => tr.appendChild(createElement('td', item.classe, item.textContent)))
+    
+        rows++
+    }
+    
     return tr
-
 }
 
 
 function loadMembros(membro, i) {
 
-    const tr = i % 2 !== 0 ? createElement('tr', 'impar') : createElement('tr')
+    const tr = rows !== 0 ? createElement('tr', 'impar') : createElement('tr')
 
-    const dados = [
-        {classe: 'id', textContent: `# ${membro.id}`},
-        {classe: 'cadastro', textContent: membro.dataAdesao},
-        {classe: 'nome', textContent: proper(membro.nome)},
-        {classe: 'addr', textContent: proper(membro.endereco)},
-        {classe: 'tel', textContent: membro.telefone},
-        {classe: 'plano', textContent: proper(membro.plano)},
-        {classe: 'valor', textContent:`R$${membro.valor},00`},
-    ]
+    if (!membro.excluido) {
 
-    dados.forEach(item => tr.appendChild(createElement('td', item.classe, item.textContent)))
-
+        const dados = [
+            {classe: 'id', textContent: `# ${membro.id}`},
+            {classe: 'cadastro', textContent: membro.dataAdesao},
+            {classe: 'nome', textContent: proper(membro.nome)},
+            {classe: 'addr', textContent: proper(membro.endereco)},
+            {classe: 'tel', textContent: membro.telefone},
+            {classe: 'plano', textContent: proper(membro.plano)},
+            {classe: 'valor', textContent:`R$${membro.valor},00`},
+        ]
+    
+        dados.forEach(item => tr.appendChild(createElement('td', item.classe, item.textContent)))
+        rows++
+    }
+    
     return tr
 
 }

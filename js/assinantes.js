@@ -235,6 +235,7 @@ function adicionarAssinante() {
             endereco: document.getElementById('endereco').value,
             telefone: document.getElementById('telefone').value,
             dataAdesao: document.getElementById('dataAdesao').value,
+            excluido: false,
             pagamentos: []
         };
 

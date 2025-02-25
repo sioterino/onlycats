@@ -99,22 +99,6 @@
     background-color: var(--azul);
 }
 
-.dupla1,
-.dupla2 {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem;
-}
-
-@media (max-width: 1230px) {
-    .dupla1,
-    .dupla2 {
-        gap: 3vw;
-    }
-}
-
 @media (max-width: 800px) {
     .main {
         padding-inline: 1rem;

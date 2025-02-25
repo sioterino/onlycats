@@ -171,7 +171,7 @@ footer {
 
 .uteis {
     border-bottom: 3px solid var(--azul);
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
     display: flex;
     list-style: none;
     width: 100%;;
@@ -209,14 +209,24 @@ footer {
     border-top: 3px solid var(--laranja);
 }
 
-.uteis {
-    border-bottom: 3px solid var(--laranja);
+.dupla1,
+.dupla2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
 }
 
-
+@media (max-width: 1230px) {
+    .dupla1,
+    .dupla2 {
+        gap: 3vw;
+    }
+}
 
 .footer-relatorio {
-    background-color: var(--azul);
+    background-color: var(--azul);  
     color: var(--laranja);
 }
 
@@ -266,6 +276,10 @@ footer {
     border: 3px solid var(--azul);
     background-color: var(--azul);
     color: var(--laranja);
+}
+
+.footer-relatorio .uteis {
+    border-bottom: 3px solid var(--laranja);
 }
 
 
