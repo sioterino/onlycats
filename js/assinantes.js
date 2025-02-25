@@ -1,4 +1,5 @@
 let assinantes = [];
+
 function gerarID(prefixo = '10', tamanho = 5) {
     let idUnico;
     let idExistente = true;
@@ -14,23 +15,74 @@ function gerarID(prefixo = '10', tamanho = 5) {
     return idUnico;
 }
 
-
 function carregarAssinantes() {
     const dadosSalvos = localStorage.getItem('assinantes');
-    
+
     if (dadosSalvos) {
         assinantes = JSON.parse(dadosSalvos);
         renderizarAssinantes();
     } else {
-        fetch('../json/assinantes.json') 
-          .then(response => response.json())
-          .then(data => {
-            assinantes = data;
-            renderizarAssinantes();
-          })
-          .catch(error => console.error('Erro ao carregar os dados:', error));
+        fetch('../json/assinantes.json')
+            .then(response => response.json())
+            .then(data => {
+                assinantes = data;
+                renderizarAssinantes();
+            })
+            .catch(error => console.error('Erro ao carregar os dados:', error));
     }
 }
+
+
+function registrarPagamento(assinanteId, valor, data, descricao, plano) {
+    const assinante = assinantes.find(a => a.id === assinanteId);
+
+    if (assinante) {
+        const pagamento = {
+            id: gerarID('09'),
+            valor,
+            plano,
+            data,
+            descricao,
+        };
+
+        assinante.pagamentos.push(pagamento);
+
+        localStorage.setItem('assinantes', JSON.stringify(assinantes));
+
+        renderizarAssinantes();
+    }
+}
+
+
+function mostrarModalPagamento(assinanteId) {
+    const modal = document.getElementById('modalPagamento');
+    const formPagamento = document.getElementById('formPagamento');
+
+    modal.dataset.assinanteId = assinanteId;
+
+    modal.style.display = 'block';
+
+    formPagamento.onsubmit = (event) => {
+        event.preventDefault();
+
+        const valor = document.getElementById('valorPagamento').value;
+        const data = document.getElementById('dataPagamento').value;
+        const plano = document.getElementById('planoPagamento').value;
+        const descricao = document.getElementById('descricaoPagamento').value;
+
+        const assinanteId = modal.dataset.assinanteId;
+
+        registrarPagamento(assinanteId, valor, data, descricao, plano);
+
+        fecharModalPagamento();
+    };
+}
+
+
+function fecharModalPagamento() {
+    document.getElementById('modalPagamento').style.display = 'none';
+}
+document.getElementById('fecharModalPagamento').addEventListener('click', fecharModalPagamento);
 
 function renderizarAssinantes() {
     const lista = document.getElementById('associados');
@@ -40,7 +92,7 @@ function renderizarAssinantes() {
 
     membrosVisiveis.forEach(assinante => {
         const li = document.createElement('li');
-        li.classList.add('assinante-card'); 
+        li.classList.add('assinante-card');
 
         li.innerHTML = `
             <div>
@@ -55,52 +107,55 @@ function renderizarAssinantes() {
                 <p><strong>Data de Adesão:</strong> ${assinante.dataAdesao}</p>
                 <button class="editar-usuario" onclick="editarAssinante('${assinante.id}')">Editar Usuário</button>
                 <button class="excluir-usuario" onclick="excluirAssinante('${assinante.id}')">Excluir</button>
+                <button class="adicionar-pagamento" onclick="mostrarModalPagamento('${assinante.id}')">Adicionar Pagamento</button>
 
-                 <table class="tabela-pagamentos">
+                <table class="tabela-pagamentos">
                     <thead>
                         <tr>
                             <th>Dia</th>
                             <th>Data</th>
                             <th>Hora</th>
-                            <th>Método</th>
-                            <th>Plano</th>
                             <th>Valor</th>
+                            <th>Descrição</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
-                       ${assinante.pagamentos && Array.isArray(assinante.pagamentos) 
-                        ? assinante.pagamentos.map(pagamento => `
-                            <tr>
-                                <td>${pagamento.dia}</td>
-                                <td>${pagamento.data}</td>
-                                <td>${pagamento.hora}</td>
-                                <td>${pagamento.metodo}</td>
-                                <td>${pagamento.plano}</td>
-                                <td>${pagamento.valor}</td>
-                            </tr>
-                       `).join('') 
-                        : '<tr><td colspan="6">Nenhum pagamento registrado.</td></tr>' 
-                    }
-                </tbody>
-            </table>
-        </div>
-
+                        ${assinante.pagamentos && Array.isArray(assinante.pagamentos)
+                ? assinante.pagamentos.filter(pagamento => !pagamento.excluido).map(pagamento =>
+                    `<tr>
+                                    <td>${pagamento.dia}</td>
+                                    <td>${pagamento.data}</td>
+                                    <td>${pagamento.hora}</td>
+                                    <td>${pagamento.valor}</td>
+                                    <td>${pagamento.descricao}</td>
+                                    <td>
+                                        <button onclick="excluirPagamento('${assinante.id}', '${pagamento.id}')">Excluir</button>
+                                    </td>
+                                </tr>`
+                ).join('')
+                : '<tr><td colspan="6">Nenhum pagamento registrado.</td></tr>'
+            }
+                    </tbody>
+                </table>
+            </div>
+            
             <button class="ver-mais" onclick="mostrarDetalhes('${assinante.id}', this)">Ver mais</button>
-        `;     
+        `;
         lista.appendChild(li);
     });
 }
 
 function mostrarDetalhes(id, botao) {
     const detalhesDiv = document.getElementById(`detalhes-${id}`);
-    
+
     if (detalhesDiv.style.display === "none" || !detalhesDiv.style.display) {
         detalhesDiv.style.display = "block";
         botao.textContent = "Fechar";
         botao.style.marginTop = "1rem";
     } else {
         detalhesDiv.style.display = "none";
-        botao.textContent = "Ver mais"; 
+        botao.textContent = "Ver mais";
         botao.style.marginTop = "0";
     }
 }
@@ -118,18 +173,16 @@ function editarAssinante(id) {
 
     document.getElementById('editForm').onsubmit = (event) => {
         event.preventDefault();
-        
+
         assinanteEditando.nome = document.getElementById('editNome').value;
         assinanteEditando.plano = document.getElementById('editPlano').value;
         assinanteEditando.endereco = document.getElementById('editEndereco').value;
         assinanteEditando.telefone = document.getElementById('editTelefone').value;
         assinanteEditando.dataAdesao = document.getElementById('editDataAdesao').value;
 
-
         renderizarAssinantes();
         localStorage.setItem('assinantes', JSON.stringify(assinantes));
 
-    
         fecharModalEdit();
     };
 }
@@ -137,11 +190,10 @@ function editarAssinante(id) {
 function fecharModalEdit() {
     document.getElementById('editModal').style.display = 'none';
 }
+
 document.getElementById('fecharModal').addEventListener('click', fecharModalEdit);
 
-
 function adicionarAssinante() {
-
     document.getElementById('addModal').style.display = 'block';
     document.getElementById('addForm').onsubmit = (event) => {
         event.preventDefault();
@@ -153,7 +205,7 @@ function adicionarAssinante() {
             endereco: document.getElementById('endereco').value,
             telefone: document.getElementById('telefone').value,
             dataAdesao: document.getElementById('dataAdesao').value,
-            pagamentos:[] 
+            pagamentos: []
         };
 
         assinantes.push(novoAssinante);
@@ -177,9 +229,9 @@ function excluirAssinante(id) {
     const assinante = assinantes.find(a => a.id === id);
 
     if (assinante) {
-        assinante.excluido = true; 
-        renderizarAssinantes();    
-        localStorage.setItem('assinantes', JSON.stringify(assinantes));  
+        assinante.excluido = true;
+        renderizarAssinantes();
+        localStorage.setItem('assinantes', JSON.stringify(assinantes));
     }
 }
 
@@ -188,6 +240,7 @@ function filtrarAssinantes() {
     const filtro = input.value.toLowerCase();
     const lista = document.getElementById('associados');
     const items = lista.getElementsByTagName('li');
+
 
     for (let i = 0; i < items.length; i++) {
         const item = items[i];
@@ -203,4 +256,4 @@ function filtrarAssinantes() {
     }
 }
 
-window.onload = carregarAssinantes;
+window.onload = carregarAssinantes();
