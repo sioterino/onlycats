@@ -1,11 +1,12 @@
 footer {
     color: var(--azul);
-    padding: 1em;
+    padding: 2rem;
     width: 100vw;
     background-color: var(--laranja);
 }
 
 .footer {
+    padding-top: 4rem;
     position: relative;
 
     left: 50%;
@@ -13,176 +14,285 @@ footer {
     max-width: 1200px;
 }
 
-#frase h1 {
-    font-size: 40px;
-}
-#frase p{
-    padding-top:5px;
-    color:#1e1e1e;
-    text-align:left;
-    font-size:15px;
-    margin-bottom:40px;
-}
-#nav-emiau{
+.footer .contato {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    border-bottom: 3px solid #081534;
+    width: 100%;
+    gap: 4rem;
 }
 
-.menu-footer{
+.footer .contato .titulo {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 50px;
-    font-size: 18px;
-    
-}
-.menu-footer li{
-    list-style: none;
-}
-.menu-footer a{
-    text-decoration: none;
-    color: var(--azul);
-}
-.menu-footer a:hover{
-    color: var(--branco);
-}
-#emiau {
-    display: flex;   
-    align-items: center;
-    margin-bottom:15px;  
-    background-color: #ffffff; 
-    border-radius: 5px;   
-    width: 60%;
-    max-width: 500px;
-    box-sizing: border-box;    
-    border: 3px solid var(--azul);  
-    border-radius: 4rem;
+    flex-direction: column;
+    gap: .5rem;
+    text-align: center;
 }
 
-#emiau input {
-    border: none;    
+.forms {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--azul);
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 100%;
+    min-width: 260px;
+    max-width: 700px;
+}
+
+.forms label {
+    color: var(--laranja);
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.forms input,
+.forms textarea {
+    margin-top: .7rem;
+    margin-bottom: .9rem;
+    line-height: 1.5;
+    height: 3rem;
     outline: none;
-    border-radius: 5px 0 0 5px;
-    flex-grow: 1;
-    padding-inline: 1rem;
-    font-size: 1rem;
-    caret-color: var(--laranja);
-}
-
-#emiau input::placeholder {
-    color: rgba(72, 79, 145, 0.521);
-}
-
-#emiau button {
     border: none;
     border-radius: 4rem;
-    background-color: var(--branco);
+    padding-inline: 1rem;
+    font-size: 1.1rem;
+    caret-color: var(--laranja);
+    background-color: rgba(224, 200, 255, 0.2);
+    color: white;
+
+    transition: all .1s ease-in-out;
+}
+
+.forms input::placeholder,
+.forms textarea::placeholder {
+    color: rgba(179, 173, 230, 0.5);
+}
+
+.forms input:hover,
+.forms textarea:hover {
+    background-color: rgba(224, 200, 255, 0.3);
+}
+
+.forms input:active,
+.forms textarea:active {
+    background-color: rgba(224, 200, 255, 0.4);
+}
+
+.forms textarea {
+    height: 7rem;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.enviar {
+    padding: .7rem;
+    border-radius: 4rem;
+    cursor: pointer;
+    border: 3px solid var(--laranja);
+    background-color: var(--azul);
+    color: var(--laranja);
+    font-weight: 900;
+    font-size: 1rem;
+    text-align: center;
+
+    transition: all .1s ease-in-out;
+}
+
+.enviar:focus {
+    outline: none;
+}
+
+.enviar:hover {
+    border: 3px solid var(--azul);
+    background-color: var(--laranja);
     color: var(--azul);
-    padding: 10px 13px 10px 13px;
-    cursor: pointer; 
-
-    transition: all .2s ease-in-out;
 }
 
-#emiau button:hover {
-    color: var(--branco);
-    background-color: var(--azul);
-    transition-duration: 0.1s;
+.enviar:active {
+    transform: scale(.98);
 }
 
-
-.creditos {
-    margin-top: 30px;
-    font-size: 15px;
-}
-
-#final {
+.wrapper {
+    padding-inline: 4rem;
+    border-top: 3px solid var(--azul);
+    padding-top: 3rem;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
     justify-content: space-between;
-
-}
-#titulo {
-    text-align: left;
-    color: #081534;
-    font-size: 50px;
-    font-family: Inter;
-    letter-spacing: -2px;
-    margin-right: 20px;
-    
+    margin: 4rem 0rem;
+    gap: 2rem;
 }
 
-.footer-relatorio {
-    color: var(--laranja);
-    padding: 1em;
-    width: 100vw;
-    background-color: var(--azul);
+
+.reachout p,
+.reachout h4 {
+    margin-bottom: .5rem;
 }
 
-.footer-relatorio a,
-.footer-relatorio #frase p {
-    color: var(--laranja);
+.reachout p {
+    display: flex;
+    align-items: center;
 }
 
-.footer-relatorio #nav-emiau{
+.reachout .icon {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+
+.outros-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.footer .contato .outros-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.outros-links a {
+    color: var(--azul);
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.outros-links a:hover,
+.sns .icon:hover {
+    color: white;
+}
+
+.uteis {
+    border-bottom: 3px solid var(--azul);
+    padding-bottom: 2rem;
+    display: flex;
+    list-style: none;
+    width: 100%;;
+    gap: 2rem;
+}
+
+.sns {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 2rem;
+    margin-top: 3rem;
+    justify-content: space-between;
+}
+
+.sns .icon {
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.bottom {
+    border-top: 3px solid var(--azul);
+    padding-top: 2rem;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+
+.footer-relatorio .bottom,
+.footer-relatorio .wrapper {
+    border-top: 3px solid var(--laranja);
+}
+
+.uteis {
     border-bottom: 3px solid var(--laranja);
 }
 
-.footer-relatorio #emiau {  
-    border: 3px solid var(--laranja);
-}
 
-.footer-relatorio #emiau button {
+
+.footer-relatorio {
+    background-color: var(--azul);
     color: var(--laranja);
 }
 
-.footer-relatorio #emiau button:hover {
-    color: white;
+.footer-relatorio a {
+    color: var(--laranja);
+}
+
+.footer-relatorio .forms {
     background-color: var(--laranja);
 }
 
-@media (max-width: 1023px) {
- 
-    .menu-footer{
-   gap: 34px;
-   font-size: 19px;
-   margin-bottom: 10px;
-    }
-    #nav-emiau{
-   display: flex;
-   flex-direction: column;
-    }
-    #emiau{
-   max-width: 380px;
-    }
-    #final {
-   text-align: center;
-    }
-    
-    .creditos p {
-   margin: 0;
-   font-size: 15px;
-    }
-    #titulo{
-   display: none;
+.footer-relatorio .forms input::placeholder,
+.footer-relatorio .forms textarea::placeholder {
+    color: rgba(64, 43, 43, 0.5);
+}
+
+.footer-relatorio .forms label {
+    color: var(--azul);
+}
+
+.footer-relatorio .forms input,
+.footer-relatorio .forms textarea {
+    caret-color: var(--azul);
+    background-color: rgba(65, 52, 45, 0.2);
+    color: white;
+
+    transition: all .1s ease-in-out;
+}
+
+.footer-relatorio .forms input:hover,
+.footer-relatorio .forms textarea:hover {
+    background-color: rgba(82, 50, 50, 0.3);
+}
+
+.footer-relatorio .forms input:active,
+.footer-relatorio .forms textarea:active {
+    background-color: rgba(82, 50, 50, .4);
+}
+
+.footer-relatorio .enviar {
+    border: 3px solid var(--azul);
+    background-color: var(--laranja);
+    color: var(--azul);
+}
+
+.footer-relatorio .enviar:hover {
+    border: 3px solid var(--azul);
+    background-color: var(--azul);
+    color: var(--laranja);
+}
+
+
+
+@media (max-width: 1030px) {
+    .wrapper {
+        justify-content: center;
+        gap: 4rem;
+        padding-inline: 0px;
     }
 }
 
-@media (max-width: 490px) {
-    #frase h1{
-   font-size:39px;
-
+@media (max-width: 794px) {
+    .bottom {
+        justify-content: center;
     }
-  .menu-footer{
- gap: 10px;
- font-size: 18px;
-  }
-  #emiau{
-   display: none;
-  }
+    .bottom {
+        text-align: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .sns li {
+        margin-right: 0rem;
+    }
+    
+    .sns li:last-child {
+        margin: 0px;
+    }
 }

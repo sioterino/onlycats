@@ -1,7 +1,8 @@
 @import url(./sidebar.css);
 
 .header {
-    height: 4rem;
+    background-color: var(--fundo);
+    width: 100vw;
 }
 
 .center a,
@@ -11,15 +12,18 @@
     font-weight: 600;
 }
 
-.nav {
+.nav-container {
     background-color: var(--fundo);
+    width: 100vw;
     position: fixed;
-    top: 0%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 1232px;
+    top: 0;
+    left: 0;
     z-index: 1000;
+}
+
+.nav {
+    max-width: 1232px;
+    margin: 0 auto;
 }
 
 .nav ul {
@@ -70,7 +74,6 @@
 
 .login span {
     border-radius: 1.5rem;
-    padding: .2rem .4rem .2rem .4rem;
 }
 
 .nav .dropdown-container {

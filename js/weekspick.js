@@ -27,9 +27,6 @@ function createCatCard(cat, ext, card) {
         carrossel.append(img)
     }
 
-    // console.log("img ", cat.nome, ":", cat.imgPath.length)
-    // cat.imgPath.forEach((path, i) => console.log(`foto ${i + 1}: ${path}${ext}`))
-
     card.append(imgContainer)
 
     
@@ -91,7 +88,8 @@ function createCatCard(cat, ext, card) {
         { label: 'Tutor', value: [...cat.tutor.nome, ...cat.tutor.sobrenome].join(' ') },
         { label: 'Sexo', value: cat.sexo === 0 ? 'Fêmea' : 'Macho', icon: cat.sexo === 0 ? 'female' : 'male' },
         { label: 'Idade', value: cat.idade },
-        { label: 'Cor', value: cat.cor }
+        { label: 'Cor', value: cat.cor },
+        { label: 'Tel', value: cat.tutor.telefone },
     ]    
 
     for (let i = 0; i < content.length; i++) {
