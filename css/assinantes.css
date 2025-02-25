@@ -163,7 +163,7 @@ h1 {
 .modal-content form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+
 }
 
 .modal-content label {
@@ -223,7 +223,7 @@ select {
 
 .excluir-usuario,
 .editar-usuario,
-.adicionar-pagamento {
+.adicionar-pagamento, .excluir-pagamento{
   background-color: var(--laranja);
   padding: 10px 20px;
   border: none;
@@ -237,7 +237,7 @@ select {
 
 .excluir-usuario:hover,
 .editar-usuario:hover,
-.adicionar-pagamento:hover {
+.adicionar-pagamento:hover, .excluir-pagamento:hover{
   background-color: var(--azul);
 
 }
@@ -293,7 +293,9 @@ select {
   .tabela-pagamentos th {
     padding: 10px;
   }
+
 }
+
 
 @media (max-width: 770px) {
 
