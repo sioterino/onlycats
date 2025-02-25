@@ -70,7 +70,6 @@ h1 {
 }
 
 .detalhes-assinante {
-  background-color: ;
   display: none;
   margin-top: 1rem;
   background-color: var(--fundo);
@@ -222,9 +221,20 @@ select {
   color: black;
 }
 
+#fecharModal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#fecharModal:hover {
+  color: black;
+}
+
 .excluir-usuario,
 .editar-usuario,
-.adicionar-pagamento, .excluir-pagamento{
+.adicionar-pagamento,
+.excluir-pagamento {
   background-color: var(--laranja);
   padding: 10px 20px;
   border: none;
@@ -238,10 +248,12 @@ select {
 
 .excluir-usuario:hover,
 .editar-usuario:hover,
-.adicionar-pagamento:hover, .excluir-pagamento:hover{
+.adicionar-pagamento:hover,
+.excluir-pagamento:hover {
   background-color: var(--azul);
 
 }
+
 #modalPagamento {
   position: fixed;
   top: 0;
@@ -264,10 +276,11 @@ select {
 }
 
 @media(max-width: 920px) {
-  #info{
+  #info {
     text-align: center;
 
   }
+
   .assinante-card {
     flex-direction: column;
   }
@@ -291,91 +304,139 @@ select {
     padding: 10px;
   }
 
+  .modal-content {
+    width: 70%;
+    max-width: 500px;
+    padding: 20px;
+
+    .modal-content h2 {
+      font-size: 1.8rem;
+    }
+
+    .modal-content input {
+      padding: 8px;
+      font-size: 1rem;
+    }
+
+    .modal-content button {
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+  }
+
+
+
+  @media (max-width: 770px) {
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .assinante-card {
+      flex-direction: column;
+    }
+
+    .assinante-card .ver-mais {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .detalhes-assinante {
+      padding: 1rem;
+    }
+
+    .tabela-pagamentos {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .tabela-pagamentos th,
+    .tabela-pagamentos td {
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+
+    .tabela-pagamentos th:nth-child(3),
+    .tabela-pagamentos td:nth-child(3),
+    .tabela-pagamentos th:nth-child(5),
+    .tabela-pagamentos td:nth-child(5) {
+      display: none;
+    }
+
+    .tabela-pagamentos button {
+      padding: 8px 12px;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+
+    h1 {
+      font-size: 1.9rem;
+    }
+
+    .assinante-card {
+      font-size: 0.85rem;
+    }
+
+    .detalhes-assinante {
+      text-align: center
+    }
+
+    .tabela-pagamentos {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .tabela-pagamentos th,
+    .tabela-pagamentos td {
+      padding: 7px;
+      font-size: 0.9rem;
+    }
+
+    .tabela-pagamentos th:nth-child(3),
+    .tabela-pagamentos td:nth-child(3),
+    .tabela-pagamentos th:nth-child(1),
+    .tabela-pagamentos td:nth-child(1),
+    .tabela-pagamentos th:nth-child(5),
+    .tabela-pagamentos td:nth-child(5) {
+      display: none;
+    }
+
+    .tabela-pagamentos button {
+      padding: 5px 10px;
+      font-size: 10px;
+    }
+
+    .modal-content {
+      width: 95%;
+      max-width: 300px;
+      padding: 15px;
+      margin: 5% auto;
+    }
+
+    .modal-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .modal-content input {
+      padding: 6px;
+      font-size: 0.9rem;
+    }
+
+    .modal-content button {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+
+    #fecharModal,
+    #fecharModalAdd,
+    #fecharModalPagamento {
+      font-size: 20px;
+      top: 5px;
+      right: 5px;
+    }
+  }
+
 }
-
-
-@media (max-width: 770px) {
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  .assinante-card {
-    flex-direction: column;
-  }
-
-  .assinante-card .ver-mais {
-    width: 100%;
-    margin-top: 1rem;
-  }
-
-  .detalhes-assinante {
-    padding: 1rem;
-  }
-
-  .tabela-pagamentos {
-    width: 100%;
-    overflow-x: auto; 
-  }
-
-  .tabela-pagamentos th,
-  .tabela-pagamentos td {
-    padding: 10px;
-    font-size: 1rem;
-  }
-
-
-  .tabela-pagamentos th:nth-child(3),
-  .tabela-pagamentos td:nth-child(3),
-  .tabela-pagamentos th:nth-child(5), 
-  .tabela-pagamentos td:nth-child(5) {
-    display: none;
-  }
-
-  .tabela-pagamentos button {
-    padding: 8px 12px;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 380px) {
-
-  h1 {
-    font-size: 1.9rem;
-  }
-
-  .assinante-card {
-    font-size: 0.85rem;
-  }
-
-  .detalhes-assinante {
-    text-align: center
-  }
-  .tabela-pagamentos {
-    display: block;
-    overflow-x: auto; 
-    white-space: nowrap; 
-  }
-
-  .tabela-pagamentos th,
-  .tabela-pagamentos td {
-    padding: 7px;
-    font-size: 0.9rem;
-  }
-
-  .tabela-pagamentos th:nth-child(3), 
-  .tabela-pagamentos td:nth-child(3),
-  .tabela-pagamentos th:nth-child(1), 
-  .tabela-pagamentos td:nth-child(1),
-  .tabela-pagamentos th:nth-child(5), 
-  .tabela-pagamentos td:nth-child(5) {
-    display: none;
-  }
-
-  .tabela-pagamentos button {
-    padding: 5px 10px;
-    font-size: 10px;
-  }
-}
-
-
