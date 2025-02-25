@@ -292,25 +292,52 @@ function excluirPagamento(assinanteId, pagamentoId) {
 
 
 function filtrarAssinantes() {
-    const input = document.getElementById('searchInput');
-    const filtro = input.value.toLowerCase();
-    const lista = document.getElementById('associados');
-    const items = lista.getElementsByTagName('li');
-
-
-    for (let i = 0; i < items.length; i++) {
-        const item = items[i];
-        const nome = item.querySelector('.nome').textContent.toLowerCase();
-        const plano = item.querySelector('.plano').textContent.toLowerCase();
-        const id = item.querySelector('.id').textContent.toLowerCase();
-
-        if (nome.includes(filtro) || plano.includes(filtro) || id.includes(filtro)) {
-            item.style.display = '';
-        } else {
-            item.style.display = 'none';
+        const input = document.getElementById('searchInput');
+        const filtro = input.value.toLowerCase();
+        const lista = document.getElementById('associados');
+        const items = lista.getElementsByTagName('li');
+    
+        for (let i = 0; i < items.length; i++) {
+            const item = items[i];
+            const nome = item.querySelector('.nome').textContent.toLowerCase();
+            const plano = item.querySelector('.plano').textContent.toLowerCase();
+            const id = item.querySelector('.id').textContent.toLowerCase();
+    
+            const pagamentos = item.querySelectorAll('.tabela-pagamentos tbody tr');
+            let pagamentosVisiveis = false;
+    
+            const correspondenciaAssinante = nome.includes(filtro) || plano.includes(filtro) || id.includes(filtro);
+    
+            for (let pagamento of pagamentos) {
+                const pagamentoId = pagamento.querySelector('td:nth-child(1)').textContent.toLowerCase();
+                const pagamentoValor = pagamento.querySelector('td:nth-child(4)').textContent.toLowerCase();
+                const pagamentoData = pagamento.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                const pagamentoDescricao = pagamento.querySelector('td:nth-child(5)').textContent.toLowerCase();
+    
+                if (
+                    pagamentoId.includes(filtro) ||
+                    pagamentoValor.includes(filtro) ||
+                    pagamentoData.includes(filtro) ||
+                    pagamentoDescricao.includes(filtro)
+                ) {
+                    pagamento.style.display = ''; 
+                    pagamentosVisiveis = true; 
+                } else {
+                    pagamento.style.display = 'none'; 
+                }
+            }
+    
+            if (
+                correspondenciaAssinante || 
+                pagamentosVisiveis 
+            ) {
+                item.style.display = ''; 
+            } else {
+                item.style.display = 'none'; 
+            }
         }
     }
-}
+    
 
 // formata o campo de input de telefone pra facilitar a vida do usuario
 document.querySelectorAll(".tel").forEach(tel => {
