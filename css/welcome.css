@@ -81,7 +81,7 @@
 
 .img {
     background-color: var(--azul);
-    /* background-image: url(../img/laranja.png); */
+    background-image: url(../img/laranja.png);
     background-position: left;
     background-repeat: no-repeat;
     background-size: cover;

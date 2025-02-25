@@ -28,6 +28,7 @@
     background-color: white;
     border-collapse: collapse;
     width: 100%;
+    table-layout: auto;
 }
 
 .report tr.impar {
@@ -38,12 +39,18 @@
 .report td {
     height: 3rem;
     text-align: left;
-    padding: 1.5rem;
+    padding: 1rem;
+}
+
+.report td {
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .report th {
     background-color: var(--azul);
     color: white;
+    text-align: center;
 }
 
 .rodape {
@@ -89,6 +96,22 @@
 .imprimir:hover {
     color: var(--laranja);
     background-color: var(--azul);
+}
+
+.dupla1,
+.dupla2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+@media (max-width: 1230px) {
+    .dupla1,
+    .dupla2 {
+        gap: 3vw;
+    }
 }
 
 @media (max-width: 800px) {

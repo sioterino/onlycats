@@ -43,16 +43,17 @@ function loadPagamentos(membro, j) {
     const tr = rows % 2 !== 0 ? createElement('tr', 'impar') : createElement('tr')
 
     const dados = [
-        {classe: 'id', textContent: `# ${membro.id}`},
+        {classe: 'id', textContent: `#${membro.id}`},
         {classe: 'nome', textContent: proper(membro.nome)},
         {classe: 'addr', textContent: proper(membro.endereco)},
         {classe: 'tel', textContent: membro.telefone},
 
+        {classe: 'data', textContent: `#${membro.pagamentos[j].id}`},
         {classe: 'data', textContent: membro.pagamentos[j].data},
         {classe: 'hora', textContent: membro.pagamentos[j].hora},
         {classe: 'metodo', textContent: membro.pagamentos[j].metodo},
-        {classe: 'plano', textContent: membro.pagamentos[j].plano},
-        {classe: 'valor', textContent:`R$ ${membro.pagamentos[j].valor},00`},
+        {classe: 'plano', textContent: proper(membro.pagamentos[j].plano)},
+        {classe: 'valor', textContent:`R$${membro.pagamentos[j].valor},00`},
     ]
 
     dados.forEach(item => tr.appendChild(createElement('td', item.classe, item.textContent)))
@@ -75,7 +76,7 @@ function loadMembros(membro, i) {
         {classe: 'addr', textContent: proper(membro.endereco)},
         {classe: 'tel', textContent: membro.telefone},
         {classe: 'plano', textContent: proper(membro.plano)},
-        {classe: 'valor', textContent:`R$ ${membro.valor},00`},
+        {classe: 'valor', textContent:`R$${membro.valor},00`},
     ]
 
     dados.forEach(item => tr.appendChild(createElement('td', item.classe, item.textContent)))

@@ -4,7 +4,6 @@
 
 .gatos .secao-titulo {
     margin-bottom: 0px;
-    /* justify-content: center; */
 }
 
 @media (max-width: 540px) {
@@ -98,6 +97,12 @@ select:focus {
 .in.filteroff {
     margin-top: auto;
     margin-left: auto;
+}
+
+@media (max-width: 529px) {
+    .in.filteroff {
+        display: hidden;
+    }
 }
 
 .categoria {

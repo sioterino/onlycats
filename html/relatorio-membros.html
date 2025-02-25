@@ -48,36 +48,35 @@
             </ul>
         </nav>
 
-        <nav class="nav">
-            <ul>
-                <li class="logo"><a href="./index.html" class="navlink">OnlyCats</a></li>
-
-                <li class="hideOnMobile center">
-                    <a href="./index.html#top" class="navlink">Início</a>
-                    <a href="./galeria.html" class="navlink">Gatos</a>
-                    <a href="./index.html#footer" class="navlink">Sobre</a>
-                </li>
-
-                <li class="hideOnMobile login">
-                    <div class="navlink user">
-                        <p>Admin</p>
-                        <span class="icon usericon">account_circle</span>
-                    </div>
-                    <div class="dropdown-container">
-                        <ul class="dropdown-list">
-                            <li><a class="admlink" href="./assinantes.html">Assinantes</a></li>
-                            <li><a class="admlink" href="./relatorio-membros.html">Relatório de Assinantes</a></li>
-                            <li><a class="admlink" href="./relatório-pagamentos.html">Relatório de Pagamentos</a></li>
-                            <li><div class="admlink">Log Out</div></li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="navlink menu">
-                    <span class="icon">menu</span>
-                </li>
-            </ul>
-        </nav>
+        <div class="nav-container">
+            <nav class="nav">
+                <ul>
+                    <li class="logo"><a href="./index.html" class="navlink">OnlyCats</a></li>
+                    <li class="hideOnMobile center">
+                        <a href="./index.html#top" class="navlink">Início</a>
+                        <a href="./galeria.html" class="navlink">Gatos</a>
+                        <a href="./index.html#footer" class="navlink">Sobre</a>
+                    </li>
+                    <li class="hideOnMobile login">
+                        <div class="navlink user">
+                            <p>Admin</p>
+                            <span class="icon usericon">account_circle</span>
+                        </div>
+                        <div class="dropdown-container">
+                            <ul class="dropdown-list">
+                                <li><a class="admlink" href="./assinantes.html">Assinantes</a></li>
+                                <li><a class="admlink" href="./relatorio-membros.html">Relatório de Assinantes</a></li>
+                                <li><a class="admlink" href="./relatório-pagamentos.html">Relatório de Pagamentos</a></li>
+                                <li><div class="admlink">Log Out</div></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="navlink menu">
+                        <span class="icon">menu</span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main class="main relatorio">
@@ -123,8 +122,8 @@
          <article class="rodape">
              <div class="block contato">
                 <h3>Contato</h3>
-                <p>financeiro@onlycats.com.br</p>
-                <p>(48) 99982-2899</p>
+                <p>contato@onlycats.com.br</p>
+                <p>(48) 9 9982-2899</p>
              </div>
              <div class="block creditos">
                 <h3>Produção</h3>
@@ -140,36 +139,53 @@
 
     <footer class="footer-relatorio">
         <div class="footer">
-            <section id="frase">
-                <h1 id="footer">Frase de felino</h1>
-                <p>Nenhum gato sofreu estresse, invasão de privacidade, exposição indevida ou qualquer tipo de
-                    desconforto durante a realização deste trabalho.</p>
-            </section>
-            <section id="nav-emiau">
-                <div class="navegação">
-                    <ul class="menu-footer">
-                        <li><a href="./index.html#top">Início</a></li>
-                        <li><a href="./galeria.html#gatos">Gatos</a></li>
-                        <li><a href="./index.html#planos">Planos</a></li>
-                        <li><a href="./index.html#feedbacks">Feedbacks</a></li>
+            <div class="contato">
+                <div class="titulo">
+                    <h2 id="footer">Feedbacks e Sugestões?</h2>
+                    <p>Mande para nós sua a opinião e faça parte da nossa equipe de assinantes!</p>
+                </div>
+                <form class="forms">
+                    <label for="nome">Nome<input type="text" name="nome" id="nome" placeholder="Nome" autocomplete="off" spellcheck="false" required></label>
+                    <label for="email">Email<input type="text" name="email" id="email" placeholder="Email" autocomplete="off" spellcheck="false" required></label>
+                    <label for="msg">Mensagem<textarea name="msg" id="msg" placeholder="Escreva sua mensagem aqui..." autocomplete="off" spellcheck="false" required></textarea></label>
+                   <button type="submit" class="enviar">Enviar</button>
+                </form>
+            </div>
+
+            
+            <div class="wrapper">
+                <div class="reachout">
+                    <p>Você pode nos encontrar aqui!</p>
+                    <h4>Nos Contate:</h4>
+                    <p class="tel"><span class="icon call">call</span>(48) 9 99982-2899</p>
+                    <p class="email"><span class="icon email">email</span> contato@onlycats.com.br</p>
+                    <p class="addr"><span class="icon home">home</span> 608 Rua José Lino Kretzer, Praia Comprida, SC São José</p>
+                </div>
+                <div class="outros-links">
+                    <ul class="uteis">
+                        <div class="dupla1">
+                            <li><a href="./index.html#top">Início</a></li>
+                            <li><a href="./galeria.html#gatos">Gatos</a></li>
+                        </div>
+                        <div class="dupla2">
+                            <li><a href="./index.html#planos">Planos</a></li>
+                            <li><a href="./index.html#feedbacks">Feedbacks</a></li>
+                        </div>
+                    </ul>
+                    <ul class="sns">
+                        <li><span class="icon">share</span></li>
+                        <li><span class="icon">eco</span></li>
+                        <li><span class="icon">pets</span></li>
+                        <li><span class="icon">recommend</span></li>
                     </ul>
                 </div>
-                <div id="emiau">
-                    <input autocomplete="off" type="email" placeholder="pretotubarão@emiau.com">
-                    <button type="submit" class="icon"><span class="icon send">send</span></button>
-                </div>
-            </section>
-            <section id="final">
-                <div class="creditos">
-                    <p>
-                        &#169; Página desenvolvida por <strong>Júlia Manuela Turnes</strong> e <strong>Sofia Alves
-                            Toreti</strong>, 2025.
-                    </p>
-                </div>
-                <div id="titulo">
-                    <h4>OnlyCats</h4>
-                </div>
-            </section>
+            </div>
+
+            <div class="bottom">
+                <h1>OnlyCats</h1>
+                <p class="creditos"><strong>©</strong> Página desenvolvida por <strong>Júlia Manuela Turnes</strong> e <strong>Sofia Alves Toreti</strong>, 2025.</p>
+            </div>
+
         </div>
     </footer>
 </body>
