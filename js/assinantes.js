@@ -33,17 +33,33 @@ function carregarAssinantes() {
 }
 
 
-function registrarPagamento(assinanteId, valor, data, descricao, plano) {
+function registrarPagamento(assinanteId,data, descricao, plano) {
+    const pacotes = [
+        { plano: 'basico', preco: 10 },
+        { plano: 'intermediario', preco: 20 },
+        { plano: 'premium', preco: 35 },
+        { plano: 'gold', preco: 55 }
+    ];
+
+    const agora = new Date();
+    const hora = agora.toLocaleTimeString();
     const assinante = assinantes.find(a => a.id === assinanteId);
 
     if (assinante) {
+        const pacoteSelecionado = pacotes.find(p => p.plano === plano);
+        
+        const valor = pacoteSelecionado ? pacoteSelecionado.preco : 0;
+
         const pagamento = {
             id: gerarID('09'),
-            valor,
-            plano,
+            plano,  
             data,
+            hora,
+            valor,  
             descricao,
+            excluido: false 
         };
+
 
         assinante.pagamentos.push(pagamento);
 
@@ -52,7 +68,6 @@ function registrarPagamento(assinanteId, valor, data, descricao, plano) {
         renderizarAssinantes();
     }
 }
-
 
 function mostrarModalPagamento(assinanteId) {
     const modal = document.getElementById('modalPagamento');
@@ -65,14 +80,13 @@ function mostrarModalPagamento(assinanteId) {
     formPagamento.onsubmit = (event) => {
         event.preventDefault();
 
-        const valor = document.getElementById('valorPagamento').value;
         const data = document.getElementById('dataPagamento').value;
         const plano = document.getElementById('planoPagamento').value;
         const descricao = document.getElementById('descricaoPagamento').value;
 
         const assinanteId = modal.dataset.assinanteId;
 
-        registrarPagamento(assinanteId, valor, data, descricao, plano);
+        registrarPagamento(assinanteId, data, descricao, plano);
 
         fecharModalPagamento();
     };
@@ -83,6 +97,7 @@ function fecharModalPagamento() {
     document.getElementById('modalPagamento').style.display = 'none';
 }
 document.getElementById('fecharModalPagamento').addEventListener('click', fecharModalPagamento);
+
 
 function renderizarAssinantes() {
     const lista = document.getElementById('associados');
@@ -120,23 +135,23 @@ function renderizarAssinantes() {
                             <th>Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        ${assinante.pagamentos && Array.isArray(assinante.pagamentos)
-                ? assinante.pagamentos.filter(pagamento => !pagamento.excluido).map(pagamento =>
-                    `<tr>
-                                    <td>${pagamento.dia}</td>
-                                    <td>${pagamento.data}</td>
-                                    <td>${pagamento.hora}</td>
-                                    <td>${pagamento.valor}</td>
-                                    <td>${pagamento.descricao}</td>
-                                    <td>
-                                        <button onclick="excluirPagamento('${assinante.id}', '${pagamento.id}')">Excluir</button>
-                                    </td>
-                                </tr>`
-                ).join('')
-                : '<tr><td colspan="6">Nenhum pagamento registrado.</td></tr>'
-            }
-                    </tbody>
+                <tbody>
+                ${assinante.pagamentos && Array.isArray(assinante.pagamentos)
+                    ? assinante.pagamentos.filter(pagamento => !pagamento.excluido).map(pagamento =>
+                        `<tr data-pagamento-id="${pagamento.id}">
+                            <td>${pagamento.dia}</td>
+                            <td>${pagamento.data}</td>
+                            <td>${pagamento.hora}</td>
+                            <td>${pagamento.valor}</td>
+                            <td>${pagamento.descricao}</td>
+                            <td>
+                                <button class="excluir-pagamento" onclick="excluirPagamento('${assinante.id}', '${pagamento.id}')">Excluir</button>
+                            </td>
+                        </tr>`
+                    ).join('')
+                    : '<tr><td colspan="6">Nenhum pagamento registrado.</td></tr>'}
+                </tbody>
+
                 </table>
             </div>
             
@@ -145,6 +160,7 @@ function renderizarAssinantes() {
         lista.appendChild(li);
     });
 }
+
 
 function mostrarDetalhes(id, botao) {
     const detalhesDiv = document.getElementById(`detalhes-${id}`);
@@ -206,12 +222,12 @@ function adicionarAssinante() {
             { plano: 'premium', preco: 35 },
             { plano: 'gold', preco: 55 }
         ];
-        
+
         const novoAssinante = {
             id: gerarID(),
             nome: document.getElementById('nome').value,
             plano: document.getElementById('plano').value,
-            valor: function() {
+            valor: function () {
                 const select = document.getElementById('plano').value;
                 const p = pacotes.find(p => p.plano === select);
                 return p ? p.preco : 0;
@@ -221,8 +237,8 @@ function adicionarAssinante() {
             dataAdesao: document.getElementById('dataAdesao').value,
             pagamentos: []
         };
-        
-        
+
+
 
         assinantes.push(novoAssinante);
 
@@ -250,6 +266,30 @@ function excluirAssinante(id) {
         localStorage.setItem('assinantes', JSON.stringify(assinantes));
     }
 }
+
+
+function excluirPagamento(assinanteId, pagamentoId) {
+    // Encontrar o assinante pelo ID
+    const assinante = assinantes.find(a => a.id === assinanteId);
+
+    if (assinante) {
+        // Encontrar o pagamento dentro da lista de pagamentos do assinante
+        const pagamento = assinante.pagamentos.find(p => p.id === pagamentoId);
+
+        if (pagamento) {
+            // Marcar o pagamento como excluído
+            pagamento.excluido = true;
+
+            // Salvar as alterações no localStorage
+            localStorage.setItem('assinantes', JSON.stringify(assinantes));
+
+            // Re-renderizar os assinantes para atualizar a lista na interface
+            renderizarAssinantes();
+        }
+    }
+}
+
+
 
 function filtrarAssinantes() {
     const input = document.getElementById('searchInput');
@@ -292,6 +332,5 @@ document.querySelectorAll(".tel").forEach(tel => {
         e.target.value = telefone;
     });
 });
-
 
 window.onload = carregarAssinantes();
