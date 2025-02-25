@@ -74,7 +74,7 @@ function loadMembros(membro, i) {
         {classe: 'nome', textContent: proper(membro.nome)},
         {classe: 'addr', textContent: proper(membro.endereco)},
         {classe: 'tel', textContent: membro.telefone},
-        {classe: 'plano', textContent: membro.plano},
+        {classe: 'plano', textContent: proper(membro.plano)},
         {classe: 'valor', textContent:`R$ ${membro.valor},00`},
     ]
 

@@ -169,6 +169,8 @@ function editarAssinante(id) {
     document.getElementById('editTelefone').value = assinanteEditando.telefone;
     document.getElementById('editDataAdesao').value = assinanteEditando.dataAdesao;
 
+    // editar valor quando o plano é trocado -----------------------------------------------------------------------------------------------
+
     document.getElementById('editModal').style.display = 'block';
 
     document.getElementById('editForm').onsubmit = (event) => {
@@ -198,15 +200,29 @@ function adicionarAssinante() {
     document.getElementById('addForm').onsubmit = (event) => {
         event.preventDefault();
 
+        const pacotes = [
+            { plano: 'basico', preco: 10 },
+            { plano: 'intermediario', preco: 20 },
+            { plano: 'premium', preco: 35 },
+            { plano: 'gold', preco: 55 }
+        ];
+        
         const novoAssinante = {
             id: gerarID(),
             nome: document.getElementById('nome').value,
             plano: document.getElementById('plano').value,
+            valor: function() {
+                const select = document.getElementById('plano').value;
+                const p = pacotes.find(p => p.plano === select);
+                return p ? p.preco : 0;
+            }(),
             endereco: document.getElementById('endereco').value,
             telefone: document.getElementById('telefone').value,
             dataAdesao: document.getElementById('dataAdesao').value,
             pagamentos: []
         };
+        
+        
 
         assinantes.push(novoAssinante);
 

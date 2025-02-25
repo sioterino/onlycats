@@ -100,8 +100,13 @@
                             placeholder="Nome do Associado" required><br><br>
 
                         <label for="plano">Plano:</label>
-                        <input type="text" id="plano" autocomplete="off" spellcheck="off" name="plano"
-                            placeholder="Nome do Plano" required><br><br>
+                        <Select id="plano">
+                            <option value="" disabled selected>Escolha o Plano</option>
+                            <option value="basico">Básico</option>
+                            <option value="intermediario">Intermediário</option>
+                            <option value="premium">Premium</option>
+                            <option value="gold">Premium Gold</option>
+                        </Select><br><br>
 
                         <label for="endereco">Endereço:</label>
                         <input type="text" id="endereco" autocomplete="off" spellcheck="off" name="endereco"
@@ -134,8 +139,13 @@
                         placeholder="Nome do Associado" required><br><br>
 
                     <label for="editPlano">Plano:</label>
-                    <input type="text" id="editPlano" autocomplete="off" spellcheck="off" name="plano"
-                        placeholder="Nome do Plano" required><br><br>
+                    <Select id="editPlano">
+                        <option value="" disabled selected>Escolha o Plano</option>
+                        <option value="basico">Básico</option>
+                        <option value="intermediario">Intermediário</option>
+                        <option value="premium">Premium</option>
+                        <option value="gold">Premium Gold</option>
+                    </Select><br><br>
 
                     <label for="editEndereco">Endereço:</label>
                     <input type="text" id="editEndereco" autocomplete="off" spellcheck="off" name="endereco"
@@ -159,11 +169,23 @@
                 <span id="fecharModalPagamento">&times;</span>
                 <h2>Adicionar Pagamento</h2>
                 <form id="formPagamento">
+                    
+                    <!-- valor sendo feito automático -->
                     <label for="valorPagamento">Valor:</label>
                     <input type="number" id="valorPagamento" autocomplete="off" spellcheck="off" required><br><br>
 
+                    <!-- adicionar método de pagamento -->
+
+                    <!-- adicionar HORA de pagamento -->
+
                     <label for="planoPagamento">Plano:</label>
-                    <input type="text" id="planoPagamento" autocomplete="off" spellcheck="off" required><br><br>
+                    <Select id="planoPagamento">
+                        <option value="" disabled selected>Escolha o Plano</option>
+                        <option value="basico">Básico</option>
+                        <option value="intermediario">Intermediário</option>
+                        <option value="premium">Premium</option>
+                        <option value="gold">Premium Gold</option>
+                    </Select><br><br>
 
                     <label for="dataPagamento">Data:</label>
                     <input type="date" id="dataPagamento" autocomplete="off" spellcheck="off" required><br><br>
