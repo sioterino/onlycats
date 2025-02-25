@@ -359,8 +359,8 @@ select {
 
     .tabela-pagamentos th:nth-child(3),
     .tabela-pagamentos td:nth-child(3),
-    .tabela-pagamentos th:nth-child(4),
-    .tabela-pagamentos td:nth-child(4) {
+    .tabela-pagamentos th:nth-child(2),
+    .tabela-pagamentos td:nth-child(2) {
       display: none;
     }
 
@@ -399,8 +399,8 @@ select {
     .tabela-pagamentos td:nth-child(3),
     .tabela-pagamentos th:nth-child(1),
     .tabela-pagamentos td:nth-child(1),
-    .tabela-pagamentos th:nth-child(4),
-    .tabela-pagamentos td:nth-child(4) {
+    .tabela-pagamentos th:nth-child(2),
+    .tabela-pagamentos td:nth-child(2) {
       display: none;
     }
 
