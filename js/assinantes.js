@@ -35,10 +35,10 @@ function carregarAssinantes() {
 
 function registrarPagamento(assinanteId, data, descricao, plano) {
     const pacotes = [
-        { plano: 'basico', preco: 10 },
-        { plano: 'intermediario', preco: 20 },
-        { plano: 'premium', preco: 35 },
-        { plano: 'gold', preco: 55 }
+        { plano: 'Basico', preco: 10 },
+        { plano: 'Intermediario', preco: 20 },
+        { plano: 'Premium', preco: 35 },
+        { plano: 'Gold', preco: 55 }
     ];
 
     const agora = new Date();
@@ -217,10 +217,10 @@ function adicionarAssinante() {
         event.preventDefault();
 
         const pacotes = [
-            { plano: 'basico', preco: 10 },
-            { plano: 'intermediario', preco: 20 },
-            { plano: 'premium', preco: 35 },
-            { plano: 'gold', preco: 55 }
+            { plano: 'Basico', preco: 10 },
+            { plano: 'Intermediario', preco: 20 },
+            { plano: 'Premium', preco: 35 },
+            { plano: 'Gold', preco: 55 }
         ];
 
         const novoAssinante = {
