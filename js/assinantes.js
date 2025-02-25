@@ -33,7 +33,7 @@ function carregarAssinantes() {
 }
 
 
-function registrarPagamento(assinanteId,data, descricao, plano) {
+function registrarPagamento(assinanteId, data, descricao, plano) {
     const pacotes = [
         { plano: 'basico', preco: 10 },
         { plano: 'intermediario', preco: 20 },
@@ -47,17 +47,17 @@ function registrarPagamento(assinanteId,data, descricao, plano) {
 
     if (assinante) {
         const pacoteSelecionado = pacotes.find(p => p.plano === plano);
-        
+
         const valor = pacoteSelecionado ? pacoteSelecionado.preco : 0;
 
         const pagamento = {
             id: gerarID('09'),
-            plano,  
+            plano,
             data,
             hora,
-            valor,  
+            valor,
             descricao,
-            excluido: false 
+            excluido: false
         };
 
 
@@ -137,8 +137,8 @@ function renderizarAssinantes() {
                     </thead>
                 <tbody>
                 ${assinante.pagamentos && Array.isArray(assinante.pagamentos)
-                    ? assinante.pagamentos.filter(pagamento => !pagamento.excluido).map(pagamento =>
-                        `<tr data-pagamento-id="${pagamento.id}">
+                ? assinante.pagamentos.filter(pagamento => !pagamento.excluido).map(pagamento =>
+                    `<tr data-pagamento-id="${pagamento.id}">
                             <td>${pagamento.dia}</td>
                             <td>${pagamento.data}</td>
                             <td>${pagamento.hora}</td>
@@ -148,8 +148,8 @@ function renderizarAssinantes() {
                                 <button class="excluir-pagamento" onclick="excluirPagamento('${assinante.id}', '${pagamento.id}')">Excluir</button>
                             </td>
                         </tr>`
-                    ).join('')
-                    : '<tr><td colspan="6">Nenhum pagamento registrado.</td></tr>'}
+                ).join('')
+                : '<tr><td colspan="6">Nenhum pagamento registrado.</td></tr>'}
                 </tbody>
 
                 </table>
@@ -292,70 +292,70 @@ function excluirPagamento(assinanteId, pagamentoId) {
 
 
 function filtrarAssinantes() {
-        const input = document.getElementById('searchInput');
-        const filtro = input.value.toLowerCase();
-        const lista = document.getElementById('associados');
-        const items = lista.getElementsByTagName('li');
-    
-        for (let i = 0; i < items.length; i++) {
-            const item = items[i];
-            const nome = item.querySelector('.nome').textContent.toLowerCase();
-            const plano = item.querySelector('.plano').textContent.toLowerCase();
-            const id = item.querySelector('.id').textContent.toLowerCase();
-    
-            const pagamentos = item.querySelectorAll('.tabela-pagamentos tbody tr');
-            let pagamentosVisiveis = false;
-    
-            const correspondenciaAssinante = nome.includes(filtro) || plano.includes(filtro) || id.includes(filtro);
-    
-            for (let pagamento of pagamentos) {
-                const pagamentoId = pagamento.querySelector('td:nth-child(1)').textContent.toLowerCase();
-                const pagamentoValor = pagamento.querySelector('td:nth-child(4)').textContent.toLowerCase();
-                const pagamentoData = pagamento.querySelector('td:nth-child(2)').textContent.toLowerCase();
-                const pagamentoDescricao = pagamento.querySelector('td:nth-child(5)').textContent.toLowerCase();
-    
-                if (
-                    pagamentoId.includes(filtro) ||
-                    pagamentoValor.includes(filtro) ||
-                    pagamentoData.includes(filtro) ||
-                    pagamentoDescricao.includes(filtro)
-                ) {
-                    pagamento.style.display = ''; 
-                    pagamentosVisiveis = true; 
-                } else {
-                    pagamento.style.display = 'none'; 
-                }
-            }
-    
+    const input = document.getElementById('searchInput');
+    const filtro = input.value.toLowerCase();
+    const lista = document.getElementById('associados');
+    const items = lista.getElementsByTagName('li');
+
+    for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        const nome = item.querySelector('.nome').textContent.toLowerCase();
+        const plano = item.querySelector('.plano').textContent.toLowerCase();
+        const id = item.querySelector('.id').textContent.toLowerCase();
+
+        const pagamentos = item.querySelectorAll('.tabela-pagamentos tbody tr');
+        let pagamentosVisiveis = false;
+
+        const correspondenciaAssinante = nome.includes(filtro) || plano.includes(filtro) || id.includes(filtro);
+
+        for (let pagamento of pagamentos) {
+            const pagamentoId = pagamento.querySelector('td:nth-child(1)').textContent.toLowerCase();
+            const pagamentoValor = pagamento.querySelector('td:nth-child(4)').textContent.toLowerCase();
+            const pagamentoData = pagamento.querySelector('td:nth-child(2)').textContent.toLowerCase();
+            const pagamentoDescricao = pagamento.querySelector('td:nth-child(5)').textContent.toLowerCase();
+
             if (
-                correspondenciaAssinante || 
-                pagamentosVisiveis 
+                pagamentoId.includes(filtro) ||
+                pagamentoValor.includes(filtro) ||
+                pagamentoData.includes(filtro) ||
+                pagamentoDescricao.includes(filtro)
             ) {
-                item.style.display = ''; 
+                pagamento.style.display = '';
+                pagamentosVisiveis = true;
             } else {
-                item.style.display = 'none'; 
+                pagamento.style.display = 'none';
             }
         }
+
+        if (
+            correspondenciaAssinante ||
+            pagamentosVisiveis
+        ) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
     }
-    
+}
+
 
 // formata o campo de input de telefone pra facilitar a vida do usuario
 document.querySelectorAll(".tel").forEach(tel => {
     tel.addEventListener("input", function (e) {
         // [^0-9] 'não números' + 'g' de global (todos valores não numéricos)
         let input = e.target.value.replace(/[^0-9]/g, "");
-        
+
         // limita o input do usuário pra 11 digitos
         if (input.length > 11) input = input.slice(0, 11);
-    
+
         let telefone = "";
-        
+
         // (DDD) (9 solitário) (primeiros 4)-(segundos 4)
         if (input.length > 0) telefone += `(${input.slice(0, 2)})`;
         if (input.length > 2) telefone += ` ${input[2]}`;
         if (input.length > 3) telefone += ` ${input.slice(3, 7)}`;
         if (input.length > 7) telefone += `-${input.slice(7, 11)}`;
-    
+
         e.target.value = telefone;
     });
 });
