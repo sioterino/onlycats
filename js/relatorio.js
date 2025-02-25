@@ -11,7 +11,7 @@ if (assinantes) {
     })
 }
 
-const hoje = document.querySelector('.desc table tbody td');
+const hoje = document.querySelector('.periodo');
 hoje.textContent = new Date().toLocaleDateString('pt-BR', {day: 'numeric', month: 'long', year: 'numeric'})
 
 

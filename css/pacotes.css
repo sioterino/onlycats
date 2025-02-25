@@ -21,7 +21,7 @@
 }
 
 .plano:hover {
-    transform: scale(103%);
+    transform: scale(1.03);
 }
 
 .plano h3 {
@@ -75,7 +75,7 @@
 }
 
 .botao-compre:active {
-    transform: scale(95%);
+    transform: scale(.95);
 }
 
 #basico {

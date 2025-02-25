@@ -12,13 +12,16 @@
     align-items: center;
 }
 
-.desc th,
 .desc td {
     height: 2rem;
 }
 
-.desc td {
+.desc .tdata {
     padding-inline: 1rem;
+}
+
+.desc .theader {
+    font-weight: 600;
 }
 
 .report {

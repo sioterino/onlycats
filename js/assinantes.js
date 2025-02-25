@@ -272,4 +272,26 @@ function filtrarAssinantes() {
     }
 }
 
+// formata o campo de input de telefone pra facilitar a vida do usuario
+document.querySelectorAll(".tel").forEach(tel => {
+    tel.addEventListener("input", function (e) {
+        // [^0-9] 'não números' + 'g' de global (todos valores não numéricos)
+        let input = e.target.value.replace(/[^0-9]/g, "");
+        
+        // limita o input do usuário pra 11 digitos
+        if (input.length > 11) input = input.slice(0, 11);
+    
+        let telefone = "";
+        
+        // (DDD) (9 solitário) (primeiros 4)-(segundos 4)
+        if (input.length > 0) telefone += `(${input.slice(0, 2)})`;
+        if (input.length > 2) telefone += ` ${input[2]}`;
+        if (input.length > 3) telefone += ` ${input.slice(3, 7)}`;
+        if (input.length > 7) telefone += `-${input.slice(7, 11)}`;
+    
+        e.target.value = telefone;
+    });
+});
+
+
 window.onload = carregarAssinantes();

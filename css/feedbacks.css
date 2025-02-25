@@ -22,7 +22,7 @@
 }
 
 .feedback:hover {
-    transform: scale(101%);
+    transform: scale(1.01);
 }
 
 .feedbacks .dupla1,

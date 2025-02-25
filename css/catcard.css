@@ -114,7 +114,7 @@ dialog .small-icons {
 }
 .botao-fav:active,
 .botao-close:active {
-    transform: scale(90%);
+    transform: scale(.9);
 }
 
 .liked {
@@ -135,7 +135,7 @@ dialog .small-icons {
 }
 
 .botao-cart:active {
-    transform: scale(97%);
+    transform: scale(.97);
 }
 
 .botao-chat {
@@ -155,7 +155,7 @@ dialog .small-icons {
 }
 
 .botao-chat:active {
-    transform: scale(97%);
+    transform: scale(.97);
 }
 
 .idcat {

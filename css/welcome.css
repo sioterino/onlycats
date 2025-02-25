@@ -71,12 +71,12 @@
 
 .welcome-explorar:hover,
 .welcome-vermais:hover {
-    transform: scale(101%);
+    transform: scale(1.01);
 }
 
 .welcome-explorar:active,
 .welcome-vermais:active {
-    transform: scale(99%);
+    transform: scale(.99);
 }
 
 .img {
