@@ -51,7 +51,7 @@ function loadPagamentos(membro, j) {
         {classe: 'data', textContent: `#${membro.pagamentos[j].id}`},
         {classe: 'data', textContent: membro.pagamentos[j].data},
         {classe: 'hora', textContent: membro.pagamentos[j].hora},
-        {classe: 'metodo', textContent: membro.pagamentos[j].metodo},
+        {classe: 'metodo', textContent: membro.pagamentos[j].descricao},
         {classe: 'plano', textContent: proper(membro.pagamentos[j].plano)},
         {classe: 'valor', textContent:`R$${membro.pagamentos[j].valor},00`},
     ]
