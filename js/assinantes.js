@@ -34,6 +34,7 @@ function carregarAssinantes() {
 
 
 function registrarPagamento(assinanteId, data, descricao, plano) {
+    
     const pacotes = [
         { plano: 'Basico', preco: 10 },
         { plano: 'Intermediario', preco: 20 },
@@ -67,7 +68,11 @@ function registrarPagamento(assinanteId, data, descricao, plano) {
 
         renderizarAssinantes();
     }
+document.getElementById('dataPagamento').value = '';
+    document.getElementById('planoPagamento').value = '';
+    document.getElementById('descricaoPagamento').value = '';
 }
+
 
 function mostrarModalPagamento(assinanteId) {
     const modal = document.getElementById('modalPagamento');
@@ -127,7 +132,6 @@ function renderizarAssinantes() {
                 <table class="tabela-pagamentos">
                     <thead>
                         <tr>
-                            <th>Dia</th>
                             <th>Data</th>
                             <th>Hora</th>
                             <th>Valor</th>
@@ -139,7 +143,7 @@ function renderizarAssinantes() {
                 ${assinante.pagamentos && Array.isArray(assinante.pagamentos)
                 ? assinante.pagamentos.filter(pagamento => !pagamento.excluido).map(pagamento =>
                     `<tr data-pagamento-id="${pagamento.id}">
-                            <td>${pagamento.dia}</td>
+
                             <td>${pagamento.data}</td>
                             <td>${pagamento.hora}</td>
                             <td>${pagamento.valor}</td>
@@ -249,6 +253,11 @@ function adicionarAssinante() {
 
         fecharModalAdd();
     };
+    document.getElementById('nome').value = '';
+    document.getElementById('plano').value = '';
+    document.getElementById('endereco').value = '';
+    document.getElementById('telefone').value = '';
+    document.getElementById('dataAdesao').value = '';
 }
 
 function fecharModalAdd() {
@@ -278,13 +287,10 @@ function excluirPagamento(assinanteId, pagamentoId) {
         const pagamento = assinante.pagamentos.find(p => p.id === pagamentoId);
 
         if (pagamento) {
-            // Marcar o pagamento como excluído
             pagamento.excluido = true;
 
-            // Salvar as alterações no localStorage
             localStorage.setItem('assinantes', JSON.stringify(assinantes));
 
-            // Re-renderizar os assinantes para atualizar a lista na interface
             renderizarAssinantes();
         }
     }
