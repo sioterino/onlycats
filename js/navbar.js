@@ -40,7 +40,6 @@ user.addEventListener("click", () => {
 // checa qual o alvo sendo clicado e, caso não
 // seja um elemento da sidebar, fecha a sidebar
 body.addEventListener("click", (e) => {
-  console.log(e.target)
   if (!sidebar.contains(e.target) && sidebar.classList.contains("show")) {
     sidebar.classList.toggle("show")
     if (!sidebar.classList.contains("show")) {

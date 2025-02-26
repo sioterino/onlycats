@@ -71,7 +71,7 @@ function loadMembros(membro, i) {
     const tr = rowsAssinantes % 2 !== 0 ? createElement('tr', 'impar') : createElement('tr')
 
     const dados = [
-        { classe: 'id', textContent: `# ${membro.id}` },
+        { classe: 'id', textContent: `#${membro.id}` },
         { classe: 'cadastro', textContent: membro.dataAdesao },
         { classe: 'nome', textContent: proper(membro.nome) },
         { classe: 'addr', textContent: proper(membro.endereco) },

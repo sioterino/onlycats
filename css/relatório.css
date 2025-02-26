@@ -175,6 +175,7 @@
         display: table-cell;
         width: auto;
         padding: .5rem;
+        font-size: .8rem;
     }
 
     .report td:first-child {
